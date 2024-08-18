@@ -1,0 +1,13 @@
+.cardGrafico2 {
+    width: 70%;
+    height: 70%; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
