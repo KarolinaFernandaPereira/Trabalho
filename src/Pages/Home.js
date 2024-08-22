@@ -1,11 +1,12 @@
 import React from 'react';
 import MenuHeader from '../componentes/menu';
+import { RankingVolume } from '../componentes/resumo/Ranking';
 
 function Home(){
     return(
         <div className="App">
             <MenuHeader/>
-            <h1> RESUMO </h1>
+            <RankingVolume/>
         </div>
     );
 }

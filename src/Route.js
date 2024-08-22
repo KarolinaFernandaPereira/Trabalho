@@ -1,20 +1,18 @@
 import React from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./Pages/Home.js";
-import Volume from "./Pages/Volume.js";
-import Preco from "./Pages/Preco.js";
-import Agressoes from "./Pages/Agressoes.js";
+import Produto from "./Pages/Produto.js";
 import Swap from "./Pages/Swap.js";
+import PrecoLp from "./Pages/PrecoLP.js";
 
 const AppRoutes = () => {
     return (
        <Router>
             <Routes>
                 <Route path="/" element={<Home/>}></Route>
-                <Route path="/volume" element={<Volume/>}></Route>
-                <Route path="/preco" element={<Preco/>}></Route>
-                <Route path="/agressoes" element={<Agressoes/>}></Route>
+                <Route path="/produto" element={<Produto/>}></Route>
                 <Route path="/swap" element={<Swap/>}></Route>
+                <Route path="/precolp" element={<PrecoLp/>}></Route>
             </Routes>
        </Router>
     )

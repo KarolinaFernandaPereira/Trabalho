@@ -9,33 +9,22 @@ export default function MenuHeader() {
         {
             label: 'RESUMO',
             icon: 'pi pi-home',
-            url: '/',
+            url: '/'
         },
         {
-          label: 'VOLUMES',
+          label: 'PRODUTO',
           icon: 'pi pi-chart-line',
-          url: '/volume',
+          url: '/produto'
         },
         {
-          label: 'PREÇOS',
-          icon: 'pi pi-chart-line',
-          url: '/preco',
+          label: 'SWAP',
+          icon: 'pi pi-chart-bar',
+          url: '/swap'
         },
         {
-          label: 'OUTROS',
-          icon: 'pi pi-equals',
-          items:[
-            {
-                label: 'AGRESSÕES',
-                icon: 'pi pi-chart-bar',
-                url: '/agressoes',
-            },
-            {
-              label: 'SWAP',
-              icon: 'pi pi-chart-bar',
-              url: '/swap',
-          },
-          ]
+          label: 'PREÇO LP',
+          icon: 'pi pi-chart-bar',
+          url: '/precolp'
         },
     ];
 

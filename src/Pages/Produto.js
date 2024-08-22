@@ -1,15 +1,15 @@
 import React from 'react';
 import MenuHeader from '../componentes/menu';
-import { RankingVolume } from '../componentes/volume/Ranking';
+import Filtro1 from '../componentes/produto/filtro';
 
-function Volume(){
+function Produto(){
     return(
         <div>
             <MenuHeader/>
-            
-            <RankingVolume/>
+            <Filtro1/>
         </div>
     );
 }
 
-export default Volume;
+export default Produto;
+
