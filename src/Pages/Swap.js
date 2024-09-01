@@ -4,7 +4,7 @@ import { Swap1 } from '../componentes/swap/swap1';
 
 function Swap(){
     return(
-        <div className="App">
+        <div>
             <MenuHeader/>
             <Swap1/>
         </div>

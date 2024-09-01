@@ -9,7 +9,7 @@ export default function MenuHeader() {
         {
             label: 'RESUMO',
             icon: 'pi pi-home',
-            url: '/'
+            url: '/home'
         },
         {
           label: 'PRODUTO',

@@ -25,10 +25,17 @@
 
 .labelsFiltro{
     padding-left: 10px;
+    color: #c7c7c7;
 }
 
 .conjunto{
-    padding-top: 12px;
+    background-color: #131618;
+    padding: 12px;
+    border: 1px solid #131618;
+    border-radius: 10px;
+    margin: 10px;
 }
+
+
 
 /* w-full md:w-14rem */

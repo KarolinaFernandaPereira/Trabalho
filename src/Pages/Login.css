@@ -1,0 +1,68 @@
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("../img/foto1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.loginCard {
+    background-color: rgba(245, 165, 126, 0.15);
+    backdrop-filter: blur(100px);
+    width: 33%;
+    /*height: 26rem;*/
+    border-radius: 15px;
+}
+
+.loginCard span {
+    align-self: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.inputLogin { 
+    padding: 12px;
+    /* color: lemonchiffon; */
+    font-size: 19px;
+    background: none;
+    border-color: white;
+    border: none;
+    width: 100%;
+    outline: 0;
+    text-decoration: auto;
+}
+
+
+.inputDiv {
+    border-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 6px;
+    margin-bottom: 20px;
+}
+
+.loginButton {
+    border: none;
+    padding: 20px;
+    font-size: 21px;
+    border-radius: 17px;
+    background-color: rgb(250, 92, 48);
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+   
+
+}
+
+.logo {
+    width: 55%;
+    align-self: center;
+    margin-bottom: 12px;
+}

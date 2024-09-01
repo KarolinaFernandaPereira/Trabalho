@@ -4,7 +4,7 @@ import { RankingVolume } from '../componentes/resumo/Ranking';
 
 function Home(){
     return(
-        <div className="App">
+        <div>
             <MenuHeader/>
             <RankingVolume/>
         </div>

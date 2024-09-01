@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Bar, Line } from 'react-chartjs-2';
 import "./Ranking.css"
 import {
@@ -28,6 +29,27 @@ ChartJS.register(
 );
 
 export const RankingVolume = () => {
+
+    const [dados, setDados] = useState([]);
+    const [teste, setTeste] = useState([]);
+
+    useEffect(() => {
+      axios.get('http://127.0.0.1:8000/api/karol?format=json')
+      .then((response) => {
+        setDados(response.data)
+        setTeste(response.data.datasets)
+      })
+      //.catch(error => console.log(error))
+      //.then(res => console.log(res))
+    }, [])
+    
+    
+    
+    
+    
+    //dados.datasets.map((d) => {
+    //  console.log(d)
+    //})
 
     const options = { 
         indexAxis: 'y',
@@ -69,25 +91,8 @@ export const RankingVolume = () => {
       };
 
     const data = {
-        labels: [
-            "SE CON MEN NOV/23",
-            "SE CON MEN DEZ/23",
-            "SE CON MEN NOV/23 - Spread",
-            "SE CON MEN JAN/24",
-            "SE I5 MEN NOV/23 - Spread",
-        ],
-        datasets: [
-            {
-                label: "Ag. Venda",
-                data: [130, 13, 0, 0, 10],
-                backgroundColor: "red",
-            },
-            {
-                label: "Ag. Compra",
-                data: [5, 4, 15, 12, 2],
-                backgroundColor: "green",
-            }
-        ]
+        labels: dados.labels,
+        datasets: teste
     };
 
     const options2 = { 
@@ -165,8 +170,6 @@ export const RankingVolume = () => {
     const lineData = {
 
     }
-
-    
     
     return (
         <div className="container" >
