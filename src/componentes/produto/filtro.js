@@ -2,72 +2,154 @@ import React, { useState } from "react";
 import { CascadeSelect } from 'primereact/cascadeselect';
 import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
+import { MultiSelect } from 'primereact/multiselect';
 import "./filtro.css";
 
 
 export default function Filtro1() {
-    const [selectedProduto, setselectedProduto] = useState(null);
-    const [selectedProduto2, setselectedProduto2] = useState(null);
-    const [selectedProduto3, setselectedProduto3] = useState(null);
+    const [selectedPeriodicidade, setselectedPeriodicidade] = useState(null);
+    const [selectedSubmercado, setselectedSubmercado] = useState(null);
+    const [selectedTipo, setselectedTipo] = useState(null);
+    const [selectedEnergia, setselectedEnergia] = useState(null);
 
 
     const [date1, setDate1] = useState(null);
     const [date2, setDate2] = useState(null);
 
-    const produtos = [
+    const periodicidade = [
         {
-            cname: 'Exemplo 1',
-            code: 'P1',
+            cname: 'Diária', code: 'DIA',
         },
         {
-            cname: 'Exemplo 2',
-            code: 'P2',
+            cname: 'Semanal', code: 'SEM',
         },
         {
-            cname: 'Exemplo 3',
-            code: 'P3',
-        }
+            cname: 'Quinzenal', code: 'QUI',
+        },
+        {
+            cname: 'Bimestral', code: 'BIM',
+        },
+        {
+            cname: 'Mensal', code: 'MEN',
+        },
+        {
+            cname: 'Trimestral', code: 'TRI',
+        },
+        {
+            cname: 'Semestral', code: 'SEME',
+        },
+        {
+            cname: 'Anual', code: 'ANU',
+        },
+        {
+            cname: 'Outros', code: 'OTR',
+        },
+    ];
+
+    const submercados = [
+        {
+            name: 'Sudeste', code: 'SE',
+        },
+        {
+            name: 'Sul', code: 'S',
+        },
+        {
+            name: 'Nordeste', code: 'NE',
+        },
+        {
+            name: 'Norte', code: 'N',
+        },
+        {
+            name: 'Centro-Oeste', code: 'CO',
+        },
+    ];
+
+    const tipos = [
+        {
+            name: 'Spread', code: 'Spr',
+        },
+        {
+            name: 'Preço Fixo', code: 'Pfx',
+        },
+    ];
+
+    const energia = [
+        {
+            name: 'CONV', code: 'CONV',
+        },
+        {
+            name: 'I0', code: 'I0',
+        },
+        {
+            name: 'I5', code: 'I5',
+        },
+        {
+            name: 'I1', code: 'I1',
+        },
+        {
+            name: 'I8', code: 'I8',
+        },
+        {
+            name: 'CQ5', code: 'CQ5',
+        },
+        {
+            name: 'CQ1', code: 'CQ1',
+        }, 
     ];
 
     return (
         <>
             <div className="conjunto">
-                <div className="cardFiltro">
-                    <span className="labelsFiltro"> PERIODO </span>
-                    <CascadeSelect value={selectedProduto} onChange={(e) => setselectedProduto(e.value)} options={produtos} 
-                        optionLabel="cname" optionGroupChildren={['produtos']}
-                        className="casc" breakpoint="767px" placeholder="Nenhum produto selecionado" />
-                </div>
-                <div className="cardFiltro">
-                    <span className="labelsFiltro"> SUBMERCADO </span>
-                    <CascadeSelect value={selectedProduto2} onChange={(e) => setselectedProduto2(e.value)} options={produtos} 
-                        optionLabel="cname" optionGroupChildren={['produtos']}
-                        className="casc" breakpoint="767px" placeholder="Nenhum produto selecionado" />
-                </div>
 
-                <div className="cardFiltro">
-                    <span className="labelsFiltro"> MÊS INICIAL </span>
-                    
-                    <Calendar value={date1} onChange={(e) => setDate1(e.value)} view="month" dateFormat="mm/yy" />
+                <div className="conjunto1">
+                    {/* SUBMERCADO */}
+                    <div className="cardFiltro">
+                        <span className="labelsFiltro"> SUBMERCADO: </span>
+                        <MultiSelect value={selectedSubmercado} onChange={(e) => setselectedSubmercado(e.value)} options={submercados} 
+                            display="chip" optionLabel="name" optionGroupChildren={['submercados']}
+                            className="filtroSubmercado" breakpoint="767px" />
+                    </div>
 
-                    <span className="labelsFiltro"> MÊS FINAL </span>
-                    
-                    <Calendar value={date2} onChange={(e) => setDate2(e.value)} view="month" dateFormat="mm/yy" />
-                </div>
+                    {/* ENERGIA */}
+                    <div className="cardFiltro">
+                        <span className="labelsFiltro"> ENERGIA: </span>
+                        <MultiSelect value={selectedEnergia} onChange={(e) => setselectedEnergia(e.value)} options={energia} 
+                            display="chip" optionLabel="name" optionGroupChildren={['energia']}
+                            className="filtroEnergia" breakpoint="767px" />
+                    </div>
 
-                <div className="cardFiltro">
-                    <span className="labelsFiltro"> TIPO ENERGIA </span>
-                    <CascadeSelect value={selectedProduto3} onChange={(e) => setselectedProduto3(e.value)} options={produtos} 
-                        optionLabel="cname" optionGroupChildren={['produtos']}
-                        className="casc" breakpoint="767px" placeholder="Nenhum produto selecionado" />
-
+                    {/* TIPO DE ENERGIA */}
+                    <div className="cardFiltro">
+                        <span className="labelsFiltro"> TIPO: </span>
+                        <MultiSelect value={selectedTipo} onChange={(e) => setselectedTipo(e.value)} options={tipos}
+                            display="chip" optionLabel="name" optionGroupChildren={['tipos']} 
+                            className="filtroTipo" breakpoint="767px" />
+                    </div>
                 </div>
 
-                
+                <div className="conjunto1" >
+                    {/* PERIODICIDADE */}
+                    <div className="cardFiltro">
+                        <span className="labelsFiltro"> PERIODICIDADE: </span>
+                        <CascadeSelect value={selectedPeriodicidade} onChange={(e) => setselectedPeriodicidade(e.value)} options={periodicidade} 
+                            optionLabel="cname" optionGroupChildren={['periodicidade']}
+                            className="filtroPeriodicidade" breakpoint="767px" />
+                    </div>
 
-                <Button label="Filtrar" className="botaoFiltro"/>
-                <Button label="Limpar" className="botaoLimpar"/>
-                
+                    {/* DATAS */}
+                    <div className="cardFiltro">
+                        <span className="labelsFiltro"> MÊS INICIAL: </span>
+                        <Calendar value={date1} onChange={(e) => setDate1(e.value)} view="month" dateFormat="mm/yy" />
+
+                        <span className="labelsFiltro"> MÊS FINAL: </span>
+                        <Calendar value={date2} onChange={(e) => setDate2(e.value)} view="month" dateFormat="mm/yy" />
+                    </div>
+
+                    <Button label="Filtrar" className="botaoFiltro"/>
+                    <Button label="Limpar" className="botaoLimpar"/>
+
+                </div>
+
             </div>
         </>
     )

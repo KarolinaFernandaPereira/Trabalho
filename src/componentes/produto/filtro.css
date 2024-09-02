@@ -1,12 +1,31 @@
 .cardFiltro{
-    flex: content;
+    /*flex: content;*/
     justify-content: center;
     padding: 5px;
 }
 
-.casc{
-    min-width: 14rem;
-    width: 45%;
+.filtroSubmercado{
+    min-width: 24rem;
+    max-width: 24rem;
+    width: 35%;
+}
+
+.filtroEnergia{
+    min-width: 18rem;
+    max-width: 18rem;
+    width: 30%;
+}
+
+.filtroTipo{
+    min-width: 21rem;
+    max-width: 21rem;
+    width: 30%;
+}
+
+.filtroPeriodicidade{
+    min-width: 18rem;
+    max-width: 18rem;
+    width: 30%;
 }
 
 .botaoFiltro{
@@ -14,6 +33,7 @@
     background-color: rgb(24, 92, 170);
     border-color: rgb(24, 92, 170);
     color: rgb(199, 199, 199);
+    height: 3rem;
 }
 
 .botaoLimpar{
@@ -21,6 +41,7 @@
     background-color: rgb(73, 79, 85);
     border-color: rgb(73, 79, 85);
     color: rgb(199, 199, 199);
+    height: 3rem;
 }
 
 .labelsFiltro{
@@ -35,6 +56,18 @@
     border-radius: 10px;
     margin: 10px;
 }
+
+.conjunto1{
+    display: flex;
+    flex: content;
+    align-items: center;
+}
+
+/*.alinhamento{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}*/
 
 
 
