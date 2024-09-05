@@ -13,7 +13,6 @@ export default function Filtro1() {
     const [selectedEnergia, setselectedEnergia] = useState(null);
     const [selectedContrato, setselectedContrato] = useState(null);
 
-
     const [date1, setDate1] = useState(null);
     const [date2, setDate2] = useState(null);
 
@@ -107,6 +106,16 @@ export default function Filtro1() {
         },
     ];
 
+    const Limpar = () => {
+        setselectedPeriodicidade(null);
+        setselectedSubmercado(null);
+        setselectedTipo(null);
+        setselectedEnergia(null);
+        setselectedContrato(null);
+        setDate1(null);
+        setDate2(null);
+    }
+
     return (
         <>
             <div className="conjunto">
@@ -166,7 +175,7 @@ export default function Filtro1() {
                     </div>
 
                     <Button label="Filtrar" className="botaoFiltro"/>
-                    <Button label="Limpar" className="botaoLimpar"/>
+                    <Button label="Limpar" className="botaoLimpar" onClick={Limpar} />
 
                 </div>
 
