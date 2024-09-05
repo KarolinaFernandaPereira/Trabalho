@@ -5,27 +5,38 @@
 }
 
 .filtroSubmercado{
-    min-width: 24rem;
-    max-width: 24rem;
+    min-width: 30rem;
+    max-width: 30rem;
+    width: 40%;
+    font-size: small;
+}
+
+.filtroContrato{
+    min-width: 8rem;
+    max-width: 8rem;
     width: 35%;
+    font-size: small;
 }
 
 .filtroEnergia{
-    min-width: 18rem;
-    max-width: 18rem;
+    min-width: 20rem;
+    max-width: 20rem;
     width: 30%;
+    font-size: small;
 }
 
 .filtroTipo{
-    min-width: 21rem;
-    max-width: 21rem;
+    min-width: 16rem;
+    max-width: 16rem;
     width: 30%;
+    font-size: small;
 }
 
 .filtroPeriodicidade{
     min-width: 18rem;
     max-width: 18rem;
     width: 30%;
+    font-size: small;
 }
 
 .botaoFiltro{
@@ -34,6 +45,7 @@
     border-color: rgb(24, 92, 170);
     color: rgb(199, 199, 199);
     height: 3rem;
+    font-size: small;
 }
 
 .botaoLimpar{
@@ -42,11 +54,13 @@
     border-color: rgb(73, 79, 85);
     color: rgb(199, 199, 199);
     height: 3rem;
+    font-size: small;
 }
 
 .labelsFiltro{
     padding-left: 10px;
     color: #c7c7c7;
+    font-size: small;
 }
 
 .conjunto{
@@ -61,6 +75,13 @@
     display: flex;
     flex: content;
     align-items: center;
+}
+
+.filtroDatas{
+    font-size: 70rem;
+    min-width: 10rem;
+    max-width: 10rem;
+    height: 40px;
 }
 
 /*.alinhamento{

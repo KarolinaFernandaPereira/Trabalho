@@ -11,6 +11,7 @@ export default function Filtro1() {
     const [selectedSubmercado, setselectedSubmercado] = useState(null);
     const [selectedTipo, setselectedTipo] = useState(null);
     const [selectedEnergia, setselectedEnergia] = useState(null);
+    const [selectedContrato, setselectedContrato] = useState(null);
 
 
     const [date1, setDate1] = useState(null);
@@ -97,6 +98,15 @@ export default function Filtro1() {
         }, 
     ];
 
+    const contrato = [
+        {
+            name: 'Registro', code: 'reg',
+        },
+        {
+            name: 'Balcão', code: 'bal',
+        },
+    ];
+
     return (
         <>
             <div className="conjunto">
@@ -125,9 +135,19 @@ export default function Filtro1() {
                             display="chip" optionLabel="name" optionGroupChildren={['tipos']} 
                             className="filtroTipo" breakpoint="767px" />
                     </div>
-                </div>
+                    
+                </div> 
 
                 <div className="conjunto1" >
+                    
+                    {/* CONTRATO */}
+                    <div className="cardFiltro">
+                        <span className="labelsFiltro"> CONTRATO: </span>
+                        <CascadeSelect value={selectedContrato} onChange={(e) => setselectedContrato(e.value)} options={contrato} 
+                            optionLabel="name" optionGroupChildren={['contrato']}
+                            className="filtroContrato" breakpoint="767px" />
+                    </div>
+
                     {/* PERIODICIDADE */}
                     <div className="cardFiltro">
                         <span className="labelsFiltro"> PERIODICIDADE: </span>
@@ -139,10 +159,10 @@ export default function Filtro1() {
                     {/* DATAS */}
                     <div className="cardFiltro">
                         <span className="labelsFiltro"> MÊS INICIAL: </span>
-                        <Calendar value={date1} onChange={(e) => setDate1(e.value)} view="month" dateFormat="mm/yy" />
+                        <Calendar value={date1} onChange={(e) => setDate1(e.value)} view="month" dateFormat="mm/yy" className="filtroDatas"/>
 
                         <span className="labelsFiltro"> MÊS FINAL: </span>
-                        <Calendar value={date2} onChange={(e) => setDate2(e.value)} view="month" dateFormat="mm/yy" />
+                        <Calendar value={date2} onChange={(e) => setDate2(e.value)} view="month" dateFormat="mm/yy" className="filtroDatas" style={{fontSize: "small"}} />
                     </div>
 
                     <Button label="Filtrar" className="botaoFiltro"/>
