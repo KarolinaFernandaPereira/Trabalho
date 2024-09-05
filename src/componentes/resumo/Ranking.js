@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Bar, Line } from 'react-chartjs-2';
 import "./Ranking.css"
+import { Accordion, AccordionTab } from 'primereact/accordion';
+
+
 import {
     Chart as ChartJS,
     BarElement,
@@ -173,13 +176,24 @@ export const RankingVolume = () => {
     
     return (
         <div className="container" >
-            <div className="cardGrafico" >
-                <Bar options={options} data={data}/>
-            </div>
-            <div className="cardGrafico">
-                <Bar options={options2} data={data2}/>
-                
-            </div>
+           <Accordion activeIndex={0} className="teste1">
+              <AccordionTab header="Ranking de Volume">
+
+                <div className="cardGrafico" draggable>
+                    <Bar options={options} data={data}/>
+                </div>
+              </AccordionTab>
+           </Accordion>
+           <Accordion activeIndex={0} className="teste1">
+
+              <AccordionTab header="Ranking de Volume">
+
+                <div className="cardGrafico">
+                    <Bar options={options2} data={data2}/>
+                    
+                </div>
+              </AccordionTab>
+           </Accordion>
 
         </div>
     

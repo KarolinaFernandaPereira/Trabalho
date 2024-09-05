@@ -1,12 +1,43 @@
 .container {
-    display: flex
+    display: flex;
+    gap: 11px;
+    margin-top: 15px;
 }
 
 .cardGrafico {
-    width: 660px;
+    width: 613px;
     height: 375px; 
     background-color: #131618; 
     border-radius: 15px; 
     margin: 10px;
     padding: 10px;
+}
+
+.teste1 {
+    width: 42rem;
+    
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
+    background: #131618;
+}
+
+.p-accordion .p-accordion-content {
+    padding: 1rem;
+    border: 2px solid #151b1e;
+    background: #131618;
+    color: rgba(255, 255, 255, 0.87);
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+    background: #131618;    
+    border-color: #151b1e;
+    color: rgba(255, 255, 255, 0.87);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
