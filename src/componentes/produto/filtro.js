@@ -102,7 +102,7 @@ export default function Filtro1() {
             name: 'Registro', code: 'reg',
         },
         {
-            name: 'Balcão', code: 'bal',
+            name: 'Boleta', code: 'bol',
         },
     ];
 

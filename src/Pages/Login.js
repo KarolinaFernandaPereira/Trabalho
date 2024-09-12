@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./Login.css";
 import 'primeicons/primeicons.css';
+import { Button } from 'primereact/button';
 
 function Login(){
 
@@ -26,13 +27,13 @@ function Login(){
                         <input type='email' placeholder='E-mail'
                         onChange={(e) => setEmail(e.target.value)}
                         className='inputLogin'/>
-                        <span className='pi pi-user'></span>
+                        <span className='pi pi-user' style={{ fontSize: '1.5rem' }} ></span>
                     </div>
                     <div className='inputDiv'>
                         <input type='password' placeholder='Senha'
                         onChange={(e) => setSenha(e.target.value)}
                         className='inputLogin'/>
-                        <span className='pi pi-lock'></span>
+                        <span className='pi pi-lock' style={{ fontSize: '1.5rem' }} ></span>
                     </div>
                     <button className='loginButton'>Entrar</button>
                 </form>

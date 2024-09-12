@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Bar, Line } from 'react-chartjs-2';
 import "./Ranking.css"
 import { Accordion, AccordionTab } from 'primereact/accordion';
+import { Button } from 'primereact/button';
+import { Menu } from 'primereact/menu';
+import { Toast } from 'primereact/toast';
 
 
 import {
@@ -45,10 +48,6 @@ export const RankingVolume = () => {
       //.catch(error => console.log(error))
       //.then(res => console.log(res))
     }, [])
-    
-    
-    
-    
     
     //dados.datasets.map((d) => {
     //  console.log(d)
@@ -170,18 +169,53 @@ export const RankingVolume = () => {
       }
     }
 
-    const lineData = {
+    const itemsIndicadores = [
+      {
+        label: 'Ritmo',
+        icon: 'pi pi-star'
+      },
+      {
+        label: 'Volume Diário (Quantidade)',
+        icon: 'pi pi-star'
+      },
+      {
+        label: 'Volume Diário (Compra x Venda)',
+        icon: 'pi pi-star'
+      },
+      {
+        label: 'Mercado x Rodada',
+        icon: 'pi pi-star'
+      },
+      {
+        label: 'Resumo do Dia e da Semana',
+        icon: 'pi pi-star'
+      },   
+    ];
 
-    }
+  const menuLeft = useRef(null);
+  const toast = useRef(null);
     
     return (
         <div className="container" >
            <Accordion activeIndex={0} className="teste1">
-              <AccordionTab header="Ranking de Volume">
+              <AccordionTab 
+                header={
+                  <>
+                    <span> Ranking de Volume </span>
+                  </>
+                }>
 
+                <div>
+                  <Toast ref={toast}></Toast>
+                  <Menu model={itemsIndicadores} popup ref={menuLeft} id="popup_menu_left" />
+                  <Button label="Indicadores" className="Indicadores" icon="pi pi-calculator"
+                    onClick={(event) => menuLeft.current.toggle(event)} aria-controls="popup_menu_left" aria-haspopup/>
+                </div>
+                
                 <div className="cardGrafico" draggable>
                     <Bar options={options} data={data}/>
                 </div>
+               
               </AccordionTab>
            </Accordion>
            <Accordion activeIndex={0} className="teste1">

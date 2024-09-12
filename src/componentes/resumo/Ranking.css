@@ -51,3 +51,12 @@
     border-radius: 6px;
     transition: box-shadow 0.3s;
 }
+
+.Indicadores{
+    font-size: small;
+    color: rgb(179, 179, 179);
+    background-color: #1d2930;
+    border-color: #1d2930;
+    height: 2rem;
+    margin-left: 1rem;
+}
