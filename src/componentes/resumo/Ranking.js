@@ -22,6 +22,7 @@ import {
     plugins,
     
 } from "chart.js";
+import { Indicadores } from "../Indicadores";
 
 ChartJS.register(
     BarElement,
@@ -193,8 +194,7 @@ export const RankingVolume = () => {
       },   
     ];
 
-  const menuLeft = useRef(null);
-  const toast = useRef(null);
+  
     
     return (
         <div className="container" >
@@ -206,12 +206,7 @@ export const RankingVolume = () => {
                   </>
                 }>
 
-                <div>
-                  <Toast ref={toast}></Toast>
-                  <Menu model={itemsIndicadores} popup ref={menuLeft} id="popup_menu_left" />
-                  <Button label="Indicadores" className="Indicadores" icon="pi pi-calculator"
-                    onClick={(event) => menuLeft.current.toggle(event)} aria-controls="popup_menu_left" aria-haspopup/>
-                </div>
+                <Indicadores contentIndi={itemsIndicadores} />
                 
                 <div className="cardGrafico" draggable>
                     <Bar options={options} data={data}/>
