@@ -12,8 +12,8 @@ function Home(){
             <MenuHeader/>
             
             <RankingVolume/>
-            <HorizontalRulerChart />
-            <ChartComponent />
+            {/* <HorizontalRulerChart /> */}
+
         </div>
     );
 }
