@@ -17,6 +17,7 @@ import {
     SubTitle,
     Title,
     plugins,
+    
 } from "chart.js";
 
 ChartJS.register(
@@ -199,5 +200,11 @@ export const RankingVolume = () => {
     
     );
 }
+
+
+
+
+
+
 
 //<Line options={lineOptions} data={data}/>
