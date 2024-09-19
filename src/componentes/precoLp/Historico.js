@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Line } from 'react-chartjs-2';
 import "./Historico.css";
+import { Accordion, AccordionTab } from 'primereact/accordion';
 
 import {
     Chart as ChartJS,
@@ -118,12 +119,24 @@ export const HistoricoPrecosConvencional = () => {
         ]
     }
 
+    const [desliza, setDesliza] = useState([]);
+
     return(
         <>
         <div className="container">
-            <div className="cardGrafico3">
-                <Line options={options} data={data}/>
-            </div>
+            <Accordion activeIndex={0} className="cardGrafico3">
+                <AccordionTab
+                    header={
+                        <>
+                            <span> Histórico de Preços </span>
+                        </>
+                    }>
+                    <div className="cardGrafico3" draggable>
+                        <Line options={options} data={data}/>
+                    </div>
+                </AccordionTab>
+            </Accordion>
+            
         </div>
         </>
     );

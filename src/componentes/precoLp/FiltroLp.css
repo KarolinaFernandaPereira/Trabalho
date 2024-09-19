@@ -1,0 +1,55 @@
+.cardFiltro{
+    /*flex: content;*/
+    justify-content: center;
+    padding: 10px;
+}
+
+.filtroEnergia{
+    min-width: 60rem;
+    max-width: 60rem;
+    font-size: small;
+}
+
+.botaoFiltro{
+    margin-left: 5px;
+    background-color: rgb(24, 92, 170);
+    border-color: rgb(24, 92, 170);
+    color: rgb(199, 199, 199);
+    height: 3rem;
+    font-size: small;
+}
+
+.botaoLimpar{
+    margin-left: 5px;
+    background-color: rgb(73, 79, 85);
+    border-color: rgb(73, 79, 85);
+    color: rgb(199, 199, 199);
+    height: 3rem;
+    font-size: small;
+}
+
+.labelsFiltro{
+    padding-left: 10px;
+    color: #c7c7c7;
+    font-size: small;
+}
+
+.conjunto{
+    background-color: #131618;
+    padding: 12px;
+    border: 1px solid #131618;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.conjunto1{
+    display: flex;
+    flex: content;
+    align-items: center;
+}
+
+.mais{
+    font-size:xx-large;
+    margin: 15px;
+    color: #c7c7c7;
+}
