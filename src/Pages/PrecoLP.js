@@ -12,3 +12,6 @@ function PrecoLp(){
 }
 
 export default PrecoLp;
+
+// Preço LP vai ter um filtro de Tipo de Energia (convencional, incentivada, etc)
+// Aqui os dados deverão ser atualizamos manualmente

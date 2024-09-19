@@ -1,0 +1,9 @@
+.MenuIndicadores{
+    font-size: small;
+}
+
+.MultiIndicador{
+    font-size: small;
+    min-width: 39rem;
+    max-width: 39rem;
+}

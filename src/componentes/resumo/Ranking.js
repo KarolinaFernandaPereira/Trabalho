@@ -3,9 +3,7 @@ import axios from "axios";
 import { Bar, Line } from 'react-chartjs-2';
 import "./Ranking.css"
 import { Accordion, AccordionTab } from 'primereact/accordion';
-import { Button } from 'primereact/button';
-import { Menu } from 'primereact/menu';
-import { Toast } from 'primereact/toast';
+import "../Indicadores.css"
 
 
 import {
@@ -23,6 +21,7 @@ import {
     
 } from "chart.js";
 import { Indicadores } from "../Indicadores";
+import { MultiSelectIndicadores } from "../MultiSelect";
 
 ChartJS.register(
     BarElement,
@@ -173,28 +172,49 @@ export const RankingVolume = () => {
 
     const itemsIndicadores = [
       {
-        label: 'Ritmo',
-        icon: 'pi pi-star'
+        label: 'Indicador 1',
+        icon: 'pi pi-stop'
       },
       {
-        label: 'Volume Diário (Quantidade)',
-        icon: 'pi pi-star'
+        label: 'Indicador 2',
+        icon: 'pi pi-stop'
       },
       {
-        label: 'Volume Diário (Compra x Venda)',
-        icon: 'pi pi-star'
+        label: 'Indicador 3',
+        icon: 'pi pi-check-square'
       },
       {
-        label: 'Mercado x Rodada',
-        icon: 'pi pi-star'
+        label: 'Indicador 4',
+        icon: 'pi pi-stop'
       },
       {
-        label: 'Resumo do Dia e da Semana',
-        icon: 'pi pi-star'
-      },   
+        label: 'Indicador 5',
+        icon: 'pi pi-stop'
+      },  
     ];
 
-  
+    const itemsIndicadores2 = [
+      {
+        label: 'Indicador 1',
+        icon: 'pi pi-stop'
+      },
+      {
+        label: 'Indicador 2',
+        icon: 'pi pi-stop'
+      },
+      {
+        label: 'Indicador 3',
+        icon: 'pi pi-check-square'
+      },
+      {
+        label: 'Indicador 4',
+        icon: 'pi pi-stop'
+      },
+      {
+        label: 'Indicador 5',
+        icon: 'pi pi-stop'
+      },   
+    ];
     
     return (
         <div className="container" >
@@ -206,11 +226,12 @@ export const RankingVolume = () => {
                   </>
                 }>
 
-                <Indicadores contentIndi={itemsIndicadores} />
+                {/* <Indicadores contentIndi={itemsIndicadores} /> */}
                 
                 <div className="cardGrafico" draggable>
                     <Bar options={options} data={data}/>
                 </div>
+                <MultiSelectIndicadores contentIndi={itemsIndicadores2}/>
                
               </AccordionTab>
            </Accordion>
@@ -222,6 +243,7 @@ export const RankingVolume = () => {
                     <Bar options={options2} data={data2}/>
                     
                 </div>
+                <MultiSelectIndicadores contentIndi={itemsIndicadores}/>
               </AccordionTab>
            </Accordion>
 
@@ -230,10 +252,23 @@ export const RankingVolume = () => {
     );
 }
 
-
-
-
-
-
-
-//<Line options={lineOptions} data={data}/>
+// {
+//   label: 'Ritmo',
+//   icon: 'pi pi-stop'
+// },
+// {
+//   label: 'Volume Diário (Quantidade)',
+//   icon: 'pi pi-stop'
+// },
+// {
+//   label: 'Volume Diário (Compra x Venda)',
+//   icon: 'pi pi-check-square'
+// },
+// {
+//   label: 'Mercado x Rodada',
+//   icon: 'pi pi-stop'
+// },
+// {
+//   label: 'Resumo do Dia e da Semana',
+//   icon: 'pi pi-stop'
+// },

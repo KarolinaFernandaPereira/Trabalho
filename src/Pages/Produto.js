@@ -12,3 +12,5 @@ function Produto(){
 }
 
 export default Produto;
+
+// ´Produto precisa ter uma lista de filtros favoritos para não ter que ficar refazendo o filtro toda vez!
