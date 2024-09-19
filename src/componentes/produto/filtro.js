@@ -3,6 +3,8 @@ import { CascadeSelect } from 'primereact/cascadeselect';
 import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
+import { Dialog } from 'primereact/dialog';
+
 import "./filtro.css";
 
 
@@ -12,9 +14,12 @@ export default function Filtro1() {
     const [selectedTipo, setselectedTipo] = useState(null);
     const [selectedEnergia, setselectedEnergia] = useState(null);
     const [selectedContrato, setselectedContrato] = useState(null);
+    const [selectedFavorito, setselectedFavorito] = useState(null);
 
     const [date1, setDate1] = useState(null);
     const [date2, setDate2] = useState(null);
+
+    const [inputValue, setInputValue] = useState('');
 
     const periodicidade = [
         {
@@ -106,19 +111,66 @@ export default function Filtro1() {
         },
     ];
 
+    const favoritos = [
+        {
+            name: 'Sudeste I5', code: 'sud',
+        },
+        {
+            name: 'Norte Spread', code: 'nor',
+        }
+    ];
+
     const Limpar = () => {
         setselectedPeriodicidade(null);
         setselectedSubmercado(null);
         setselectedTipo(null);
         setselectedEnergia(null);
         setselectedContrato(null);
+        setselectedFavorito(null);
         setDate1(null);
         setDate2(null);
     }
 
+    const [visible, setVisible] = useState(false);
+
+    const headerElement = (
+        <div className="inline-flex align-items-center justify-content-center gap-2">
+            
+            <span className="font-bold white-space-nowrap">Salvar Filtro</span>
+        </div>
+    );
+
+    const footerContent = (
+        <div>
+            <Button label="Salvar" icon="pi pi-check" onClick={() => setVisible(false)} autoFocus />
+        </div>
+    );
+
+    const handleChange = (event) => {
+        setInputValue(event.target.value)
+        const str = event.target.value;
+        
+        const dict = {
+            name: str,
+            code: str.substr(0, 3)
+        }
+
+        favoritos.push(dict)
+    };
+
+    
+    
+
     return (
         <>
+            <div className="cardFiltro">
+                    <span className="labelsFiltro"> FAVORITOS: </span>
+                    <CascadeSelect value={selectedFavorito} onChange={(e) => setselectedFavorito(e.value)} options={favoritos} 
+                        optionLabel="name" optionGroupChildren={['favorito']}
+                        className="filtroContrato" breakpoint="767px" />
+            </div>
             <div className="conjunto">
+                
 
                 <div className="conjunto1">
                     {/* SUBMERCADO */}
@@ -176,6 +228,15 @@ export default function Filtro1() {
 
                     <Button label="Filtrar" className="botaoFiltro"/>
                     <Button label="Limpar" className="botaoLimpar" onClick={Limpar} />
+                    <i className="pi pi-star" style={{ color: 'slateblue', fontSize: '1.5rem', marginLeft: '25px' }}
+                        onClick={() => setVisible(true)}></i>
+
+                    <Dialog visible={visible} modal header={headerElement} footer={footerContent} style={{ width: '35rem' }} onHide={() => {if (!visible) return; setVisible(false); }}>
+                        <div className="dialog_content">
+                            <span>Dê um nome para o filtro:</span>
+                            <input type="text" value={inputValue} onChange={handleChange}></input>
+                        </div>
+                    </Dialog>
 
                 </div>
 
