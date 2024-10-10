@@ -1,0 +1,99 @@
+.conjuntoProdutos{
+    display: flex;
+}
+
+.labelsProdutosGraficos{
+    font-size: small;
+}
+
+/* VOLUME AT PRICE */
+.cardGraficoVolumeAtPrice {
+    width: 15%;
+    height: 375px; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+.volumeAtPrice {
+    width: 140%;
+    margin: 10px;
+}
+
+/* PRECOS */
+.cardGraficoPreco {
+    width: 80%;
+    height: 375px; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+.preco{
+    width: 320%;
+    margin: 10px 78px;
+}
+
+/* BOOK */
+.cardGraficoBook {
+    width: 15%;
+    height: 375px; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+.bookOferta{
+    width: 16%;
+    margin: 10px 684px;
+}
+
+
+/* VOLUME */
+.cardGraficoVolume{
+    width: 15%;
+    height: 80px; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+.volume{
+    width: 98%;
+    margin: 10px;
+}
+
+
+/* HISTORICO */
+.cardGraficoHistorico{
+    width: 80%;
+    height: 400px; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+.historicoAgressoes{
+    width: 230%;
+    margin: 10px;
+}
+
+/* PERCENTUAL */
+.cardGraficoPercentual{
+    width: 70%;
+    height: 400px; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+.percentualAgressoes{
+    width: 70%;
+    margin: 10px 368px;
+}

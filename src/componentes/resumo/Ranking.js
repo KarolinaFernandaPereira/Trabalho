@@ -4,7 +4,8 @@ import { Bar, Line } from 'react-chartjs-2';
 import "./Ranking.css"
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import "../Indicadores.css"
-
+import { Indicadores } from "../Indicadores";
+import { MultiSelectIndicadores } from "../MultiSelect";
 
 import {
     Chart as ChartJS,
@@ -20,8 +21,6 @@ import {
     plugins,
     
 } from "chart.js";
-import { Indicadores } from "../Indicadores";
-import { MultiSelectIndicadores } from "../MultiSelect";
 
 ChartJS.register(
     BarElement,

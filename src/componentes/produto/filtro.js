@@ -4,9 +4,7 @@ import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
 import { Dialog } from 'primereact/dialog';
-
-import "./filtro.css";
-
+import './filtro.css';
 
 export default function Filtro1() {
     const [selectedPeriodicidade, setselectedPeriodicidade] = useState(null);
@@ -163,15 +161,14 @@ export default function Filtro1() {
 
     return (
         <>
-            <div className="cardFiltro">
+            {/* <div className="cardFiltro">
                     <span className="labelsFiltro"> FAVORITOS: </span>
                     <CascadeSelect value={selectedFavorito} onChange={(e) => setselectedFavorito(e.value)} options={favoritos} 
                         optionLabel="name" optionGroupChildren={['favorito']}
                         className="filtroContrato" breakpoint="767px" />
-            </div>
-            <div className="conjunto">
-                
+            </div> */}
 
+            <div className="conjunto">
                 <div className="conjunto1">
                     {/* SUBMERCADO */}
                     <div className="cardFiltro">
@@ -231,10 +228,10 @@ export default function Filtro1() {
                     <i className="pi pi-star" style={{ color: 'slateblue', fontSize: '1.5rem', marginLeft: '25px' }}
                         onClick={() => setVisible(true)}></i>
 
-                    <Dialog visible={visible} modal header={headerElement} footer={footerContent} style={{ width: '35rem' }} onHide={() => {if (!visible) return; setVisible(false); }}>
+                    <Dialog visible={visible} modal header={headerElement} footer={footerContent} style={{ width: '30%'}} onHide={() => {if (!visible) return; setVisible(false); }}>
                         <div className="dialog_content">
-                            <span>Dê um nome para o filtro:</span>
-                            <input type="text" value={inputValue} onChange={handleChange}></input>
+                            <span style={{fontSize:"small"}} >Dê um nome para o filtro:</span>
+                            <input type="text" value={inputValue} onChange={handleChange} style={{fontSize:"small"}}></input>
                         </div>
                     </Dialog>
 

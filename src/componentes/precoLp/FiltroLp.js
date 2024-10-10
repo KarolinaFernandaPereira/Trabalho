@@ -36,19 +36,19 @@ export default function Filtro2(){
 
     return(
         <>
-            <div className="conjunto">
-                <div className="conjunto1">
+            <div className="conjuntoLP">
+                <div className="conjunto1LP">
                     {/* TIPO DE ENERGIA */}
-                    <div className="cardFiltro">
-                        <span className="labelsFiltro"> ENERGIA: </span>
+                    <div className="cardFiltroLP">
+                        <span className="labelsFiltroLP"> ENERGIA: </span>
                         <MultiSelect value={selectedEnergia} onChange={(e) => setselectedEnergia(e.value)} options={energia}
                             display="chip" optionLabel="name" optionGroupChildren={['energia']}
-                            className="filtroEnergia" breakpoint="767px"/>
+                            className="filtroEnergiaLp" breakpoint="767px"/>
                     </div>
 
-                    <Button label="Filtrar" className="botaoFiltro" />
-                    <Button label="Limpar" className="botaoLimpar" onClick={Limpar}/>
-                    <i className="mais pi pi-plus-circle"></i>
+                    <Button label="Filtrar" className="botaoFiltroLP" />
+                    <Button label="Limpar" className="botaoLimparLP" onClick={Limpar}/>
+                    <i className="maisLP pi pi-plus-circle"></i>
                 </div>
             </div>
         </>

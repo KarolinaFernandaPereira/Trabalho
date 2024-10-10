@@ -1,16 +1,16 @@
-.cardFiltro{
+.cardFiltroLP{
     /*flex: content;*/
     justify-content: center;
     padding: 10px;
 }
 
-.filtroEnergia{
+.filtroEnergiaLp{
     min-width: 60rem;
     max-width: 60rem;
     font-size: small;
 }
 
-.botaoFiltro{
+.botaoFiltroLP{
     margin-left: 5px;
     background-color: rgb(24, 92, 170);
     border-color: rgb(24, 92, 170);
@@ -19,7 +19,7 @@
     font-size: small;
 }
 
-.botaoLimpar{
+.botaoLimparLP{
     margin-left: 5px;
     background-color: rgb(73, 79, 85);
     border-color: rgb(73, 79, 85);
@@ -28,13 +28,13 @@
     font-size: small;
 }
 
-.labelsFiltro{
+.labelsFiltroLP{
     padding-left: 10px;
     color: #c7c7c7;
     font-size: small;
 }
 
-.conjunto{
+.conjuntoLP{
     background-color: #131618;
     padding: 12px;
     border: 1px solid #131618;
@@ -42,13 +42,13 @@
     margin: 10px;
 }
 
-.conjunto1{
+.conjunto1LP{
     display: flex;
     flex: content;
     align-items: center;
 }
 
-.mais{
+.maisLP{
     font-size:xx-large;
     margin: 15px;
     color: #c7c7c7;

@@ -97,7 +97,7 @@
 }
 
 .dialog_content input {
-    padding: 9px;
+    padding: 5px;
     background: none;
     border: none;
     border-bottom: 1px solid;
@@ -107,6 +107,8 @@
 .dialog_content input:focus, input:focus, select:focus {
     outline: 0;
 }
+
+
 
 /*.alinhamento{
     display: flex;
