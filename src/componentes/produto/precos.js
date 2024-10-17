@@ -38,6 +38,7 @@ export const GraficoPrecos = () => {
 
     const option = {
         color: ['#dd4444', '#fec42c', '#80F1BE'],
+        
         legend: {
           top: 10,
           data: ['ABC', 'DEF', 'GHI'],
@@ -69,19 +70,16 @@ export const GraficoPrecos = () => {
           }
         },
         xAxis: {
-          type: 'value',
-          name: 'ALI',
-          nameGap: 16,
-          nameTextStyle: {
-            fontSize: 16
-          },
-          max: 31,
-          splitLine: {
-            show: false
-          }
+          type: 'category',
+          splitLine:{ show: true },
+          axisTick: { show: false },
+          axisLabel: { show: false }
         },
         yAxis: {
-          
+          type: "category",
+          splitLine:{ show: true },
+          axisTick: { show: false },
+          axisLabel: { show: false }
         },
         series: [
           {

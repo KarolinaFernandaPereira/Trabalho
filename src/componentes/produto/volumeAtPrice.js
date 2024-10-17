@@ -20,13 +20,21 @@ export const GraficoVolumeAtPrice = () => {
         xAxis: {
           type: 'value',
           boundaryGap: [0, 0.01],
-          name: 'km/s minus 299,000',
+          
+          splitLine:{ show: false },
+          axisLine: { show: false },    
+          axisTick: { show: false },
+          axisLabel: { show: false },
+          
         },
+
         yAxis: {
           type: 'category',
-          data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World'],
+          data: ['80', '60', '40', '10', '5', '0'],
           name: 'km/s minus 299,000',
+          inverse: true
         },
+        
         series: [
           {
             name: '2011',

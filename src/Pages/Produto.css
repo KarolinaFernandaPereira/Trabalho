@@ -1,42 +1,64 @@
 .conjuntoProdutos{
     display: flex;
+    gap:  1rem;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    
 }
 
 .labelsProdutosGraficos{
     font-size: small;
 }
 
+
 /* VOLUME AT PRICE */
 .cardGraficoVolumeAtPrice {
-    /* width: 15%; */
-    height: 375px; 
-    background-color: #131618; 
-    border-radius: 15px; 
-    margin: 10px;
-    padding: 10px;
+    width: 55%;
+    height: 375px;
+    background-color: #131618;
+    border-radius: 15px;
 }
 
-.volumeAtPrice {
-    width: 140%;
-    margin: 10px;
+.cardGraficoVolumeAtPrice {
+    width: 13rem;
 }
 
-/* PRECOS */
+
 .cardGraficoPreco {
-    /* width: 100%; */
+    width: 80%;
     height: 375px; 
     background-color: #131618; 
     border-radius: 15px; 
-    margin: 10px;
+    
     padding: 10px;
 }
 
-.preco{
-    width: 100%;
-    margin: 10px 78px;
+.preco {
+    width: 50rem;
+    
 }
 
-/* BOOK */
+.cardGraficoBook {
+    width: 55%;
+    height: 375px; 
+    background-color: #131618; 
+    border-radius: 15px; 
+    
+}
+
+.cardGraficoBook {
+    width: 13rem;
+}
+
+
+
+
+
+
+/*
+
+
+
 .cardGraficoBook {
     width: 15%;
     height: 375px; 
@@ -52,7 +74,7 @@
 }
 
 
-/* VOLUME */
+
 .cardGraficoVolume{
     width: 15%;
     height: 80px; 
@@ -68,7 +90,7 @@
 }
 
 
-/* HISTORICO */
+
 .cardGraficoHistorico{
     width: 80%;
     height: 400px; 
@@ -83,7 +105,7 @@
     margin: 10px;
 }
 
-/* PERCENTUAL */
+
 .cardGraficoPercentual{
     width: 70%;
     height: 400px; 
@@ -97,3 +119,6 @@
     width: 70%;
     margin: 10px 368px;
 }
+
+
+*/
