@@ -3,6 +3,9 @@ import MenuHeader from '../componentes/menu';
 import Filtro1 from '../componentes/produto/filtro';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import "./Produto.css";
+import { GraficoVolumeAtPrice } from '../componentes/produto/volumeAtPrice';
+import { GraficoBookOfertas } from '../componentes/produto/bookOfertas';
+import { GraficoPrecos } from '../componentes/produto/precos';
 
 function Produto(){
     return(
@@ -21,7 +24,7 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoVolumeAtPrice">
-
+                            <GraficoVolumeAtPrice />
                         </div>
 
                         </AccordionTab>
@@ -38,7 +41,7 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoPreco">
-
+                            <GraficoPrecos />
                         </div>
 
                         </AccordionTab>
@@ -55,7 +58,7 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoBook">
-
+                            <GraficoBookOfertas />
                         </div>
 
                         </AccordionTab>
