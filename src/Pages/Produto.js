@@ -10,6 +10,7 @@ import { GraficoVolume } from '../componentes/produto/volume';
 import { GraficoAgressao } from '../componentes/produto/agressao';
 import { GraficoAgressaoAcumulada } from '../componentes/produto/agressaoAcumulada';
 import { GraficoPercentualAgressoes } from '../componentes/produto/percentualAgressoes';
+import { GraficoHistoricoAgressoes } from '../componentes/produto/historicoAgressoes';
 
 function Produto(){
     return(
@@ -132,21 +133,46 @@ function Produto(){
            
             <div className='conjuntoProdutos_Row'>
                  {/* PERCENTUAL DE AGRESSOES */}
-                 <div className="containerProduto">
-                    <Accordion activeIndex={1} className="percentualAgressoes">
-                        <AccordionTab header={
-                            <>
-                                <span> Percentual de Agressões </span>
-                            </>
-                        }>
+                <div>
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="percentualAgressoes">
+                            <AccordionTab header={
+                                <>
+                                    <span> Percentual de Agressões </span>
+                                </>
+                            }>
 
-                        <div className="cardGraficoPercentual">
-                            <GraficoPercentualAgressoes />
-                        </div>
+                            <div className="cardGraficoPercentual">
+                                <GraficoPercentualAgressoes />
+                            </div>
 
-                        </AccordionTab>
-                    </Accordion>
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+
                 </div>
+                
+                
+                { /* PERCENTUAL DE AGRESSÕES */ }
+                <div>
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="percentualAgressoes">
+                            <AccordionTab header={
+                                <>
+                                    <span> Histórico de Agressões </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoPercentual">
+                                <GraficoHistoricoAgressoes />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+                        
+
             </div>
              
         </div>

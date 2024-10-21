@@ -6,6 +6,19 @@
     
 }
 
+.conjuntoProdutos_Row {
+    
+    display: grid;
+    grid-template: "a a" 50px;
+
+    gap: 1rem;
+
+   
+    padding-left: 20px;
+    padding-right: 11px;
+    
+}
+
 .conjuntoProdutos_Colum {
     display: flex;
     flex-direction: column;
@@ -15,6 +28,7 @@
    
     padding-left: 20px;
     padding-right: 11px;
+    padding-bottom: 15px;
     /* align-items: center; */
 }
 
@@ -42,6 +56,7 @@
     border-radius: 15px;
 }
 
+
 .cardGraficoVolumeAtPrice {
     width: 13rem;
 }
@@ -61,6 +76,10 @@
     
 }
 
+.percentualAgressoes {
+    width: 40.5rem;
+}
+
 .cardGraficoBook {
     width: 55%;
     height: 375px; 
@@ -71,6 +90,10 @@
 
 .cardGraficoBook {
     width: 13rem;
+}
+
+.cardGraficoPercentual {
+    width: 35rem;
 }
 
 
