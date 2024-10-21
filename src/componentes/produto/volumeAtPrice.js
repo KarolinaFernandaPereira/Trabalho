@@ -37,15 +37,15 @@ export const GraficoVolumeAtPrice = () => {
         
         series: [
           {
-            name: '2011',
+            name: 'Compra',
             type: 'bar',
-            data: [18203, 23489, 29034, 104970, 131744, 630230],
+            data: [18, 23, 29, 10, 13, 63],
             color: "red",
           },
           {
-            name: '2012',
+            name: 'Venda',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807],
+            data: [19, 23, 31, 12, 13, 68],
             color: "green",
           }
         ]

@@ -36,15 +36,15 @@ export const GraficoBookOfertas = () => {
     
     series: [
       {
-        name: '2011',
+        name: 'Compra',
         type: 'bar',
-        data: [18203, 23489, 29034, 104970, 131744, 630230],
+        data: [203, 489, 340, 970, 744, 230],
         color: "red",
       },
       {
-        name: '2012',
+        name: 'Venda',
         type: 'bar',
-        data: [19325, 23438, 31000, 121594, 134141, 681807],
+        data: [325, 438, 310, 594, 141, 807],
         color: "green",
       }
     ]

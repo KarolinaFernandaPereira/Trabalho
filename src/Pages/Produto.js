@@ -41,7 +41,7 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoPreco">
-                            <GraficoPrecos />
+                            {/* <GraficoPrecos /> */}
                         </div>
 
                         </AccordionTab>
