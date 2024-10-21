@@ -9,6 +9,7 @@ import { GraficoPrecos } from '../componentes/produto/precos';
 import { GraficoVolume } from '../componentes/produto/volume';
 import { GraficoAgressao } from '../componentes/produto/agressao';
 import { GraficoAgressaoAcumulada } from '../componentes/produto/agressaoAcumulada';
+import { GraficoPercentualAgressoes } from '../componentes/produto/percentualAgressoes';
 
 function Produto(){
     return(
@@ -128,14 +129,26 @@ function Produto(){
 
             </div>
 
-            
-            
-
-            
-
            
-            
-                   
+            <div className='conjuntoProdutos_Row'>
+                 {/* PERCENTUAL DE AGRESSOES */}
+                 <div className="containerProduto">
+                    <Accordion activeIndex={1} className="percentualAgressoes">
+                        <AccordionTab header={
+                            <>
+                                <span> Percentual de Agressões </span>
+                            </>
+                        }>
+
+                        <div className="cardGraficoPercentual">
+                            <GraficoPercentualAgressoes />
+                        </div>
+
+                        </AccordionTab>
+                    </Accordion>
+                </div>
+            </div>
+             
         </div>
         
     );
