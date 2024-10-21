@@ -6,6 +6,17 @@
     
 }
 
+.conjuntoProdutos_Colum {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+   
+    padding-left: 20px;
+    padding-right: 11px;
+}
+
 .labelsProdutosGraficos{
     font-size: small;
 }
@@ -49,6 +60,8 @@
 .cardGraficoBook {
     width: 13rem;
 }
+
+
 
 
 

@@ -77,6 +77,7 @@ export const GraficoPrecos = () => {
         },
         yAxis: {
           type: "category",
+        
           splitLine:{ show: true },
           axisTick: { show: false },
           axisLabel: { show: false }

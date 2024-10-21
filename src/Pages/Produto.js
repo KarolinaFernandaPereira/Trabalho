@@ -6,6 +6,9 @@ import "./Produto.css";
 import { GraficoVolumeAtPrice } from '../componentes/produto/volumeAtPrice';
 import { GraficoBookOfertas } from '../componentes/produto/bookOfertas';
 import { GraficoPrecos } from '../componentes/produto/precos';
+import { GraficoVolume } from '../componentes/produto/volume';
+import { GraficoAgressao } from '../componentes/produto/agressao';
+import { GraficoAgressaoAcumulada } from '../componentes/produto/agressaoAcumulada';
 
 function Produto(){
     return(
@@ -67,65 +70,85 @@ function Produto(){
 
             </div>
 
-            <div>
-                {/* VOLUME */}
-                <div className="containerProduto">
-                    <Accordion activeIndex={1} className="volume">
-                        <AccordionTab header={
-                            <>
-                                <span> Volume </span>
-                            </>
-                        }>
+            <div className='conjuntoProdutos_Colum'>
+                <div>
+                    {/* VOLUME */}
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="volume">
+                            <AccordionTab header={
+                                <>
+                                    <span> Volume </span>
+                                </>
+                            }>
 
-                        <div className="cardGraficoVolume">
+                            <div className="cardGraficoVolume">
+                                <GraficoVolume />
+                            </div>
 
-                        </div>
-
-                        </AccordionTab>
-                    </Accordion>
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
                 </div>
+
+                <div>
+                    {/* AGRESSÃO */}
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="volume">
+                            <AccordionTab header={
+                                <>
+                                    <span> Agressão </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoVolume">
+                                <GraficoAgressao />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+                
+                <div>
+                    {/* AGRESSÃO ACUMULADA */}
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="volume">
+                            <AccordionTab header={
+                                <>
+                                    <span> Agressão Acumulada </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoVolume">
+                                <GraficoAgressaoAcumulada />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+
             </div>
 
-            <div>
-                {/* AGRESSÃO */}
-                <div className="containerProduto">
-                    <Accordion activeIndex={1} className="volume">
-                        <AccordionTab header={
-                            <>
-                                <span> Agressão </span>
-                            </>
-                        }>
+            
+            
 
-                        <div className="cardGraficoVolume">
+            
 
-                        </div>
+           
+            
+                   
+        </div>
+        
+    );
+}
 
-                        </AccordionTab>
-                    </Accordion>
-                </div>
-            </div>
+export default Produto;
 
-            <div>
-                {/* AGRESSÃO ACUMULADA */}
-                <div className="containerProduto">
-                    <Accordion activeIndex={1} className="volume">
-                        <AccordionTab header={
-                            <>
-                                <span> Agressão Acumulada </span>
-                            </>
-                        }>
-
-                        <div className="cardGraficoVolume">
-
-                        </div>
-
-                        </AccordionTab>
-                    </Accordion>
-                </div>
-            </div>
-
-            <div className="conjuntoProdutos">
-                {/* HISTORICO DE AGRESSÕES */}
+//  
+/*
+ <div className="conjuntoProdutos">
+                { HISTORICO DE AGRESSÕES }
                 <div className="containerProduto">
                     <Accordion activeIndex={1} className="historicoAgressoes">
                         <AccordionTab header={
@@ -142,7 +165,7 @@ function Produto(){
                     </Accordion>
                 </div>
 
-                {/* PERCENTUAL DE AGRESSÕES */}
+                { PERCENTUAL DE AGRESSÕES }
                 <div className="containerProduto">
                     <Accordion activeIndex={1} className="percentualAgressoes">
                         <AccordionTab header={
@@ -159,14 +182,6 @@ function Produto(){
                     </Accordion>
                 </div>
             </div>
-
-            
-                   
-        </div>
-        
-    );
-}
-
-export default Produto;
+*/
 
 // ´Produto precisa ter uma lista de filtros favoritos para não ter que ficar refazendo o filtro toda vez!
