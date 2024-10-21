@@ -15,7 +15,19 @@
    
     padding-left: 20px;
     padding-right: 11px;
+    /* align-items: center; */
 }
+
+
+
+
+/*
+
+.containerProduto {
+    width: 50rem;
+}
+
+*/
 
 .labelsProdutosGraficos{
     font-size: small;
@@ -60,6 +72,7 @@
 .cardGraficoBook {
     width: 13rem;
 }
+
 
 
 

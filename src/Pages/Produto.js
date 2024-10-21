@@ -73,17 +73,15 @@ function Produto(){
             <div className='conjuntoProdutos_Colum'>
                 <div>
                     {/* VOLUME */}
-                    <div className="containerProduto">
+                    <div className="containerProduto" >
                         <Accordion activeIndex={1} className="volume">
-                            <AccordionTab header={
+                            <AccordionTab  header={
                                 <>
                                     <span> Volume </span>
                                 </>
                             }>
-
-                            <div className="cardGraficoVolume">
+                            
                                 <GraficoVolume />
-                            </div>
 
                             </AccordionTab>
                         </Accordion>
@@ -93,8 +91,8 @@ function Produto(){
                 <div>
                     {/* AGRESSÃO */}
                     <div className="containerProduto">
-                        <Accordion activeIndex={1} className="volume">
-                            <AccordionTab header={
+                        <Accordion activeIndex={1} className="agressao">
+                            <AccordionTab  header={
                                 <>
                                     <span> Agressão </span>
                                 </>
@@ -112,7 +110,7 @@ function Produto(){
                 <div>
                     {/* AGRESSÃO ACUMULADA */}
                     <div className="containerProduto">
-                        <Accordion activeIndex={1} className="volume">
+                        <Accordion activeIndex={1} className="agrssaoAcumulado">
                             <AccordionTab header={
                                 <>
                                     <span> Agressão Acumulada </span>

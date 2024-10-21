@@ -5,6 +5,7 @@ import Produto from "./Pages/Produto.js";
 import Swap from "./Pages/Swap.js";
 import Login from "./Pages/Login.js";
 import PrecoLp from "./Pages/PrecoLP.js";
+import Operacoes from "./Pages/Operacoes.js"
 
 const AppRoutes = () => {
     return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
                 <Route path="/swap" element={<Swap/>}></Route>
                 <Route path="/" element={<Login/>}></Route>
                 <Route path="/precolp" element={<PrecoLp/>}></Route>
+                <Route path="/operacoes" element={<Operacoes/>}></Route>
             </Routes>
        </Router>
     )
