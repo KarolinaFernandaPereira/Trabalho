@@ -5,7 +5,6 @@ import { Accordion, AccordionTab } from 'primereact/accordion';
 import "./Produto.css";
 import { GraficoVolumeAtPrice } from '../componentes/produto/volumeAtPrice';
 import { GraficoBookOfertas } from '../componentes/produto/bookOfertas';
-import { GraficoPrecos } from '../componentes/produto/precos';
 import { GraficoVolume } from '../componentes/produto/volume';
 import { GraficoAgressao } from '../componentes/produto/agressao';
 import { GraficoAgressaoAcumulada } from '../componentes/produto/agressaoAcumulada';

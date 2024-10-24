@@ -37,56 +37,13 @@ ChartJS.register(
 export const RankingVolume = () => {
 
     
-  const itemsIndicadores = [
-    {
-      label: 'Indicador 1',
-      icon: 'pi pi-stop'
-    },
-    {
-      label: 'Indicador 2',
-      icon: 'pi pi-stop'
-    },
-    {
-      label: 'Indicador 3',
-      icon: 'pi pi-check-square'
-    },
-    {
-      label: 'Indicador 4',
-      icon: 'pi pi-stop'
-    },
-    {
-      label: 'Indicador 5',
-      icon: 'pi pi-stop'
-    },  
-  ];
-
-  const itemsIndicadores2 = [
-    {
-      label: 'Indicador 1',
-      icon: 'pi pi-stop'
-    },
-    {
-      label: 'Indicador 2',
-      icon: 'pi pi-stop'
-    },
-    {
-      label: 'Indicador 3',
-      icon: 'pi pi-check-square'
-    },
-    {
-      label: 'Indicador 4',
-      icon: 'pi pi-stop'
-    },
-    {
-      label: 'Indicador 5',
-      icon: 'pi pi-stop'
-    },   
-  ];
+  
     
 
   const [dados, setDados] = useState([]);
   const [teste, setTeste] = useState([]);
 
+/*
 useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/karol?format=json')
     .then((response) => {
@@ -96,6 +53,8 @@ useEffect(() => {
     //.catch(error => console.log(error))
     //.then(res => console.log(res))
   }, [])
+
+*/
   
   //dados.datasets.map((d) => {
   //  console.log(d)
@@ -225,28 +184,32 @@ useEffect(() => {
               <AccordionTab 
                 header={
                   <>
-                    <span> Ranking de Volume </span>
+                    <span> Resumo do Dia </span>
                   </>
                 }>
 
                 {/* <Indicadores contentIndi={itemsIndicadores} /> */}
                 <div className="cardGrafico" draggable>
-                    <Bar options={options} data={data}/>
+                    <Bar options={options} data={data2}/>
                 </div>
                 
-                <MultiSelectIndicadores contentIndi={itemsIndicadores2}/>
+                { /* <MultiSelectIndicadores contentIndi={itemsIndicadores2}/> */ }
                
               </AccordionTab>
            </Accordion>
 
            <Accordion activeIndex={0} className="teste1">
 
-              <AccordionTab header="Ranking de Volume">
+              <AccordionTab header={
+                 <>
+                    <span>Resumo da Semana</span>
+                 </>
+              }>
 
               <div className="cardGrafico" draggable>
                     <Bar options={options2} data={data2}/>
                 </div>
-                <MultiSelectIndicadores contentIndi={itemsIndicadores}/>
+               { /*<MultiSelectIndicadores contentIndi={itemsIndicadores}/> */ }
               </AccordionTab>
            
            </Accordion>

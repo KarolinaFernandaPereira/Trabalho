@@ -1,0 +1,73 @@
+.conjuntoHome {
+    display: flex;
+    gap: 11px;
+
+    padding-left: 5px;
+    margin-bottom: 15px;
+    padding-top: 1rem;
+}
+
+
+.conjuntoHome2 {
+    display: flex;
+    gap:  11px;
+
+    margin-bottom: 15px;
+    padding-left: 5px;
+
+    
+}
+
+.conjuntoHome4 {
+    display: flex;
+    gap: 11px;
+
+    padding-left: 5px;
+}
+
+
+.conjuntoHome3 {
+
+    
+    padding-left: 5px;
+    padding-right: 5px;
+
+    margin-bottom: 15px;
+}
+
+.CardGrficoHome {
+    
+    background-color: #131618; 
+    border-radius: 15px; 
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.distribuicaoVolume {
+    width: 42rem;
+}
+
+.rankingVolume {
+    width: 42rem;
+}
+
+.historicoAgressoes {
+    width: 42rem;
+}
+
+.resumoDia {
+    width: 42rem;
+}
+
+.resumoSemana {
+    width: 42rem;
+}
+
+.percentualAgressoes {
+    width: 42rem;
+}
+
+.historicoAgressoes {
+    width: 42rem;
+}

@@ -2,11 +2,13 @@
     display: flex;
     gap: 11px;
     margin-top: 15px;
+
+    margin-bottom: 15px;
+    
 }
 
 .cardGrafico {
     width: 613px;
-    height: 375px; 
     background-color: #131618; 
     border-radius: 15px; 
     margin: 10px;
