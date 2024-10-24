@@ -7,23 +7,23 @@ import { color } from 'chart.js/helpers';
 export const GraficoHistoricoAgressoes = () => {
     
     var series = [
-        {
-          data: [100, 302, 301, 334, 390, 330, 320, 100, 302, 301, 334, 390, 330, 320, 320, 132, 101, 134, 90, 230, 210, 320, 132, 101, 134, 90, 230, 210],
-          type: 'bar',
-          stack: 'Venda',
-          name: 'Venda',
-          color: 'red'
-        },
-        {
-          data: [320, 132, 101, 134, 90, 230, 210, 320, 132, 101, 134, 90, 230, 210, 100, 302, 301, 334, 390, 330, 320, 100, 302, 301, 334, 390, 330, 320],
-          type: 'bar',
-          stack: 'Venda',
-          name: 'Compra',
-          color: 'green'
+      {
+        data: [230, 132, 0, 0, 90, 230, 210, 0, 132, 101, 134, 90, 230, 210, 100, 2, 301, 0, 390, 33, 320, 0, 302, 301, 334, 390, 330, 320],
+        type: 'bar',
+        stack: 'total',
+        name: 'Venda',
+        color: 'green'
 
-        },
+      },
+      {
+        data: [100, 302, 0, 0, 390, 330, 320, 0, 302, 0, 334, 30, 330, 0, 320, 132, 101, 14, 90, 230, 210, 0, 132, 101, 134, 90, 230, 210],
+        type: 'bar',
+        stack: 'total',
+        name: 'Compra',
+        color: 'red'
+      },
+        
       ];
-      
       
       const option = {
         xAxis: {

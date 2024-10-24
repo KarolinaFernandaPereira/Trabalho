@@ -47,9 +47,6 @@ export const GraficoPercentualAgressoes = () => {
     });
     
     const option = {
-        legend: {
-            selectedMode: false
-        },
             grid,
             yAxis: {
                 type: 'value'
