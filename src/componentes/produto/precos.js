@@ -1,155 +1,131 @@
 import React, { useState } from "react";
 import EChartsReact from "echarts-for-react"; //Gráficos Apache
+import * as echarts from 'echarts';
+
 
 export const GraficoPrecos = () => {
 
-    const dataBJ = [
-      [1, 55, 9, 56, 0.46, 18, 6, '良'],
-      [2, 25, 11, 21, 0.65, 34, 9, '优'],
-      [3, 56, 7, 63, 0.3, 14, 5, '良'],
-      [4, 33, 7, 29, 0.33, 16, 6, '优'],
-      [5, 42, 24, 44, 0.76, 40, 16, '优'],
-      [6, 82, 58, 90, 1.77, 68, 33, '良'],
-      [7, 74, 49, 77, 1.46, 48, 27, '良'],
-      [8, 78, 55, 80, 1.29, 59, 29, '良'],
-      [9, 267, 216, 280, 4.8, 108, 64, '重度污染'],
-      [10, 185, 127, 216, 2.52, 61, 27, '中度污染'],
-      [11, 39, 19, 38, 0.57, 31, 15, '优'],
-      [12, 41, 11, 40, 0.43, 21, 7, '优'],
-      [13, 64, 38, 74, 1.04, 46, 22, '良'],
-      [14, 108, 79, 120, 1.7, 75, 41, '轻度污染'],
-      [15, 108, 63, 116, 1.48, 44, 26, '轻度污染'],
-      [16, 33, 6, 29, 0.34, 13, 5, '优'],
-      [17, 94, 66, 110, 1.54, 62, 31, '良'],
-      [18, 186, 142, 192, 3.88, 93, 79, '中度污染'],
-      [19, 57, 31, 54, 0.96, 32, 14, '良'],
-      [20, 22, 8, 17, 0.48, 23, 10, '优'],
-      [21, 39, 15, 36, 0.61, 29, 13, '优'],
-      [22, 94, 69, 114, 2.08, 73, 39, '良'],
-      [23, 99, 73, 110, 2.43, 76, 48, '良'],
-      [24, 31, 12, 30, 0.5, 32, 16, '优'],
-      [25, 42, 27, 43, 1, 53, 22, '优'],
-      [26, 154, 117, 157, 3.05, 92, 58, '中度污染'],
-      [27, 234, 185, 230, 4.09, 123, 69, '重度污染'],
-      [28, 160, 120, 186, 2.77, 91, 50, '中度污染'],
-      [29, 134, 96, 165, 2.76, 83, 41, '轻度污染'],
-      [30, 52, 24, 60, 1.03, 50, 21, '良'],
-      [31, 46, 5, 49, 0.28, 10, 6, '优']
-    ];
+  const data = [
+    [
+      [28604, 77, 17096869, 'Australia', 1990],
+      [31163, 77.4, 27662440, 'Canada', 1990],
+      [1516, 68, 1154605773, 'China', 1990],
+      [13670, 74.7, 10582082, 'Cuba', 1990],
+      [28599, 75, 4986705, 'Finland', 1990],
+      [29476, 77.1, 56943299, 'France', 1990],
+      [31476, 75.4, 78958237, 'Germany', 1990],
+      [28666, 78.1, 254830, 'Iceland', 1990],
+      [1777, 57.7, 870601776, 'India', 1990],
+      [29550, 79.1, 122249285, 'Japan', 1990],
+      [2076, 67.9, 20194354, 'North Korea', 1990],
+      [12087, 72, 42972254, 'South Korea', 1990],
+      [24021, 75.4, 3397534, 'New Zealand', 1990],
+      [43296, 76.8, 4240375, 'Norway', 1990],
+      [10088, 70.8, 38195258, 'Poland', 1990],
+      [19349, 69.6, 147568552, 'Russia', 1990],
+      [10670, 67.3, 53994605, 'Turkey', 1990],
+      [26424, 75.7, 57110117, 'United Kingdom', 1990],
+      [37062, 75.4, 252847810, 'United States', 1990]
+    ],
+    [
+      [44056, 81.8, 23968973, 'Australia', 2015],
+      [43294, 81.7, 35939927, 'Canada', 2015],
+      [13334, 76.9, 1376048943, 'China', 2015],
+      [21291, 78.5, 11389562, 'Cuba', 2015],
+      [38923, 80.8, 5503457, 'Finland', 2015],
+      [37599, 81.9, 64395345, 'France', 2015],
+      [44053, 81.1, 80688545, 'Germany', 2015],
+      [42182, 82.8, 329425, 'Iceland', 2015],
+      [5903, 66.8, 1311050527, 'India', 2015],
+      [36162, 83.5, 126573481, 'Japan', 2015],
+      [1390, 71.4, 25155317, 'North Korea', 2015],
+      [34644, 80.7, 50293439, 'South Korea', 2015],
+      [34186, 80.6, 4528526, 'New Zealand', 2015],
+      [64304, 81.6, 5210967, 'Norway', 2015],
+      [24787, 77.3, 38611794, 'Poland', 2015],
+      [23038, 73.13, 143456918, 'Russia', 2015],
+      [19360, 76.5, 78665830, 'Turkey', 2015],
+      [38225, 81.4, 64715810, 'United Kingdom', 2015],
+      [53354, 79.1, 321773631, 'United States', 2015]
+    ]
+  ];
 
-    const dataSH = [
-      [1, 91, 45, 125, 0.82, 34, 23, '良'],
-      [2, 65, 27, 78, 0.86, 45, 29, '良'],
-      [3, 83, 60, 84, 1.09, 73, 27, '良'],
-      [4, 109, 81, 121, 1.28, 68, 51, '轻度污染'],
-      [5, 106, 77, 114, 1.07, 55, 51, '轻度污染'],
-      [6, 109, 81, 121, 1.28, 68, 51, '轻度污染'],
-      [7, 106, 77, 114, 1.07, 55, 51, '轻度污染'],
-      [8, 89, 65, 78, 0.86, 51, 26, '良'],
-      [9, 53, 33, 47, 0.64, 50, 17, '良'],
-      [10, 80, 55, 80, 1.01, 75, 24, '良'],
-      [11, 117, 81, 124, 1.03, 45, 24, '轻度污染'],
-      [12, 99, 71, 142, 1.1, 62, 42, '良'],
-      [13, 95, 69, 130, 1.28, 74, 50, '良'],
-      [14, 116, 87, 131, 1.47, 84, 40, '轻度污染'],
-      [15, 108, 80, 121, 1.3, 85, 37, '轻度污染'],
-      [16, 134, 83, 167, 1.16, 57, 43, '轻度污染'],
-      [17, 79, 43, 107, 1.05, 59, 37, '良'],
-      [18, 71, 46, 89, 0.86, 64, 25, '良'],
-      [19, 97, 71, 113, 1.17, 88, 31, '良'],
-      [20, 84, 57, 91, 0.85, 55, 31, '良'],
-      [21, 87, 63, 101, 0.9, 56, 41, '良'],
-      [22, 104, 77, 119, 1.09, 73, 48, '轻度污染'],
-      [23, 87, 62, 100, 1, 72, 28, '良'],
-      [24, 168, 128, 172, 1.49, 97, 56, '中度污染'],
-      [25, 65, 45, 51, 0.74, 39, 17, '良'],
-      [26, 39, 24, 38, 0.61, 47, 17, '优'],
-      [27, 39, 24, 39, 0.59, 50, 19, '优'],
-      [28, 93, 68, 96, 1.05, 79, 29, '良'],
-      [29, 188, 143, 197, 1.66, 99, 51, '中度污染'],
-      [30, 174, 131, 174, 1.55, 108, 50, '中度污染'],
-      [31, 187, 143, 201, 1.39, 89, 53, '中度污染']
-    ];
-
-    const schema = [
-        { name: 'date', index: 0, text: '日' },
-        { name: 'AQIindex', index: 1, text: 'AQI指数' },
-        { name: 'PM25', index: 2, text: 'PM2.5' },
-        { name: 'PM10', index: 3, text: 'PM10' },
-        { name: 'CO', index: 4, text: '一氧化碳（CO）' },
-        { name: 'NO2', index: 5, text: '二氧化氮（NO2）' },
-        { name: 'SO2', index: 6, text: '二氧化硫（SO2）' }
-    ];
-
-    const itemStyle = {
-        opacity: 0.8,
-        shadowBlur: 10,
-        shadowOffsetX: 0,
-        shadowOffsetY: 0,
-        shadowColor: 'rgba(0,0,0,0.3)'
-    };
-
-    const option = {
-        color: ['#dd4444', '#fec42c', '#80F1BE'],
-        
-        legend: {
-          top: 10,
-          data: ['Compra', 'Venda'],
-          textStyle: {
-            fontSize: 16
+  const option = {
+    backgroundColor: "#131618",
+    title: {
+      show: false,
+    },
+    legend: {
+      right: '10%',
+      top: '3%',
+      data: ['Compra', 'Venda']
+    },
+    grid: {
+      left: '8%',
+      top: '10%'
+    },
+    xAxis: {
+      splitLine: {
+        lineStyle: {
+          type: 'solid',
+          color: "#262c30"
+        }
+      }
+    },
+    yAxis: {
+      splitLine: {
+        lineStyle: {
+          type: 'solid',
+          color: "#262c30"
+        }
+      },
+      scale: true
+    },
+    series: [
+      {
+        name: 'Venda',
+        data: data[0],
+        type: 'scatter',
+        symbolSize: function (data) {
+          return Math.sqrt(data[2]) / 5e2; //Define o tamanho da bolha
+        },
+        emphasis: {
+          focus: 'series',
+          label: {
+            show: true,
+            formatter: function (param) {
+              return param.data[3];
+            },
+            position: 'top'
           }
         },
-        grid: {
-          left: '10%',
-          right: 150,
-          top: '18%',
-          bottom: '10%'
+        itemStyle: {
+          color: "green",
+        }
+      },
+      {
+        name: 'Compra',
+        data: data[1],
+        type: 'scatter',
+        symbolSize: function (data) {
+          return Math.sqrt(data[2]) / 5e2;
         },
-        tooltip: {
-          backgroundColor: 'rgba(255,255,255,0.7)',
-          formatter: function (param) {
-            var value = param.value;
-            // prettier-ignore
-            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
-                      + param.seriesName + ' ' + value[0] + 'CADEIRA:'
-                      + value[7]
-                      + '</div>'
-                      + schema[1].text + '：' + value[1] + '<br>'
-                      + schema[2].text + '：' + value[2] + '<br>'
-                      + schema[3].text + '：' + value[3] + '<br>'
-                      + schema[4].text + '：' + value[4] + '<br>'
-                      + schema[5].text + '：' + value[5] + '<br>'
-                      + schema[6].text + '：' + value[6] + '<br>';
+        emphasis: {
+          focus: 'series',
+          label: {
+            show: true,
+            formatter: function (param) {
+              return param.data[3];
+            },
+            position: 'top'
           }
         },
-        xAxis: {
-          type: 'value',
-          
-        },
-        yAxis: {
-          type: "category",
-        
-          splitLine:{ show: true },
-          axisTick: { show: false },
-          axisLabel: { show: false }
-        },
-        series: [
-          {
-            name: 'Compra',
-            type: 'scatter',
-            itemStyle: itemStyle,
-            data: dataBJ,
-            color: "red",
-          },
-          {
-            name: 'Venda',
-            type: 'scatter',
-            itemStyle: itemStyle,
-            data: dataSH,
-            color: "green",
-          },
-        ]
-    };
+        itemStyle: {
+          color: "red",
+        }
+      }
+    ]
+  };
 
     return (
         <>

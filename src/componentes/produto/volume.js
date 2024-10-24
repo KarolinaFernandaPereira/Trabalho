@@ -20,7 +20,12 @@ export const GraficoVolume = () => {
         
         yAxis: {
             type: 'value',
-            splitLine: {show: false},
+            splitLine: {
+                lineStyle: {
+                  type: 'solid',
+                  color: "#262c30"
+                }
+            },
             min: 0,
             max: 200,
             interval: 100,
@@ -31,8 +36,8 @@ export const GraficoVolume = () => {
         },
         series: [
             {
-                data: [0, 0, 10, 8, 6, 4, 2, 0, 0, 2, 1, 50, 100, 2, 40, 50, 100, 130, 140, 150, 200, 0, 50],
-                type: 'line',
+                data: [200, 0, 105, 80, 60, 40, 20, 0, 50, 20, 110, 50, 100, 20, 40, 50, 100, 130, 140, 150, 200, 0, 50],
+                type: 'bar',
                 showSymbol: false,
                 color: "gray"
             }

@@ -30,7 +30,12 @@ export const GraficoAgressao = () => {
         yAxis: [
           {
             type: 'value',
-            splitLine: {show: false},
+            splitLine: {
+              lineStyle: {
+                type: 'solid',
+                color: "#262c30"
+              }
+            },
             min: -40,
             max: 20,
             interval: 20
