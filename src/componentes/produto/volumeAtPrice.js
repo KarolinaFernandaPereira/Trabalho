@@ -18,20 +18,34 @@ export const GraficoVolumeAtPrice = () => {
           containLabel: true
         },
         xAxis: {
+          name: 'R$/MWh',
           type: 'value',
           boundaryGap: [0, 0.01],
           
-          splitLine:{ show: false },
-          axisLine: { show: false },    
-          axisTick: { show: false },
-          axisLabel: { show: false },
+          splitLine:{
+            lineStyle:{
+              type: 'solid',
+              color: "#262c30"
+            }
+          },
+          scale: true,
+          axisLine:
+          {
+            show: true,
+            color: "#262c30"
+          },    
+          axisTick: {
+            show: true,
+            color: "#262c30"
+          },
+          axisLabel: { show: true },
           
         },
 
         yAxis: {
           type: 'category',
           data: ['80', '60', '40', '10', '5', '0'],
-          name: 'km/s minus 299,000',
+          name: '(MWm)',
           inverse: true
         },
         
