@@ -1,5 +1,5 @@
 .cardGrafico2 {
-    width: 70%;
+    width: 90%;
     height: 70%; 
     background-color: #131618; 
     border-radius: 15px; 
@@ -7,7 +7,7 @@
     padding: 10px;
 }
 
-.container{
+.containerSwap{
     display: flex;
     justify-content: center;
 }
