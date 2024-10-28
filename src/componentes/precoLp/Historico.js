@@ -82,8 +82,10 @@ export const HistoricoPrecosConvencional = () => {
         },
         color: ["white"],
         legend: {textStyle: {
-          color: "white"
-        }},
+          color: "white",
+          
+        },
+        position: 'bottom'},
         tooltip: {
             trigger: 'axis'
           },
@@ -94,7 +96,7 @@ export const HistoricoPrecosConvencional = () => {
             data: [70, 71, 70, 73, 70, 72, 75, 80, 60, 70, 71, 70, 73, 70, 72, 20, 88, 25, 99, 30, 100, 45, 150, 70, 73, 70, 72, 75, 80, 60, 67, 69, 68, 99, 89, 88, 87, 90, 93, 91],
             color: "red",
             type: 'line',
-            showSymbol: false,
+            symbol: 'circle',
             
           },
           {

@@ -14,7 +14,7 @@ export const GraficoVolumeAtPrice = () => {
         grid: {
           left: '3%',
           right: '4%',
-          bottom: '3%',
+          bottom: '2%',
           containLabel: true
         },
         xAxis: {
@@ -67,7 +67,7 @@ export const GraficoVolumeAtPrice = () => {
 
     return (
         <>
-            <EChartsReact option={option}/>
+            <EChartsReact option={option} style={{height: '22.8rem'}}/>
         </>
     );
 }

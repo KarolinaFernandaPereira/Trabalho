@@ -18,7 +18,7 @@ function Home(){
             
             
             {/* <HorizontalRulerChart /> */}
-
+            
             <div className='conjuntoHome'>
                 <div>  
                     { /*Resumo Dia*/}           
@@ -30,11 +30,12 @@ function Home(){
                                 </>
                             }>
                                 
-                                <div className='CardGrficoHome'>
+                                <div className='CardGrficoHome' >
 
                                     <GraficoResumoDia />   
+                                    
                                 </div>
-                                   
+                                
 
                             </AccordionTab>
                         </Accordion>

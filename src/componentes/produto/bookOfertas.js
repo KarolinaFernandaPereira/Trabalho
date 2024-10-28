@@ -10,7 +10,9 @@ export const GraficoBookOfertas = () => {
         type: 'shadow'
       }
     },
-    legend: {},
+    legend: {
+      
+    },
     grid: {
       left: '3%',
       right: '4%',
@@ -66,7 +68,7 @@ export const GraficoBookOfertas = () => {
 
     return (
         <>
-            <EChartsReact option={option}/>
+            <EChartsReact option={option} style={{height: '23rem'}}/>
         </>
     );
 }

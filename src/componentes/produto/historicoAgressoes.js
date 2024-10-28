@@ -36,6 +36,9 @@ export const GraficoHistoricoAgressoes = () => {
             }
           },
         },
+        tooltip : {
+
+        },
         yAxis: {
           type: 'value',
           splitLine: {

@@ -61,49 +61,79 @@ useEffect(() => {
   //})
   
 
-  const options = { 
-      indexAxis: 'y',
-      // Elements options apply to all of the options unless overridden in a dataset
-      // In this case, we are setting the border of each horizontal bar to be 2px wide
-      elements: {
-        bar: {
-          borderWidth: 2,
-        }
-      },
-      scales: {
+
+
+
+var data = {
+    labels: ['Walnut Brownie', 'Lemon Juice', 'Orange Juice', 'Tea', 'Matcha Cocoa', 'Cheese Brownie', 'Cheese Cocoa', 'Milk Tea', 'Matcha Latte'],
+    datasets: [{
+        label: 'Quantidade',
+        data: [20000, 100000, 90000, 80000, 25000, 15000, 40000, 85000, 60000],
+        
+        borderColor: '#333',
+        borderWidth: 1
+    }]
+};
+
+const options = {
+    indexAxis: 'y',
+    scales: {
         x: {
-          beginAtZero: true,
-          stacked: true,
-        },
-        y: {
-          stacked: true,
-          beginAtZero: true,
-        },
-      },
-      responsive: true,
-      plugins: {
+            min: 0,
+            max: 120000,
+            ticks: {
+                display: false
+            }
+        }
+    },
+    plugins: {
         legend: {
-          display: false,
-          position: 'right',
+            display: false
         },
         title: {
-          display: true,
-          text: 'Ranking de Volume',
-          position: "top"
+            display: true,
+            text: 'Quantidade por Item'
         },
-        subtitle:{
-          display: true,
-          color: "white",
-          text: "Volume (Mwm)",
-          position: "bottom"
-      },
-      }
-    };
+        annotation: {
+            annotations: {
+                box1: {
+                    type: 'box',
+                    xScaleID: 'x',
+                    yScaleID: 'y',
+                    xMin: 0,
+                    xMax: 20000,
+                    yMin: -0.5,
+                    yMax: 9.5,
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    label: {
+                        content: 'Low Score',
+                        position: 'left'
+                    }
+                },
+                box2: {
+                    type: 'box',
+                    xScaleID: 'x',
+                    yScaleID: 'y',
+                    xMin: 100000,
+                    xMax: 120000,
+                    yMin: -0.5,
+                    yMax: 9.5,
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderColor: 'transparent',
+                    borderWidth: 0,
+                    label: {
+                        content: 'High Score',
+                        position: 'right'
+                    }
+                }
+            }
+        }
+    }
+};
 
-  const data = {
-      labels: dados.labels,
-      datasets: teste
-  };
+  
 
   const options2 = { 
     indexAxis: 'y',

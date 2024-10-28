@@ -10,6 +10,7 @@ import { GraficoAgressao } from '../componentes/produto/agressao';
 import { GraficoAgressaoAcumulada } from '../componentes/produto/agressaoAcumulada';
 import { GraficoPercentualAgressoes } from '../componentes/produto/percentualAgressoes';
 import { GraficoHistoricoAgressoes } from '../componentes/produto/historicoAgressoes';
+import { GraficoPrecos } from '../componentes/produto/precos';
 
 function Produto(){
     return(
@@ -28,7 +29,7 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoVolumeAtPrice">
-                            <GraficoVolumeAtPrice />
+                            <GraficoVolumeAtPrice/>
                         </div>
 
                         </AccordionTab>
