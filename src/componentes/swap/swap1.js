@@ -27,7 +27,7 @@ ChartJS.register(
     Title,
 );
 
-export const Swap1 = () => {
+export const GraficoSwap1 = () => {
    
     const options = {
         plugins: {
