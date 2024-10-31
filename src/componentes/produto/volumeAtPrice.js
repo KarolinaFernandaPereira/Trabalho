@@ -10,7 +10,12 @@ export const GraficoVolumeAtPrice = () => {
             type: 'shadow'
           }
         },
-        legend: {},
+        legend: {
+          data: ['Compra', 'Venda'],
+          textStyle: {
+              color: "rgb(165, 165, 165)",
+          }
+        },
         grid: {
           left: '3%',
           right: '4%',

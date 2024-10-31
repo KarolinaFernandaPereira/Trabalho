@@ -11,7 +11,10 @@ export const GraficoBookOfertas = () => {
       }
     },
     legend: {
-      
+      data: ['Compra', 'Venda'],
+          textStyle: {
+              color: "rgb(165, 165, 165)",
+          }
     },
     grid: {
       left: '3%',

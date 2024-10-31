@@ -79,7 +79,10 @@ export const GraficoPrecos = () => {
     legend: {
       right: '10%',
       top: '3%',
-      data: ['Compra', 'Venda']
+      data: ['Compra', 'Venda'],
+      textStyle: {
+          color: "rgb(165, 165, 165)",
+      }
     },
     grid: {
       left: '3%',

@@ -18,6 +18,7 @@ export const GraficoVolume = () => {
             top: '8%'
         },
         
+        
         yAxis: {
             type: 'value',
             splitLine: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuHeader from '../componentes/menu';
 import Filtro1 from '../componentes/produto/filtro';
 import { Accordion, AccordionTab } from 'primereact/accordion';
@@ -12,7 +12,13 @@ import { GraficoPercentualAgressoes } from '../componentes/produto/percentualAgr
 import { GraficoHistoricoAgressoes } from '../componentes/produto/historicoAgressoes';
 import { GraficoPrecos } from '../componentes/produto/precos';
 
+import { InputSwitch } from "primereact/inputswitch";
+import { GraficoCandleStick } from '../componentes/produto/candleStick';
+
 function Produto(){
+
+    const [check, setCheck] = useState(false);
+
     return(
         <div>
             <MenuHeader/>
@@ -37,8 +43,26 @@ function Produto(){
                 </div>
 
                 {/* PREÇO */}
-                <div className="containerProduto">
-                    <Accordion activeIndex={0} className="preco">
+                <div>
+
+                    <div className="containerProduto">
+                        
+                        {check ? (<Accordion activeIndex={0} className="preco">
+                            <AccordionTab header={
+                                <>
+                                    <span> Preços </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoPreco">
+                                
+                                
+                                <GraficoCandleStick />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                        ): ( <Accordion activeIndex={0} className="preco">
                         <AccordionTab header={
                             <>
                                 <span> Preços </span>
@@ -46,11 +70,20 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoPreco">
-                             <GraficoPrecos />
+                            <GraficoPrecos />
                         </div>
 
                         </AccordionTab>
-                    </Accordion>
+                    </Accordion>)}
+                        
+
+                    </div>
+
+                    <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
+
+                        <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
+                        <span>Alterar Gráfico</span>
+                    </div>
                 </div>
 
                 {/* BOOK DE OFERTAS */}
