@@ -76,7 +76,7 @@ function Home(){
                                 </>
                             }>
                                 
-                                <div className='CardGrficoHome'>
+                                <div className='CardGrficoHome1' >
 
                                     <GraficoRankingVolume />   
                                 </div>

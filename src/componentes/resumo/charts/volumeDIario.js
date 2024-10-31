@@ -67,8 +67,8 @@ export const GraficoMapaVolumeDiario = () => {
     return (
 
         <>
-            <span style={{fontSize: "small"}}> Total: 14.0 MWm | Compra: 0.0 Mwm (0.0%) | Venda: 14.0 MWm (100.0%) </span>
             <EChartsReact option={option} />
+            <span style={{fontSize: "small"}}> Total: 14.0 MWm | Compra: 0.0 Mwm (0.0%) | Venda: 14.0 MWm (100.0%) </span>
         </>
     )
 }
