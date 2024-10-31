@@ -54,13 +54,13 @@ export const GraficoBookOfertas = () => {
       {
         name: 'Compra',
         type: 'bar',
-        data: [203, 489, 340, 970, 744, 230],
+        data: [203, 489, 340, 0, 0, 0],
         color: "red",
       },
       {
         name: 'Venda',
         type: 'bar',
-        data: [325, 438, 310, 594, 141, 807],
+        data: [0, 0, 0, 594, 141, 807],
         color: "green",
       }
     ]

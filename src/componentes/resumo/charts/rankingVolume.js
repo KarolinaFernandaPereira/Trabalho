@@ -6,7 +6,9 @@ export const GraficoRankingVolume = () => {
 
     const option = {
         tooltip: {},
-        legend: {},
+        legend: {textStyle: {
+            color: "rgb(165, 165, 165)",
+        }},
         grid: {
             right: '2%',
             top: '20%',

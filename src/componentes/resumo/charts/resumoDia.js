@@ -3,12 +3,9 @@ import EChartsReact from "echarts-for-react"; //Gráficos Apache
 import { color } from "echarts";
 
 
-
-
 export const GraficoResumoDia = () => {
 
     const option = {
-        
         xAxis: {
             type: 'value',
             min: 78,
@@ -24,21 +21,42 @@ export const GraficoResumoDia = () => {
         yAxis: {
             type: 'category',
             data: ['SE SEM JUL/24 DEZ/24'],
-            
         },
         tooltip: {},
         
         series: [
             {
-                data: [79],
+                //início
+                data: [78],
                 type: 'line',
-                color: 'red'
+                color: 'red',
+                symbolSize: 10,
+                symbol: "circle",
             },
             {
+                //número do meio
                 data: [82],
                 type: 'line',
-                color: '#fff'
-            }
+                color: 'white',
+                symbolSize: 10,
+                symbol: "circle",
+            },
+            {
+                //linha
+                data: [78, 83],
+                type: 'line',
+                color: 'gray',
+                symbolSize: false,
+            },
+            {
+                //último
+                data: [83],
+                type: 'line',
+                color: 'gray',
+                symbolSize: 10,
+                symbol: "circle",
+            },
+            
         ],
         grid: {
             left: '24%',
@@ -77,7 +95,9 @@ export const GraficoResumoDia = () => {
             {
                 data: [67.5],
                 type: 'line',
-                color: 'white'
+                color: 'gray',
+                symbolSize: '10',
+                symbol: "circle",
             }
         ]
     };
@@ -109,15 +129,29 @@ export const GraficoResumoDia = () => {
         },
         series: [
             {
+                //início
                 data: [114],
                 type: 'line',
-                color: 'red'
+                color: 'red',
+                symbolSize: 10,
+                symbol: "circle",
             },
             {
+                //linha
+                data: [114, 115],
+                type: 'line',
+                color: 'gray',
+                symbolSize: false,
+                symbol: "circle",
+            },
+            {
+                //último
                 data: [115],
                 type: 'line',
-                color: 'white'
-            }
+                color: 'gray',
+                symbolSize: 10,
+                symbol: "circle",
+            },
         ]
     };
 
@@ -151,7 +185,9 @@ export const GraficoResumoDia = () => {
             {
                 data: [78],
                 type: 'line',
-                color: 'white'
+                color: 'gray',
+                symbolSize: 10,
+                symbol: "circle",
             }
         ]
     };
@@ -166,7 +202,7 @@ export const GraficoResumoDia = () => {
             splitLine: {
                 lineStyle: {
                   type: 'solid',
-                  color: "#262c30"
+                  color: "#262c30",
                 }
             },
         },
@@ -186,7 +222,9 @@ export const GraficoResumoDia = () => {
             {
                 data: [100],
                 type: 'line',
-                color: 'white'
+                color: 'gray',
+                symbolSize: 10,
+                symbol: "circle",
             }
         ]
     };

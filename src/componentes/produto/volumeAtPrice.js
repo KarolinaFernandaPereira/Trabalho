@@ -48,7 +48,6 @@ export const GraficoVolumeAtPrice = () => {
           name: '(MWm)',
           inverse: true
         },
-        
         series: [
           {
             name: 'Compra',
@@ -61,7 +60,7 @@ export const GraficoVolumeAtPrice = () => {
             type: 'bar',
             data: [19, 23, 31, 12, 13, 68],
             color: "green",
-          }
+          },
         ]
       };
 

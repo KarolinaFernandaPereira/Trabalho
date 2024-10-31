@@ -30,21 +30,33 @@ export const GraficoResumoSemana = () => {
         
         series: [
             {
-                data: [79],
+                //início
+                data: [78],
                 type: 'line',
-                color: 'red'
+                color: 'red',
+                symbolSize: 10, symbol: "circle",
             },
             {
-                data: [81],
+                //número do meio
+                data: [82],
                 type: 'line',
-                color: '#fff'
+                color: 'white',
+                symbolSize: 10, symbol: "circle",
             },
-            
             {
+                //linha
+                data: [78, 83],
+                type: 'line',
+                color: 'gray',
+                symbolSize: false,
+            },
+            {
+                //último
                 data: [83],
                 type: 'line',
-                color: 'gray'
-            }
+                color: 'gray',
+                symbolSize: 10, symbol: "circle",
+            },
         ],
         grid: {
             left: '24%',
@@ -83,7 +95,8 @@ export const GraficoResumoSemana = () => {
             {
                 data: [67.5],
                 type: 'line',
-                color: 'white'
+                color: 'gray',
+                symbolSize: 10, symbol: "circle",
             }
         ]
     };
@@ -115,15 +128,33 @@ export const GraficoResumoSemana = () => {
         },
         series: [
             {
+                //início
                 data: [114],
                 type: 'line',
-                color: 'red'
+                color: 'red',
+                symbolSize: 10, symbol: "circle",
             },
             {
+                //número do meio
                 data: [117],
                 type: 'line',
-                color: 'white'
-            }
+                color: 'white',
+                symbolSize: 10, symbol: "circle",
+            },
+            {
+                //linha
+                data: [114, 118],
+                type: 'line',
+                color: 'gray',
+                symbolSize: false,
+            },
+            {
+                //último
+                data: [118],
+                type: 'line',
+                color: 'gray',
+                symbolSize: 10, symbol: "circle",
+            },
         ]
     };
 
@@ -155,15 +186,26 @@ export const GraficoResumoSemana = () => {
         },
         series: [
             {
+                //início
                 data: [79],
                 type: 'line',
-                color: 'red'
+                color: 'red',
+                symbolSize: 10, symbol: "circle",
             },
             {
+                //linha
+                data: [78, 82],
+                type: 'line',
+                color: 'gray',
+                symbolSize: false,
+            },
+            {
+                //último
                 data: [82],
                 type: 'line',
-                color: 'white'
-            }
+                color: 'gray',
+                symbolSize: 10, symbol: "circle", symbol: "circle",
+            },
         ]
     };
 
@@ -195,15 +237,26 @@ export const GraficoResumoSemana = () => {
         },
         series: [
             {
+                //início
                 data: [100],
                 type: 'line',
-                color: 'red'
+                color: 'red',
+                symbolSize: 10, symbol: "circle", symbol: "circle",
             },
             {
+                //linha
+                data: [100, 108],
+                type: 'line',
+                color: 'gray',
+                symbolSize: false,
+            },
+            {
+                //último
                 data: [108],
                 type: 'line',
-                color: 'white'
-            }
+                color: 'gray',
+                symbolSize: 10, symbol: "circle", symbol: "circle",
+            },
         ]
     };
     

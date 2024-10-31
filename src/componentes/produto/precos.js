@@ -89,7 +89,7 @@ export const GraficoPrecos = () => {
     },
     xAxis: {
       axisTick: { show: false },
-      axisLabel: { show: false },
+      axisLabel: { show: true },
       splitLine: {
         
         lineStyle: {
@@ -100,7 +100,7 @@ export const GraficoPrecos = () => {
     },
     yAxis: {
       axisTick: { show: false },
-      axisLabel: { show: false },
+      axisLabel: { show: true },
       splitLine: {
         lineStyle: {
           type: 'solid',
@@ -151,7 +151,7 @@ export const GraficoPrecos = () => {
         itemStyle: {
           color: "red",
         }
-      }
+      },
     ]
   };
 
