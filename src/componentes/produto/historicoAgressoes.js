@@ -48,7 +48,13 @@ export const GraficoHistoricoAgressoes = () => {
             }
           },
         },
-        series: series
+        series: series,
+        legend: {
+          data: ['Compra', 'Venda'],
+          textStyle: {
+              color: "rgb(165, 165, 165)",
+          }
+        },
     };
     
     return (

@@ -64,6 +64,12 @@ export const GraficoPercentualAgressoes = () => {
             tooltip : {
 
             },
+            legend: {
+                data: ['Compra', 'Venda'],
+                textStyle: {
+                  color: "rgb(165, 165, 165)",
+              }
+            },
             series,
             splitLine: {
                 lineStyle: {

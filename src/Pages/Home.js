@@ -5,7 +5,7 @@ import { Accordion, AccordionTab } from 'primereact/accordion';
 import "./Home.css";
 import { GraficoRankingVolume } from '../componentes/resumo/charts/rankingVolume';
 import { GraficoDistribuicaoVolume } from '../componentes/resumo/charts/distribuicaoVolume';
-import { GraficoMapaVolumeDiario } from '../componentes/resumo/charts/volumeDIario';
+import { GraficoMapaVolumeDiario } from '../componentes/resumo/charts/volumeDiario';
 import { GraficoHistoricoAgressoes } from '../componentes/produto/historicoAgressoes';
 import { GraficoPercentualAgressoes } from '../componentes/produto/percentualAgressoes';
 import { GraficoResumoDia } from '../componentes/resumo/charts/resumoDia';
