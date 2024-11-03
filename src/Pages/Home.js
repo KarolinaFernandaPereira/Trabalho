@@ -10,15 +10,59 @@ import { GraficoHistoricoAgressoes } from '../componentes/produto/historicoAgres
 import { GraficoPercentualAgressoes } from '../componentes/produto/percentualAgressoes';
 import { GraficoResumoDia } from '../componentes/resumo/charts/resumoDia';
 import { GraficoResumoSemana } from '../componentes/resumo/charts/resumoSemana';
+import { GraficoMapaLinhaVol } from '../componentes/resumo/charts/LinhaVolumeDiario';
 
 function Home(){
     return(
         <div>
             <MenuHeader/>
             
+
+            <div className='conjuntoHome4'>
+                
+                <div>         
+                    { /* PercentualAgressoes */}        
+                    <div className="containerHome" >
+                        <Accordion activeIndex={1} className="percentualAgressoes">
+                            <AccordionTab  header={
+                                <>
+                                    <span> Percentual de Agressões </span>
+                                </>
+                            }>
+                            
+                            <div className='CardGrficoHome'>
+
+                                <GraficoPercentualAgressoes />   
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+
+                <div>            
+                { /* HistoricoAgressoes */}  
+                    <div className="containerHome" >
+                        <Accordion activeIndex={1} className="historicoAgressoes">
+                            <AccordionTab  header={
+                                <>
+                                    <span> Histórico de Agressões </span>
+                                </>
+                            }>
+                            
+                            <div className='CardGrficoHome'>
+                                <GraficoHistoricoAgressoes />   
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+                        
+               
+            </div>
             
             {/* <HorizontalRulerChart /> */}
-            
             <div className='conjuntoHome'>
                 <div>  
                     { /*Resumo Dia*/}           
@@ -131,50 +175,28 @@ function Home(){
                 </div>
             </div>
 
-            <div className='conjuntoHome4'>
-                
-                <div>             
+            <div className='conjuntoHome3'>
+                <div>  
+                    { /* Mapa LINHA Volume */}           
                     <div className="containerHome" >
-                        <Accordion activeIndex={1} className="percentualAgressoes">
+                        <Accordion activeIndex={1} className="mapaVolume">
                             <AccordionTab  header={
                                 <>
-                                    <span> Percentual de Agressões </span>
+                                    <span> Mapa de linha Volume Diário </span>
                                 </>
                             }>
-                            
-                            <div className='CardGrficoHome'>
+                                
+                                <div className='CardGrficoHome'>
 
-                                <GraficoPercentualAgressoes />   
-                            </div>
+                                    <GraficoMapaLinhaVol />   
+                                </div>
+                                   
 
                             </AccordionTab>
                         </Accordion>
                     </div>
                 </div>
-
-                <div>             
-                    <div className="containerHome" >
-                        <Accordion activeIndex={1} className="historicoAgressoes">
-                            <AccordionTab  header={
-                                <>
-                                    <span> Histórico de Agressões </span>
-                                </>
-                            }>
-                            
-                            <div className='CardGrficoHome'>
-                                <GraficoHistoricoAgressoes />   
-                            </div>
-
-                            </AccordionTab>
-                        </Accordion>
-                    </div>
-                </div>
-                        
-               
             </div>
-
-            
-
 
         </div>
     );
