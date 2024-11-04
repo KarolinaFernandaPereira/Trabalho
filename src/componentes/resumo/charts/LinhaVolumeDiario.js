@@ -17,6 +17,7 @@ export const GraficoMapaLinhaVol = () => {
         yAxis: {
             name: 'MWm Acum.',
             type: 'value',
+            
             splitLine: {
                 lineStyle: {
                 type: 'solid',
@@ -27,18 +28,17 @@ export const GraficoMapaLinhaVol = () => {
             max: 15,
             interval: 5,
             
+            
         },
         grid: {
-            left: '25%',
+            top: '3%',
+            left: '15%',
             right: '5%',
-            bottom: '35%',
-            top: '35%'
+            bottom: '65%',
+            
+            containLabel: true
         },
-        legend: {
-            bottom: 1,
-            textStyle: {
-            color: "rgb(165, 165, 165)",
-        }},
+        responsive: true,
         tooltip: {
             trigger: 'axis',
         },
@@ -64,8 +64,8 @@ export const GraficoMapaLinhaVol = () => {
 
     return (
 
-        <>
+        <div style={{ height: "130px" }}>
             <EChartsReact option={option}/>
-        </>
+        </div>
     )
 }
