@@ -8,7 +8,7 @@ export const GraficoDistribuicaoVolume = () => {
           trigger: 'axis',
         },
         legend: {
-          data: ['Volume'],
+          data: ['Unidade'],
           textStyle: {
             color: "rgb(165, 165, 165)",
         }
@@ -47,7 +47,7 @@ export const GraficoDistribuicaoVolume = () => {
         ],
         series: [
           {
-            name: 'Volume',
+            name: 'Unidade',
             color: "rgb(98, 18, 202)",
             type: 'bar',
             stack: 'Total',
