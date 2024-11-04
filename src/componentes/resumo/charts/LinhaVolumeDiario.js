@@ -31,7 +31,7 @@ export const GraficoMapaLinhaVol = () => {
             
         },
         grid: {
-            left: '3%',
+            left: '15%',
             right: '4%',
             bottom: '25%',
             top: '8%'

@@ -152,14 +152,16 @@ function Home(){
                 </div>
 
             </div>
+            
+            <div className='conjuntoHome3'>
 
-            <div>
+                <div>
                     {/* AGRESSÃO ACUMULADA */}
-                    <div className="containerProduto">
+                    <div className="containerHome">
                         <Accordion activeIndex={1} className="agrssaoAcumulado">
                             <AccordionTab header={
                                 <>
-                                    <span> Agressão Acumulada </span>
+                                    <span> Mapa de Volume Diário </span>
                                 </>
                             }>
 
@@ -171,6 +173,7 @@ function Home(){
                             </AccordionTab>
                         </Accordion>
                     </div>
+                </div>
             </div>
 
             {/* <div className='conjuntoHome3'>
