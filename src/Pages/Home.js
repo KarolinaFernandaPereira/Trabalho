@@ -11,6 +11,7 @@ import { GraficoPercentualAgressoes } from '../componentes/produto/percentualAgr
 import { GraficoResumoDia } from '../componentes/resumo/charts/resumoDia';
 import { GraficoResumoSemana } from '../componentes/resumo/charts/resumoSemana';
 import { GraficoMapaLinhaVol } from '../componentes/resumo/charts/LinhaVolumeDiario';
+import { GraficoAgressaoAcumulada } from '../componentes/produto/agressaoAcumulada';
 
 function Home(){
     return(
@@ -152,9 +153,29 @@ function Home(){
 
             </div>
 
-            <div className='conjuntoHome3'>
+            <div>
+                    {/* AGRESSÃO ACUMULADA */}
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="agrssaoAcumulado">
+                            <AccordionTab header={
+                                <>
+                                    <span> Agressão Acumulada </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoVolume">
+                                <GraficoMapaVolumeDiario /> 
+                                <GraficoMapaLinhaVol />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+            </div>
+
+            {/* <div className='conjuntoHome3'>
                 <div>  
-                    { /* Mapa Volume */}           
+                     Mapa Volume          
                     <div className="containerHome" >
                         <Accordion activeIndex={1} className="volume">
                             <AccordionTab  header={
@@ -174,7 +195,7 @@ function Home(){
                         </Accordion>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
         </div>
     );

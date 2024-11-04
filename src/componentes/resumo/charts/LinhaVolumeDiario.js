@@ -31,12 +31,10 @@ export const GraficoMapaLinhaVol = () => {
             
         },
         grid: {
-            top: '3%',
-            left: '15%',
-            right: '5%',
-            bottom: '65%',
-            
-            containLabel: true
+            left: '3%',
+            right: '4%',
+            bottom: '25%',
+            top: '8%'
         },
         responsive: true,
         tooltip: {
@@ -64,8 +62,8 @@ export const GraficoMapaLinhaVol = () => {
 
     return (
 
-        <div style={{ height: "130px" }}>
-            <EChartsReact option={option}/>
+        <div>
+            <EChartsReact option={option} aspect={2} style={{height: '5rem'}}/>
         </div>
     )
 }
