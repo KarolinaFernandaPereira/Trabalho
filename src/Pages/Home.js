@@ -156,7 +156,7 @@ function Home(){
             <div className='conjuntoHome3'>
 
                 <div>
-                    {/* AGRESSÃO ACUMULADA */}
+                    {/* MAPA DE VOLUME DIARIO */}
                     <div className="containerHome">
                         <Accordion activeIndex={1} className="agrssaoAcumulado">
                             <AccordionTab header={

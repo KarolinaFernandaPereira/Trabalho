@@ -9,12 +9,12 @@ export const GraficoMapaVolumeDiario = () => {
   ];
   
   const data = [
-    [0, 10, 0, 1, 'A', 0],
-    [10, 30, 1, 2, 'B', 100],
-    [30, 60, 0, 1, 'A', 0],
-    [60, 80, 2, 3, 'C', 0],
-    [30, 60, 3, 4, 'D', 0],
-    [60, 80, 4, 5, 'E', 0],
+    [0, 10, 0, 1, 'A', 100],
+    [10, 30, 1, 2, 'B', 0],
+    [30, 60, 0, 1, 'A', 100],
+    [60, 80, 2, 3, 'C', 100],
+    [30, 60, 3, 4, 'D', 100],
+    [60, 80, 4, 5, 'E', 100],
   ]
   const option = {
     
@@ -87,16 +87,11 @@ export const GraficoMapaVolumeDiario = () => {
               style: style
           };
         },
-        label: {
-          show: true,
-          position: 'top'
-        },
-        dimensions: ['fromX', 'toX', 'fromY', 'toY', 'profit', 'score'],
+        dimensions: ['Inicio', 'Fim'],
         encode: {
           x: [0, 1],
           y: 2,
-          tooltip: [0, 1, 2, 3, 4, 5],
-          itemName: 4,
+          tooltip: [0, 1],
         },
         data: data,
       }

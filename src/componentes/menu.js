@@ -33,6 +33,11 @@ export default function MenuHeader() {
           icon: 'pi pi-chart-bar',
           url: '/precolp'
         },
+        {
+          label: 'INDICADORES',
+          icon: 'pi pi-hourglass',
+          url: '/indicadores'
+        },
     ];
 
     const itemsMenu = [

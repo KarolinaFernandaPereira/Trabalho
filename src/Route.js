@@ -6,6 +6,7 @@ import Swap from "./Pages/Swap.js";
 import Login from "./Pages/Login.js";
 import PrecoLp from "./Pages/PrecoLP.js";
 import Operacoes from "./Pages/Operacoes.js"
+import Indicador from "./Pages/Indicadores.js";
 
 const AppRoutes = () => {
     return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
                 <Route path="/" element={<Login/>}></Route>
                 <Route path="/precolp" element={<PrecoLp/>}></Route>
                 <Route path="/operacoes" element={<Operacoes/>}></Route>
+                <Route path="/indicadores" element={<Indicador/>}></Route>
             </Routes>
        </Router>
     )
