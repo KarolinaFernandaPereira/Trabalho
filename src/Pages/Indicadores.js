@@ -8,6 +8,8 @@ import { GraficoSar } from '../componentes/indicadores/sar';
 import { GraficoSuperTrend } from '../componentes/indicadores/supertrend';
 import { GraficoMediasMoveis } from '../componentes/indicadores/mediasMoveis';
 import { BollingerBandsArea } from '../componentes/indicadores/bandasbollinger';
+import { GraficoSarNew } from '../componentes/indicadores/sarNew';
+import { GraficoSupertrendNew } from '../componentes/indicadores/supertrendNew';
 
 function Indicador(){
     return (
@@ -85,16 +87,16 @@ function Indicador(){
 
             </div>
 
-
+            { /* SAR */} 
             <div className='conjuntoHome4' style={{paddingTop: '35px'}}>
                 
                 <div>         
-                    { /* SAR */}        
+                    { /* Original */}        
                     <div className="containerHome" >
                         <Accordion activeIndex={0} className="percentualAgressoes1" >
                             <AccordionTab  header={
                                 <>
-                                    <span> Indicador Stop ATR </span>
+                                    <span> Indicador SAR Parabólico 1</span>
                                 </>
                             }>
                             
@@ -108,12 +110,37 @@ function Indicador(){
                     </div>
                 </div>
                 <div>         
-                { /* SuperTrend */}        
+                { /* Novo */}        
                 <div className="containerHome" >
+                    <Accordion activeIndex={0} className="percentualAgressoes1" >
+                            <AccordionTab  header={
+                                <>
+                                    <span> Indicador SAR Parabólico 2</span>
+                                </>
+                            }>
+                            
+                            <div className='CardGrficoHome'>
+
+                                <GraficoSarNew/>  
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+                
+            </div>
+
+            { /* SuperTrend */} 
+            <div className='conjuntoHome4' style={{paddingTop: '35px'}}>
+                
+                <div>         
+                    { /* Original */}        
+                    <div className="containerHome" >
                         <Accordion activeIndex={0} className="percentualAgressoes1" >
                             <AccordionTab  header={
                                 <>
-                                    <span> Indicador RSI </span>
+                                    <span> Indicador Supertrend 1</span>
                                 </>
                             }>
                             
@@ -126,25 +153,64 @@ function Indicador(){
                         </Accordion>
                     </div>
                 </div>
+                <div>         
+                { /* Novo */}        
+                <div className="containerHome" >
+                        <Accordion activeIndex={0} className="percentualAgressoes1" >
+                            <AccordionTab  header={
+                                <>
+                                    <span> Indicador Supertrend 2</span>
+                                </>
+                            }>
+                            
+                            <div className='CardGrficoHome'>
+
+                                <GraficoSupertrendNew/>  
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
                 
             </div>
 
             <div style={{paddingTop: '35px'}}>
-                
-               
-
                 <div className="agrssaoAcumulado"> 
-                { /* MACD */}  
+                { /* BOLLINGER */}  
                     <div>
                         <Accordion activeIndex={0}>
                             <AccordionTab  header={
                                 <>
-                                    <span> Indicador MACD </span>
+                                    <span> Indicador Bandas de Bollinger </span>
                                 </>
                             }>
                             
                             <div className='CardGrficoHome'>
                                 <BollingerBandsArea/>
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div> 
+
+
+            </div>
+
+            <div style={{paddingTop: '35px'}}>
+                <div className="agrssaoAcumulado"> 
+                { /* Médias Móveis */}  
+                    <div>
+                        <Accordion activeIndex={0}>
+                            <AccordionTab  header={
+                                <>
+                                    <span> Indicador Médias Móveis das Máximas e Mínimas </span>
+                                </>
+                            }>
+                            
+                            <div className='CardGrficoHome'>
+                                <GraficoMediasMoveis />
                             </div>
 
                             </AccordionTab>
