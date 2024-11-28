@@ -43,7 +43,6 @@ export const GraficoSuperTrend = () => {
               name: 'Search Engine',
               type: 'line',
               stack: 'Total',
-
               areaStyle: {},
               emphasis: {
                 focus: 'series'
@@ -52,6 +51,9 @@ export const GraficoSuperTrend = () => {
             }
         ]
     };
+
+
+ 
 
     return (
         <>

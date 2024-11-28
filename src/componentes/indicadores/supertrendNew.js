@@ -3,6 +3,7 @@ import EChartsReact from "echarts-for-react";
 
 export const GraficoSupertrendNew = () => {
 
+    
     const option = {
         xAxis: {
             data: ['2022-1', '2022-2', '2022-3', '2022-4', '2022-05', '2022-6', '2022-7', '2022-8', '2022-09', '2022-10', '2022-11', '2022-12', '2023-1', '2023-2', '2023-3', '2023-4', '2023-05', '2023-6', '2023-7', '2023-8', '2023-09', '2023-10', '2023-11', '2023-12', '2024-1', '2024-2',  
@@ -20,17 +21,24 @@ export const GraficoSupertrendNew = () => {
             trigger: 'axis',
         },
         series: [
+          
+            
+            
           {
+            //3 valor embaixo
+            //4 valor em cima
             type: 'candlestick',
             data: [
                 [50, 40, 37, 53],
                 [40, 35, 30, 50],
                 [31, 38, 33, 44],
                 [38, 15, 10, 42],
+
                 [35, 30, 28, 40],  
                 [35, 42, 28, 45],  
                 [30, 45, 22, 50],  
                 [42, 20, 15, 45],  
+                
                 [28, 38, 20, 40],  
                 [42, 32, 30, 50],  
                 [33, 48, 25, 55],  
@@ -83,27 +91,100 @@ export const GraficoSupertrendNew = () => {
                 borderColor: 'green',
                 borderColor0: 'red',
             },
+            areaStyle: {
+
+            },
+          },
+          
+          
+          {
+            name: "SupertrendVermelho",
+            type: 'line',
+            symbol: "circle",
+            
+            
+            stack: "Total",
+            color: "red",
+            symbolSize: 6,
+            lineStyle: {
+                width: 0,
+            },
+            showSymbol: false,
+            emphasis: {
+                focus: 'series'
+            },
+            data: [37, 30, 33, 10, '-','-','-','-','-','-','-','-','-','-', 10, 10, 10, 8, 10, 10, 10, 12, 10, 10, 10, 15, 10, 20, 25, '-','-','-','-','-','-','-','-','-','-',10, 10, 10, 8, 10, 10, 10, 12, 10, 10, 10, 14, 10,],
+            inverse: true,
           },
           {
             name: "SupertrendVermelho",
             type: 'line',
             symbol: "circle",
+            color: "red",
+            
             areaStyle: {
                 opacity: 0.2,
             },
-            color: "red",
-            symbolSize: 6,
-            showSymbol: false,
-            stack: 'Total',
+            stack: "Total",
+            
+            
             emphasis: {
                 focus: 'series'
             },
-            data: [58, 55, 47, 45, 42,],
+            data: [53, 50, 44, 42, '-','-','-','-','-','-','-','-','-','-', 75, 74, 74, 73, 71, 69, 66, 65, 63, 63, 61, 58, 54, 51, 50, '-','-','-','-','-','-','-','-','-','-', 75, 74, 74, 73, 71, 69, 66, 65, 63, 63, 61, 58, 54,],
+            
+          },
+          {
+            name: "SupertrendVermelho",
+            type: 'line',
+            symbol: "circle",
+            
+            
+
+            stack: "total",
+            
+            color: "green",
+            symbolSize: 6,
+
+            showSymbol: false,
+            
+            
+            emphasis: {
+                focus: 'series'
+            },
+            data: ['-', '-', '-', '-', 5, 10, 12, 15, 20, 22, 23, 25, 27, 27, '-','-','-','-','-','-','-','-','-','-','-','-','-','-','-', 5, 10, 12, 15, 20, 22, 23, 25, 27, 27],
             inverse: true,
           },
+          {
+            name: "SupertrendVermelho",
+            type: 'line',
+            symbol: "circle",
+            color: "green",
+            stack: "total", 
+            areaStyle: {
+                opacity: 0.2,
+            },
+            
+            lineStyle: {
+                width: 0,
+            },
+            showSymbol: false,
+            
+            emphasis: {
+                focus: 'series'
+            },
+            data: ['-', '-', '-', '-',40, 40, 45, 40, 40, 40, 40, 40, 40, 40, '-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',40, 40, 45, 40, 40, 40, 40, 40, 40, 40],
+            
+          },
+          
 
         ]
     };
+    
+
+   
+
+    
 
     return (
         <>
