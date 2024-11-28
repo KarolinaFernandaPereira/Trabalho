@@ -139,7 +139,7 @@ function Home(){
                         <Accordion activeIndex={1} className="rankingVolume">
                             <AccordionTab  header={
                                 <>
-                                    <span> Raking Volume </span>
+                                    <span> Ranking Volume </span>
                                 </>
                             }>
                                 
