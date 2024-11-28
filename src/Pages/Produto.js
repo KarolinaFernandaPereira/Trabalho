@@ -26,7 +26,7 @@ function Produto(){
             <MenuHeader/>
             <Filtro1/>
 
-            <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
+            <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'center', paddingBottom: '12px'}}>
 
                 <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
                 <span>Alterar para Gráfico de Bolha</span>

@@ -11,7 +11,10 @@ function Swap(){
         <div>
             <MenuHeader/>
             <Filtro1 />
-            <BotaoIndicador style={{ display: "flex", alignItems: "center"}}/>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: 'center'}}>
+
+                <BotaoIndicador />
+            </div>
             <div className='containerSwap'>
                 <div className='cardGrafico2'>
                     <GraficoSwap01 />
