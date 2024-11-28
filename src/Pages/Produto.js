@@ -26,6 +26,13 @@ function Produto(){
             <MenuHeader/>
             <Filtro1/>
 
+            <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
+
+                <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
+                <span>Alterar para Gráfico de Bolha</span>
+                <BotaoIndicador />
+            </div>
+
             <div className="conjuntoProdutos">
                 {/* VOLUME AT PRICE */}
                 <div className="containerProduto">
@@ -81,12 +88,12 @@ function Produto(){
 
                     </div>
 
-                    <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
+                    {/* <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
 
                         <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
                         <span>Alterar para Gráfico de Bolha</span>
                         <BotaoIndicador />
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* BOOK DE OFERTAS */}
@@ -109,7 +116,7 @@ function Produto(){
             </div>
 
             { /* MACD */}  
-            <div style={{paddingTop: '35px'}}>
+            {/* <div style={{paddingTop: '35px'}}>
                 
                
 
@@ -133,7 +140,7 @@ function Produto(){
                 </div> 
 
 
-            </div>
+            </div> */}
 
             <div className='conjuntoProdutos_Colum'>
                 <div>

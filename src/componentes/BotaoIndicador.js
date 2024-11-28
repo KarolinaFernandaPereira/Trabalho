@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { MultiSelect } from 'primereact/multiselect';
+import { InputText } from 'primereact/inputtext';
+import './BotaoIndicadores.css';
 
 export default function BotaoIndicador(){
     const [selectedIndi, setselectedIndi] = useState(null);
@@ -31,10 +33,15 @@ export default function BotaoIndicador(){
     return (
         <>
         {/* INDICADORES */}
-            <div className="cardFiltro">
-                <MultiSelect value={selectedIndi} onChange={(e) => setselectedIndi(e.value)} options={indicadores} 
+            <div>
+                <div className="p-inputgroup flex-1">
+                    <span className="p-inputgroup-addon">
+                        <i className="pi pi-wave-pulse"></i>
+                    </span>
+                    <MultiSelect value={selectedIndi} onChange={(e) => setselectedIndi(e.value)} options={indicadores} 
                     display="chip" optionLabel="name" optionGroupChildren={['indicadores']}
-                    className="filtroEnergia" breakpoint="767px" placeholder="Selecione Indicadores" />
+                    className="IndicadorBotaoFiltragem" breakpoint="1000px" placeholder="Selecione Indicadores" />
+                </div>
             </div>
         </>
     )
