@@ -18,13 +18,35 @@ function Home(){
         <div>
             <MenuHeader/>
             
+            <div className='MapaVolume1'>
+
+                <div>
+                    {/* MAPA DE VOLUME DIARIO */}
+                    <div className="MapaVolume2">
+                        <Accordion activeIndex={0} className="MapaVolume3">
+                            <AccordionTab header={
+                                <>
+                                    <span> Mapa de Volume Diário </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoVolume">
+                                <GraficoMapaVolumeDiario /> 
+                                <GraficoMapaLinhaVol />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+            </div>
 
             <div className='conjuntoHome4'>
                 
                 <div>         
                     { /* PercentualAgressoes */}        
                     <div className="containerHome" >
-                        <Accordion activeIndex={0} className="percentualAgressoes1" >
+                        <Accordion activeIndex={1} className="percentualAgressoes1" >
                             <AccordionTab  header={
                                 <>
                                     <span> Percentual de Agressões </span>
@@ -44,7 +66,7 @@ function Home(){
                 <div>            
                 { /* HistoricoAgressoes */}  
                     <div className="containerHome" >
-                        <Accordion activeIndex={0} className="historicoAgressoes">
+                        <Accordion activeIndex={1} className="historicoAgressoes">
                             <AccordionTab  header={
                                 <>
                                     <span> Histórico de Agressões </span>
@@ -151,29 +173,6 @@ function Home(){
                     </div>
                 </div>
 
-            </div>
-            
-            <div className='conjuntoHome3'>
-
-                <div>
-                    {/* MAPA DE VOLUME DIARIO */}
-                    <div className="containerHome">
-                        <Accordion activeIndex={1} className="agrssaoAcumulado">
-                            <AccordionTab header={
-                                <>
-                                    <span> Mapa de Volume Diário </span>
-                                </>
-                            }>
-
-                            <div className="cardGraficoVolume">
-                                <GraficoMapaVolumeDiario /> 
-                                <GraficoMapaLinhaVol />
-                            </div>
-
-                            </AccordionTab>
-                        </Accordion>
-                    </div>
-                </div>
             </div>
 
             {/* <div className='conjuntoHome3'>

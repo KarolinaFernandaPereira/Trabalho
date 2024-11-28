@@ -8,6 +8,13 @@
 }
 
 
+.MapaVolume1 {
+    padding-left: 5px;
+    padding-right: 5px;
+
+    margin-top: 15px;
+}
+
 .conjuntoHome2 {
     display: flex;
     gap:  11px;

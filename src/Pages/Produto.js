@@ -14,6 +14,8 @@ import { GraficoPrecos } from '../componentes/produto/precos';
 
 import { InputSwitch } from "primereact/inputswitch";
 import { GraficoCandleStick } from '../componentes/produto/candleStick';
+import { GraficoMacd } from '../componentes/indicadores/macd';
+import BotaoIndicador from '../componentes/BotaoIndicador';
 
 function Produto(){
 
@@ -56,8 +58,8 @@ function Produto(){
 
                             <div className="cardGraficoPreco">
                                 
+                            <GraficoPrecos />
                                 
-                                <GraficoCandleStick />
                             </div>
 
                             </AccordionTab>
@@ -70,7 +72,7 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoPreco">
-                            <GraficoPrecos />
+                            <GraficoCandleStick />
                         </div>
 
                         </AccordionTab>
@@ -82,7 +84,8 @@ function Produto(){
                     <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
 
                         <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
-                        <span>Alterar Gráfico</span>
+                        <span>Alterar para Gráfico de Bolha</span>
+                        <BotaoIndicador />
                     </div>
                 </div>
 
@@ -102,6 +105,33 @@ function Produto(){
                         </AccordionTab>
                     </Accordion>
                 </div>
+
+            </div>
+
+            { /* MACD */}  
+            <div style={{paddingTop: '35px'}}>
+                
+               
+
+                <div className="conjuntoProdutos_Colum_Indi"> 
+                
+                    <div className="containerProdutoIndi">
+                        <Accordion activeIndex={1}>
+                            <AccordionTab className="preco" header={
+                                <>
+                                    <span> Indicador MACD </span>
+                                </>
+                            }>
+                            
+                            <div className='CardGrficoHome'>
+                                <GraficoMacd />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div> 
+
 
             </div>
 

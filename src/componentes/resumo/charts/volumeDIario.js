@@ -13,15 +13,17 @@ export const GraficoMapaVolumeDiario = () => {
     [10, 30, 1, 2, 'B', 0],
     [30, 60, 0, 1, 'A', 100],
     [60, 80, 2, 3, 'C', 100],
-    [30, 60, 3, 4, 'D', 100],
-    [60, 80, 4, 5, 'E', 100],
+    [80, 100, 3, 4, 'D', 0],
+    [100, 115, 2, 3, 'C', 100],
+    [115, 118, 4, 5, 'C', 100],
+    [118, 125, 0, 1, 'A', 100],
   ]
   const option = {
     
     tooltip: {},
     xAxis: {
       scale: true,
-      max: 100,
+      max: 125,
       type: 'value',
       splitLine: {
         lineStyle: {

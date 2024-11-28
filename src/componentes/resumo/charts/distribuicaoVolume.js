@@ -57,7 +57,7 @@ export const GraficoDistribuicaoVolume = () => {
             data: [100, 200, 200, NaN, NaN, 70, 10, 3, 3, 3, 3, NaN, NaN, NaN, 3, NaN, NaN, NaN, NaN, NaN, 3]
           },
           {
-            name: 'Volume',
+            name: 'Unidade',
             color: "rgb(98, 18, 202)",
             type: 'bar',
             stack: 'Total',
