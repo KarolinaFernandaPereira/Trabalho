@@ -29,7 +29,7 @@ function Produto(){
             <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'center', paddingBottom: '12px'}}>
 
                 <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
-                <span>Alterar para Gráfico de Bolha</span>
+                <span>Alterar Visualização de Gráfico</span>
                 <BotaoIndicador />
             </div>
 
