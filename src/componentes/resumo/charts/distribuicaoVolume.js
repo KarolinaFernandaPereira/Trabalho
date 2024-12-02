@@ -8,7 +8,7 @@ export const GraficoDistribuicaoVolume = () => {
           trigger: 'axis',
         },
         legend: {
-          data: ['Unidade'],
+          data: ['Quantidade de Negócio'],
           textStyle: {
             color: "rgb(165, 165, 165)",
         }
@@ -36,7 +36,7 @@ export const GraficoDistribuicaoVolume = () => {
             axisTick: {
                 show: false,
             },
-            data: [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+            data: ["5h", "6h", "7h", "8h", "9h", "10h", "11h", "12h", "13h", "14h", "15h", "16h", "17h", "18h", "19h", "20h", "21h", "22h", "23h"],
             splitLine: {
                 lineStyle: {
                   type: 'solid',
@@ -47,7 +47,7 @@ export const GraficoDistribuicaoVolume = () => {
         ],
         series: [
           {
-            name: 'Unidade',
+            name: 'Quantidade de Negócio',
             color: "rgb(98, 18, 202)",
             type: 'bar',
             stack: 'Total',
@@ -57,7 +57,7 @@ export const GraficoDistribuicaoVolume = () => {
             data: [100, 200, 200, NaN, NaN, 70, 10, 3, 3, 3, 3, NaN, NaN, NaN, 3, NaN, NaN, NaN, NaN, NaN, 3]
           },
           {
-            name: 'Unidade',
+            name: 'Quantidade de Negócio',
             color: "rgb(98, 18, 202)",
             type: 'bar',
             stack: 'Total',
