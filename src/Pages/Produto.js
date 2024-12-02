@@ -17,10 +17,54 @@ import { GraficoCandleStick } from '../componentes/produto/candleStick';
 import { GraficoMacd } from '../componentes/indicadores/macd';
 import BotaoIndicador from '../componentes/BotaoIndicador';
 
+
+import { MultiSelect } from 'primereact/multiselect';
+import { InputText } from 'primereact/inputtext';
+import { GraficoSarNew } from '../componentes/indicadores/sarNew';
+
 function Produto(){
 
     const [check, setCheck] = useState(false);
 
+    const [selectedIndi, setselectedIndi] = useState(null);
+
+    const indicadores = [
+        {
+            name: 'Stop ATR', code: 'ATR', elemet: "GraficoPrecos"
+        },
+        {
+            name: 'RSI', code: 'RSI',
+        },
+        {
+            name: 'MACD', code: 'MACD',
+        },
+        {
+            name: 'SAR Parabólico', code: 'SAR',
+        },
+        {
+            name: 'Supertrend', code: 'SUPER',
+        },
+        {
+            name: 'Bandas de Bollinger', code: 'BOLLINGER',
+        },
+        {
+            name: 'Médias Móveis das Máximas e Mínimas', code: 'MEDIA',
+        }, 
+    ];
+
+    
+    const selectedIndicatorCodes = selectedIndi?.map(indicator => indicator.elemet) || [];
+    console.log(selectedIndicatorCodes[0])
+
+    const componentMap = {
+        'ATR': 'GraficoPrecos',
+      };
+    
+    const renderDynamicComponents = () => {
+        // Primeiro, extrai os códigos dos objetos selecionados
+        return <GraficoSarNew />
+      };
+    
     return(
         <div>
             <MenuHeader/>
@@ -30,7 +74,16 @@ function Produto(){
 
                 <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
                 <span>Alterar para Gráfico de Bolha</span>
-                <BotaoIndicador />
+                <div>
+                <div className="p-inputgroup flex-1">
+                    <span className="p-inputgroup-addon">
+                        <i className="pi pi-wave-pulse"></i>
+                    </span>
+                    <MultiSelect value={selectedIndi} onChange={(e) => setselectedIndi(e.value)} options={indicadores} 
+                    display="chip" optionLabel="name" optionGroupChildren={['indicadores']}
+                    className="IndicadorBotaoFiltragem" breakpoint="1000px" placeholder="Selecione Indicadores" />
+                </div>
+            </div>
             </div>
 
             <div className="conjuntoProdutos">
@@ -65,10 +118,10 @@ function Produto(){
 
                             <div className="cardGraficoPreco">
                                 
-                            <GraficoPrecos />
+                                <GraficoPrecos />
                                 
                             </div>
-
+                            {selectedIndi ? renderDynamicComponents() : null}
                             </AccordionTab>
                         </Accordion>
                         ): ( <Accordion activeIndex={0} className="preco">
@@ -80,12 +133,13 @@ function Produto(){
 
                         <div className="cardGraficoPreco">
                             <GraficoCandleStick />
+                            
                         </div>
-
+                        {selectedIndi ? renderDynamicComponents() : null}
                         </AccordionTab>
                     </Accordion>)}
                         
-
+                    
                     </div>
 
                     {/* <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>

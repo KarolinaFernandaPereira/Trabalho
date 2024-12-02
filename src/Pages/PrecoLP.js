@@ -11,24 +11,87 @@ function PrecoLp(){
             <MenuHeader/>
             <Filtro2/>
             <HistoricoPrecosConvencional/>
-            <div>  
-                    { /*Distribuição de Volume*/}           
-                    <div>
-                        <Accordion activeIndex={1} className="cardGrafico3" >
-                            <AccordionTab  header={
-                                <>
-                                    <span> Distribuição de Volume </span>
-                                </>
-                            }>
-                                <div>
 
-                                    <GraficoDistribuicaoVolume />  
-                                </div>
+            <div class="chart-container" style={{"display": "flex", "flexDirection": "row"}}>
+                <div>  
+                        { /*Distribuição de Volume*/}           
+                        <div>
+                            <Accordion activeIndex={1} className="cardGrafico3" style={{"width": "41rem"}}>
+                                <AccordionTab  header={
+                                    <>
+                                        <span> Distribuição de Volume - 2024 </span>
+                                    </>
+                                }>
+                                    <div>
 
-                            </AccordionTab>
-                        </Accordion>
-                    </div>
+                                        <GraficoDistribuicaoVolume />  
+                                    </div>
+
+                                </AccordionTab>
+                            </Accordion>
+                        </div>
+                </div>
+
+                <div>  
+                        { /*Distribuição de Volume*/}           
+                        <div>
+                            <Accordion activeIndex={1} className="cardGrafico3"  style={{"width": "41.5rem"}}>
+                                <AccordionTab  header={
+                                    <>
+                                        <span> Distribuição de Volume - 2023 </span>
+                                    </>
+                                }>
+                                    <div>
+
+                                        <GraficoDistribuicaoVolume />  
+                                    </div>
+
+                                </AccordionTab>
+                            </Accordion>
+                        </div>
+                </div>
             </div>
+
+            <div class="chart-container" style={{"display": "flex", "flexDirection": "row"}}>
+                <div>  
+                        { /*Distribuição de Volume*/}           
+                        <div>
+                            <Accordion activeIndex={1} className="cardGrafico3" style={{"width": "41rem"}}>
+                                <AccordionTab  header={
+                                    <>
+                                        <span> Distribuição de Volume - 2022 </span>
+                                    </>
+                                }>
+                                    <div>
+
+                                        <GraficoDistribuicaoVolume />  
+                                    </div>
+
+                                </AccordionTab>
+                            </Accordion>
+                        </div>
+                </div>
+
+                <div>  
+                        { /*Distribuição de Volume*/}           
+                        <div>
+                            <Accordion activeIndex={1} className="cardGrafico3"  style={{"width": "41.5rem"}}>
+                                <AccordionTab  header={
+                                    <>
+                                        <span> Distribuição de Volume - 2021 </span>
+                                    </>
+                                }>
+                                    <div>
+
+                                        <GraficoDistribuicaoVolume />  
+                                    </div>
+
+                                </AccordionTab>
+                            </Accordion>
+                        </div>
+                </div>
+            </div>
+
         </div>
     );
 }
