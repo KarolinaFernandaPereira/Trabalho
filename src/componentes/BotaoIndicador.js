@@ -30,9 +30,11 @@ export default function BotaoIndicador(){
         }, 
     ];
 
+    console.log(selectedIndi)
+
     return (
         <>
-        {/* INDICADORES */}
+        
             <div>
                 <div className="p-inputgroup flex-1">
                     <span className="p-inputgroup-addon">
