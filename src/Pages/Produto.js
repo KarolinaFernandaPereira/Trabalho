@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MenuHeader from '../componentes/menu';
 import Filtro1 from '../componentes/produto/filtro';
 import { Accordion, AccordionTab } from 'primereact/accordion';
@@ -28,9 +28,11 @@ function Produto(){
 
     const [selectedIndi, setselectedIndi] = useState(null);
 
+    useEffect(()=>{console.log("resultado",selectedIndi)},[selectedIndi])
+
     const indicadores = [
         {
-            name: 'Stop ATR', code: 'ATR', elemet: "GraficoPrecos"
+            name: 'Stop ATR', code: 'ATR',
         },
         {
             name: 'RSI', code: 'RSI',
@@ -53,7 +55,7 @@ function Produto(){
     ];
 
     
-    const selectedIndicatorCodes = selectedIndi?.map(indicator => indicator.elemet) || [];
+    const selectedIndicatorCodes = selectedIndi?.map(indicator => indicator.code) || [];
     console.log(selectedIndicatorCodes[0])
 
     const componentMap = {
@@ -132,7 +134,7 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoPreco">
-                            <GraficoCandleStick />
+                            <GraficoCandleStick indicador={selectedIndicatorCodes[0]}/>
                             
                         </div>
                         {selectedIndi ? renderDynamicComponents() : null}
