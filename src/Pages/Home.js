@@ -18,8 +18,32 @@ function Home(){
         <div>
             <MenuHeader/>
 
+            <div className='MapaVolume1'>
+
+                    <div>
+                        {/* MAPA DE VOLUME DIARIO */}
+                        <div className="MapaVolume2">
+                            <Accordion activeIndex={0} className="MapaVolume3">
+                                <AccordionTab header={
+                                    <>
+                                        <span> Mapa de Volume Diário </span>
+                                    </>
+                                }>
+
+                                <div className="cardGraficoVolume">
+                                    <GraficoMapaVolumeDiario /> 
+                                    <GraficoMapaLinhaVol />
+                                </div>
+
+                                </AccordionTab>
+                            </Accordion>
+                        </div>
+                    </div>
+                </div>
+
             <div className='conjuntoHome2'>
                 
+
                 <div>  
                     { /*Ranking Volume*/}           
                     <div className="containerHome" >
@@ -100,29 +124,6 @@ function Home(){
                                     <GraficoResumoSemana />   
                                 </div>
                                    
-
-                            </AccordionTab>
-                        </Accordion>
-                    </div>
-                </div>
-            </div>
-            
-            <div className='MapaVolume1'>
-
-                <div>
-                    {/* MAPA DE VOLUME DIARIO */}
-                    <div className="MapaVolume2">
-                        <Accordion activeIndex={0} className="MapaVolume3">
-                            <AccordionTab header={
-                                <>
-                                    <span> Mapa de Volume Diário </span>
-                                </>
-                            }>
-
-                            <div className="cardGraficoVolume">
-                                <GraficoMapaVolumeDiario /> 
-                                <GraficoMapaLinhaVol />
-                            </div>
 
                             </AccordionTab>
                         </Accordion>
