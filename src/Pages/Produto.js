@@ -15,58 +15,57 @@ import { GraficoPrecos } from '../componentes/produto/precos';
 import { InputSwitch } from "primereact/inputswitch";
 import { GraficoCandleStick } from '../componentes/produto/candleStick';
 import { GraficoMacd } from '../componentes/indicadores/macd';
+import { GraficoRsi } from '../componentes/indicadores/rsi';
 import BotaoIndicador from '../componentes/BotaoIndicador';
 
 
 import { MultiSelect } from 'primereact/multiselect';
-import { InputText } from 'primereact/inputtext';
-import { GraficoSarNew } from '../componentes/indicadores/sarNew';
+
+import { GraficoAtr } from '../componentes/indicadores/atr';
 
 function Produto(){
 
     const [check, setCheck] = useState(false);
 
-    const [selectedIndi, setselectedIndi] = useState(null);
+    const [selectedIndi, setselectedIndi] = useState([]);
 
-    useEffect(()=>{console.log("resultado",selectedIndi)},[selectedIndi])
+    useEffect(()=>{console.log("resultado",typeof(selectedIndi))},[selectedIndi])
+
+    
 
     const indicadores = [
         {
-            name: 'Stop ATR', code: 'ATR',
+            name: 'Stop ATR', code: 'ATR', 
         },
         {
-            name: 'RSI', code: 'RSI',
+            name: 'RSI', code: 'RSI', 
         },
         {
-            name: 'MACD', code: 'MACD',
+            name: 'MACD', code: 'MACD', 
         },
+
+        
         {
             name: 'SAR Parabólico', code: 'SAR',
         },
         {
-            name: 'Supertrend', code: 'SUPER',
+            name: 'Supertrend', code: 'SUPER', 
         },
         {
-            name: 'Bandas de Bollinger', code: 'BOLLINGER',
+            name: 'Bandas de Bollinger', code: 'BOLLINGER', 
         },
         {
-            name: 'Médias Móveis das Máximas e Mínimas', code: 'MEDIA',
+            name: 'Médias Móveis das Máximas e Mínimas', code: 'MEDIA', 
         }, 
-    ];
+    ]; 
 
     
-    const selectedIndicatorCodes = selectedIndi?.map(indicator => indicator.code) || [];
-    console.log(selectedIndicatorCodes[0])
+    
 
-    const componentMap = {
-        'ATR': 'GraficoPrecos',
-      };
-    
-    const renderDynamicComponents = () => {
-        // Primeiro, extrai os códigos dos objetos selecionados
-        return <GraficoSarNew />
-      };
-    
+    function renderChart() {
+       
+    }
+
     return(
         <div>
             <MenuHeader/>
@@ -123,7 +122,7 @@ function Produto(){
                                 <GraficoPrecos />
                                 
                             </div>
-                            {selectedIndi ? renderDynamicComponents() : null}
+                            
                             </AccordionTab>
                         </Accordion>
                         ): ( <Accordion activeIndex={0} className="preco">
@@ -134,10 +133,21 @@ function Produto(){
                         }>
 
                         <div className="cardGraficoPreco">
-                            <GraficoCandleStick indicador={selectedIndicatorCodes[0]}/>
+                            <GraficoCandleStick indicador={selectedIndi}/>
                             
                         </div>
-                        {selectedIndi ? renderDynamicComponents() : null}
+                        { selectedIndi.map((chart) => { 
+                            if(chart.code === 'MACD'){
+                                return <GraficoMacd />
+                            } 
+                            if(chart.code === 'RSI'){
+                                return <GraficoRsi />
+                            } 
+                            if(chart.code === 'ATR'){
+                                return <GraficoAtr />
+                            }   
+
+                        })}
                         </AccordionTab>
                     </Accordion>)}
                         

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EChartsReact from "echarts-for-react";
 
 export const GraficoSupertrendNew = () => {
@@ -126,7 +126,7 @@ export const GraficoSupertrendNew = () => {
                 opacity: 0.2,
             },
             stack: "Total",
-            
+            showSymbol: false,
             
             emphasis: {
                 focus: 'series'
