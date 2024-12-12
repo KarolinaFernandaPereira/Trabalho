@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EChartsReact from "echarts-for-react";
+import { isElement } from "react-dom/test-utils";
 
 
 
@@ -9,7 +10,8 @@ export const GraficoCandleStick = ({indicador}) => {
 
     const [optionChart, setOptionChart1] = useState({})
     const [indicadores1, setIndicadores1] = useState([])
-    
+    const [key, setKey] = useState(0)
+
    
     
 
@@ -293,11 +295,21 @@ export const GraficoCandleStick = ({indicador}) => {
           ]
       };
 
-      if(indicador !== undefined){
-        indicador.map((item => {
+      option.series.filter(serie => 
+        indicador.some(item => 
+            (item.code === 'SAR' && serie.name === 'SAR') ||
+            (item.code === 'MEDIA' && (serie.name === 'Máximas' || serie.name === 'Mínimas')) ||
+            (item.code === 'BOLLINGER' && serie.name === 'Preço de Fechamento') ||
+            (item.code === 'SUPER' && serie.name === 'SuperTrendVermelho')
+        )
+      );
 
-          //Sar Parabolico
-          if(item.code === 'SAR') {
+      setOptionChart1(option)
+      setKey((prev) => prev + 2);
+      if(indicador !== undefined){
+        
+        for(const item of indicador) {
+          if(item.code === 'SAR'){
             option.series.push({
               name: "SAR",
               type: 'line',
@@ -320,18 +332,15 @@ export const GraficoCandleStick = ({indicador}) => {
                
               ],
             });
-    
-            setOptionChart1(option)
+            setKey((prev) => prev + 1);
 
-            indicadores1.push('SAR')
+            indicadores1.push("SAR");
             setIndicadores1(indicadores1)
           } 
 
-
-          //Media Movel
           if(item.code === 'MEDIA') {
             option.series.push({
-              data: ['-', '-', '-',2285, 2274, 2272, 2275, 2266, 2262, 2271, 2271, 2265, 2252, 2242, 2230, 2235, 2285, 2274, 2272, 2275],
+              data: ['-', '-', '-', '-', '-', '-', '-', '-',  '-', '-', 2385, 2374, 2372, 2375, 2366, 2362, 2371, 2371, 2365, 2352, 2342, 2330, 2335, 2385, 2374, 2372, 2375],
               type: 'line',
               color: "blue",
               name: "Máximas",
@@ -341,7 +350,7 @@ export const GraficoCandleStick = ({indicador}) => {
                   },
               },
               {
-                data: ['-', '-', '-', 200, 205, 203, 199, 200, 206, 205, 200, 205, 203, 199],
+                data: ['-', '-', '-', '-', '-', '-', '-', '-',  '-', '-', 2275, 2264, 2262, 2265, 2256, 2252, 2261, 2261, 2255, 2242, 2232, 2240, 2245, 2250, 2241, 2238, 2235],
                 type: 'line',
                 color: "red",
                 name: "Mínimas",
@@ -352,7 +361,7 @@ export const GraficoCandleStick = ({indicador}) => {
                   },
               },
               {
-                  data: ['-', '-', '-', 2274, 2271, 2270, 2265, 2260, 2270, 2258, 2250, 2241, 2238, 2235, 2264, 2261, 2260, 2255],
+                  data: ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-',  '-', '-', 2274, 2271, 2270, 2265, 2260, 2270, 2258, 2250, 2241, 2238, 2235, 2264, 2261, 2260, 2255],
                   type: 'line',
                   color: "green",
                   name: "Média Móvel Máximas (20 períodos)",
@@ -362,7 +371,7 @@ export const GraficoCandleStick = ({indicador}) => {
                   },
               },
               {
-                data: ['-', '-', '-', 200, 205, 203, 199, 200, 206, 205, 200, 205, 203, 199],
+                data: ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-',  '-', '-', 2264, 2261, 2260, 2255, 2250, 2260, 2248, 2240, 2231, 2238, 2235, 2264, 2261, 2260, 2255],
                 type: 'line',
                 color: "yellow",
                 name: "Média Móvel Mínima (20 períodos)",
@@ -372,7 +381,7 @@ export const GraficoCandleStick = ({indicador}) => {
                 },
             })
 
-            setOptionChart1(option)
+            setKey((prev) => prev + 1);
 
             indicadores1.push('MEDIA')
             setIndicadores1(indicadores1)
@@ -454,7 +463,7 @@ export const GraficoCandleStick = ({indicador}) => {
               stack: 'confidence-band',
             })
 
-            setOptionChart1(option)
+            setKey((prev) => prev + 1);
 
             indicadores1.push('BOLLINGER')
             setIndicadores1(indicadores1)
@@ -542,20 +551,16 @@ export const GraficoCandleStick = ({indicador}) => {
               
             })
 
-            setOptionChart1(option)
+            setKey((prev) => prev + 1);
 
             indicadores1.push('SUPER')
             setIndicadores1(indicadores1)
           }
-
           
-          
-          
-
-        }))
+        }
       }
 
-      console.log(indicadores1)
+      
 
      
       setOptionChart1(option)
@@ -573,7 +578,7 @@ export const GraficoCandleStick = ({indicador}) => {
     return (
       <>
       
-          <EChartsReact option={optionChart} />
+          <EChartsReact option={optionChart} key={key} />
       
       </>
 
