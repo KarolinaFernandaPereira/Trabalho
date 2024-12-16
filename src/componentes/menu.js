@@ -14,9 +14,9 @@ export default function MenuHeader() {
   
       const items = [
         {
-            label: 'RESUMO',
-            icon: 'pi pi-home',
-            url: '/home'
+          label: 'RESUMO',
+          icon: 'pi pi-home',
+          url: '/home'
         },
         {
           label: 'PRODUTO',
@@ -47,7 +47,8 @@ export default function MenuHeader() {
       },
       {
         label: 'Configurações',
-        icon: 'pi pi-cog'
+        icon: 'pi pi-cog',
+        url: '/configuracoes'
       },
       {
         label: 'Sair',

@@ -17,7 +17,7 @@ import { GraficoCandleStick } from '../componentes/produto/candleStick';
 import { GraficoMacd } from '../componentes/indicadores/macd';
 import { GraficoRsi } from '../componentes/indicadores/rsi';
 import BotaoIndicador from '../componentes/BotaoIndicador';
-
+import { useNavigate } from "react-router-dom";
 
 import { MultiSelect } from 'primereact/multiselect';
 
@@ -31,6 +31,7 @@ function Produto(){
 
     useEffect(()=>{console.log("resultado",typeof(selectedIndi))},[selectedIndi])
 
+    const navigate = useNavigate();
     
 
     const indicadores = [
@@ -62,8 +63,8 @@ function Produto(){
     
     
 
-    function renderChart() {
-       
+    function config() {
+       navigate("/configuracoes");
     }
 
     return(
@@ -84,7 +85,7 @@ function Produto(){
                     display="chip" optionLabel="name" optionGroupChildren={['indicadores']}
                     className="IndicadorBotaoFiltragem" breakpoint="1000px" placeholder="Selecione Indicadores" />
                     <span className="p-inputgroup-addon">
-                        <i className="pi pi-cog" style={{ cursor:"pointer"}}></i>
+                        <i className="pi pi-cog" style={{ cursor:"pointer"}} onClick={config}></i>
                     </span>
                 </div>
             </div>

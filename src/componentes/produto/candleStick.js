@@ -56,9 +56,39 @@ export const GraficoCandleStick = ({indicador}) => {
               left: '6%',
               right: '2%',
               top: '5%',
-              bottom: '6%'
           },
-          tooltip: {},
+          dataZoom: [
+            {
+              textStyle: {
+                color: '#262c30'
+              },
+              dataBackground: {
+                areaStyle: {
+                  color: '#fff'
+                },
+                lineStyle: {
+                  opacity: 0.8,
+                  color: '#000'
+                }
+              },
+              brushSelect: true
+            },
+            {
+              type: 'inside'
+            }
+          ],
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+              animation: false,
+              type: 'cross',
+              lineStyle: {
+                color: '#376df4',
+                width: 2,
+                opacity: 1
+              }
+            }
+          },
           series: [
             {
               type: 'candlestick',
@@ -195,6 +225,7 @@ export const GraficoCandleStick = ({indicador}) => {
                   2287, 2300, 2291,2311, 2306, 2313, 2309, 2317, 2322, 2318, 2324, 2320, 2330, 2327, 2331, 2334, 2338, 2341,
                   2349, 2346, 2344, 2352, 2357, 2361, 2368, 2365, 2370, 2374,2381, 2378, 2385, 2383, 2390,2393, 2398, 2400, 2406, 2411
               ],
+              name: 'B1',
               color: 'gray',
               lineStyle: {
                   width: 1,
@@ -229,6 +260,7 @@ export const GraficoCandleStick = ({indicador}) => {
   
               ],
               color: 'gray',
+              name: 'B2',
               lineStyle: {
                   width: 1
               },
@@ -263,6 +295,7 @@ export const GraficoCandleStick = ({indicador}) => {
   
               ],
               color: 'white',
+              name: 'B3',
               lineStyle: {
                   width: 1
                 },
@@ -283,6 +316,7 @@ export const GraficoCandleStick = ({indicador}) => {
                 2325, 2325, 2325, 2325, 2325, 2325, 2325, 2325, 2325, 2325, 2325, 2325,
               ],
               color: 'yellow',
+              name: 'Média',
               lineStyle: {
                   width: 1,
                   type: "dashed",
