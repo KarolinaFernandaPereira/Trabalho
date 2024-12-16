@@ -83,6 +83,9 @@ function Produto(){
                     <MultiSelect value={selectedIndi} onChange={(e) => setselectedIndi(e.value)} options={indicadores} 
                     display="chip" optionLabel="name" optionGroupChildren={['indicadores']}
                     className="IndicadorBotaoFiltragem" breakpoint="1000px" placeholder="Selecione Indicadores" />
+                    <span className="p-inputgroup-addon">
+                        <i className="pi pi-cog" style={{ cursor:"pointer"}}></i>
+                    </span>
                 </div>
             </div>
             </div>
