@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import MenuHeader from '../componentes/menu';
 import { Tree } from 'primereact/tree';
 import './Config.css'
+import { UserConfiguracao } from '../componentes/configuracoes/user';
 
 
 function Configuracoes(){
@@ -122,7 +123,7 @@ function Configuracoes(){
     const renderContent = () => {
         switch (selectedNode) {
             case 'user':
-                return <h1>Perfil do Usuário</h1>;
+                return <UserConfiguracao />;
             
             case 'gerais':
                 return <h1>Informações Gerais</h1>

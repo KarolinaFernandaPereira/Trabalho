@@ -1,0 +1,39 @@
+.config1 {
+    display: grid;
+    grid-template-areas: 'a a';
+    grid-template-columns: 40% 60%;
+    grid-column-gap: 40px;
+}
+
+
+.inputs1 {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 45px;
+    padding-top: 45px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    padding-top: 45px;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+.foto {
+    height:150px; 
+    border-radius: 50%; 
+    border: 10px solid #FEDE00;
+}
+
+
+.p-inputgroup-addon {
+    position: absolute;
+    right: 13rem;
+    top: 17rem;
+    border-radius: 10px;
+}
