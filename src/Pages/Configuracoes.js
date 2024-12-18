@@ -3,6 +3,7 @@ import MenuHeader from '../componentes/menu';
 import { Tree } from 'primereact/tree';
 import './Config.css'
 import { UserConfiguracao } from '../componentes/configuracoes/user';
+import { IndicadoresConfiguracoes } from '../componentes/configuracoes/indicadores';
 
 
 function Configuracoes(){
@@ -124,7 +125,7 @@ function Configuracoes(){
                 return <h1 className='h1config'>Alterar Senha ou Email</h1>;
 
             case 'indicadores':
-                return <h1 className='h1config'>Indicadores</h1>
+                return <IndicadoresConfiguracoes />
             
             case 'coresLinha':
                 return <h1 className='h1config'>Cores Linha</h1>
@@ -165,7 +166,7 @@ function Configuracoes(){
     };
 
     return (
-        <div>
+        <div style={{height: '100vh'}}>
             <MenuHeader/>
 
             <div className='config-container'>
