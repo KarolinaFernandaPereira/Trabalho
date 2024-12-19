@@ -43,9 +43,7 @@ function Produto(){
         },
         {
             name: 'MACD', code: 'MACD', 
-        },
-
-        
+        },        
         {
             name: 'SAR Parabólico', code: 'SAR',
         },

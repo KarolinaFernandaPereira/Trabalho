@@ -1,0 +1,67 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding-top: 25px;
+}
+
+
+
+.body_1 {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'a a';
+    grid-template-columns: 57% auto;
+    grid-column-gap: 40px;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+
+.simbolos {
+    display: flex;
+    gap: 1rem;
+}
+
+
+.max_min {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.chart_slide {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chart_slide {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart_maxMin {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chat_config1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chart_option2 {
+    display: flex;
+    gap: 1rem;
+}
+
+.chart_config {
+    
+    height: 1rem;
+}
