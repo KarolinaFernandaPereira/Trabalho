@@ -11,8 +11,9 @@ export const GraficoRankingVolume = () => {
         }},
         grid: {
             right: '2%',
-            top: '20%',
+            top: '10%',
             left: '2%',
+            bottom: '2%',
             containLabel: true
         },
         xAxis: {

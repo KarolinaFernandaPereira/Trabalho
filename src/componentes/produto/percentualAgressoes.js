@@ -20,8 +20,8 @@ export const GraficoPercentualAgressoes = () => {
     }
 
     const grid = {
-        left: 100,
-        right: 100,
+        left: 85,
+        right: 5,
         top: 50,
         bottom: 50
     };

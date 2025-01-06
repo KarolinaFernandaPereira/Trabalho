@@ -99,7 +99,7 @@ function Home(){
                                 
                                 <div className='CardGrficoHome' >
 
-                                    <GraficoResumoDia />   
+                                    <GraficoResumoDia/>
                                     
                                 </div>
                                 

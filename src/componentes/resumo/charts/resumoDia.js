@@ -232,25 +232,25 @@ export const GraficoResumoDia = () => {
 
     return (
         <>
-            <div style={{height: '101px'}}>
+            <div style={{height: '88px'}}>
 
                 <EChartsReact option={option} />
             </div>
-            <div style={{height: '101px'}}>
+            <div style={{height: '88px'}}>
 
                 <EChartsReact option={option2}/>
             </div>
-            <div style={{height: '101px'}}>
+            <div style={{height: '88px'}}>
 
                 <EChartsReact option={option3}/>
             </div>
-            <div style={{height: '101px'}}>
+            <div style={{height: '88px'}}>
 
                 <EChartsReact option={option4}/>
             </div>
-            <div style={{height: '101px'}}>
+            <div>
 
-                <EChartsReact option={option5}/>
+                <EChartsReact option={option5} style={{height: '88px', paddingTop:  '45px'}}/>
             </div>
            
         </>

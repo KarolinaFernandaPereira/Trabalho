@@ -612,10 +612,8 @@ export const GraficoCandleStick = ({indicador}) => {
     return (
       <>
       
-          <EChartsReact option={optionChart} key={key} />
-      
+          <EChartsReact option={optionChart} key={key} style={{width: '759px', height: '368px'}}/>
       </>
-
     )
     
 }

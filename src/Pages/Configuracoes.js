@@ -16,75 +16,18 @@ function Configuracoes(){
             label: 'Perfil do Usuário',
             data: 'user',
             icon: 'pi pi-user',
-            children: [
-                {
-                    key: '0-0',
-                    label: 'Informações Gerais',
-                    data: 'gerais',
-                    icon: 'pi pi-user-edit',
-                    
-                },
-                {
-                    key: '0-1',
-                    label: 'Alterar senha',
-                    data: 'senhaEmail',
-                    icon: 'pi pi-lock',
-                    
-                }
-            ]
         },
         {
             key: '1',
             label: 'Indicadores',
             data: 'indicadores',
             icon: 'pi pi-wave-pulse',
-            children: [
-                {
-                    key: '1-0',
-                    label: 'Cor da Linha',
-                    data: 'coresLinha',
-                    icon: 'pi pi-palette',
-                },
-                {
-                key: '1-1',
-                    label: 'Espessura da Linha',
-                    data: 'linhaConfiguracoes',
-                    icon: 'pi pi-minus',
-                },
-                {
-                    key: '1-2',
-                    label: 'Estilo da Linha',
-                    data: 'estiloLinha',
-                    icon: 'pi pi-sparkles',
-                },
-                {
-                    key: '1-3',
-                    label: 'Transparência',
-                    data: 'transparencia',
-                    icon: 'pi pi-sliders-h',
-                },
-                {
-                    key: '1-4',
-                    label: 'Definir Limite Superior e Inferior',
-                    data: 'definirLimite',
-                    icon: 'pi pi-sort-alt',
-                },
-            ]
-        
         },
         {
             key: '2',
             label: 'Segurança',
             data: 'segurança',
             icon: 'pi pi-unlock',
-            children: [
-                {
-                    key: '2-0',
-                    label: 'Autenticação por email',
-                    data: 'email',
-                    icon: 'pi pi-envelope',
-                },
-            ]
         },
         {
             key: '3',

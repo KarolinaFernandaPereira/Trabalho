@@ -6,6 +6,13 @@ import { color } from 'chart.js/helpers';
 
 export const GraficoHistoricoAgressoes = () => {
     
+    const grid = {
+        left: 100,
+        right: 5,
+        top: 50,
+        bottom: 50
+    };
+
     var series = [
       {
         data: [230, 132, 0, 0, 90, 230, 210, 0, 132, 101, 134, 90, 230, 210, 100, 2, 301, 0, 390, 33, 320, 0, 302, 301, 334, 390, 330, 320],
@@ -26,6 +33,7 @@ export const GraficoHistoricoAgressoes = () => {
       ];
       
       const option = {
+        grid,
         xAxis: {
           type: 'category',
           data: ['Jun 29', 'Jul 6', 'Jul 13', 'Jul 20', 'Jul 27', 'Ago 3', 'Ago 10', 'Ago 17', 'Ago 24', 'Ago 31', 'Sep 7', 'Sep 14', 'Sep 21', 'Sep 28', 'Oct 5', 'Oct 12', 'Oct 19', 'Oct 26', 'Nov 2', 'Nov 9', 'Nov 16', 'Nov 23', 'Nov 30'],
