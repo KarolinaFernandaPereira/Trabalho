@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 import { MultiSelect } from 'primereact/multiselect';
 
 import { GraficoAtr } from '../componentes/indicadores/atr';
+import { GraficoVolutidade } from '../componentes/indicadores/volatilidade';
 
 function Produto(){
 
@@ -55,6 +56,9 @@ function Produto(){
         },
         {
             name: 'Médias Móveis das Máximas e Mínimas', code: 'MEDIA', 
+        }, 
+        {
+            name: 'Volatilidade', code: 'VOL', 
         }, 
     ]; 
 
@@ -147,7 +151,10 @@ function Produto(){
                             } 
                             if(chart.code === 'ATR'){
                                 return <GraficoAtr />
-                            }   
+                            }
+                            if(chart.code === 'VOL'){
+                                return <GraficoVolutidade />
+                            }
 
                         })}
                         </AccordionTab>

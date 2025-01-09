@@ -10,6 +10,7 @@ import { GraficoMediasMoveis } from '../componentes/indicadores/mediasMoveis';
 import { BollingerBandsArea } from '../componentes/indicadores/bandasbollinger';
 import { GraficoSarNew } from '../componentes/indicadores/sarNew';
 import { GraficoSupertrendNew } from '../componentes/indicadores/supertrendNew';
+import { GraficoVolutidade } from '../componentes/indicadores/volatilidade';
 
 function Indicador(){
     return (
@@ -211,6 +212,30 @@ function Indicador(){
                             
                             <div className='CardGrficoHome'>
                                 <GraficoMediasMoveis />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div> 
+
+
+            </div>
+
+            
+            <div style={{paddingTop: '35px'}}>
+                <div className="agrssaoAcumulado"> 
+                { /* Médias Móveis */}  
+                    <div>
+                        <Accordion activeIndex={0}>
+                            <AccordionTab  header={
+                                <>
+                                    <span> Indicador Voltividade </span>
+                                </>
+                            }>
+                            
+                            <div className='CardGrficoHome'>
+                                <GraficoVolutidade />
                             </div>
 
                             </AccordionTab>

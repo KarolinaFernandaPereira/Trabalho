@@ -42,8 +42,8 @@ export default function MenuHeader() {
 
     const itemsMenu = [
       {
-        label: 'Tema',
-        icon: 'pi pi-sun'
+        label: 'Importar Dados',
+        icon: 'pi pi-upload'
       },
       {
         label: 'Configurações',
