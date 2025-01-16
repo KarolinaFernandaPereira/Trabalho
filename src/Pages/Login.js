@@ -11,10 +11,8 @@ function Login(){
     const handleSubmit = (event) => {
         event.preventDefault()
     
-    
-        if(email === "admin@gmail.com" && senha === "admin"){
-            window.location.replace("/home")
-        }
+        window.location.replace("/home")
+        
     }
 
 
