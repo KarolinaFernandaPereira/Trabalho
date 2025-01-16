@@ -20,7 +20,7 @@ export const GraficoVolutidade = () => {
         },
         },
         legend: {
-            data: ['Volutidade'],
+            data: ['Volatidade'],
             textStyle: {
                 color: "rgb(165, 165, 165)",
             }
@@ -33,7 +33,7 @@ export const GraficoVolutidade = () => {
             data: [80, 60, 75, 50, 78, 70, 30, 50, 67, 44, 15, 10, 38, 25],
             type: 'line',
             color: "yellow",
-            name: "Volutidade",
+            name: "Volatidade",
             symbol: "circle",
           },
           {

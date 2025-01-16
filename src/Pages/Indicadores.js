@@ -230,7 +230,7 @@ function Indicador(){
                         <Accordion activeIndex={0}>
                             <AccordionTab  header={
                                 <>
-                                    <span> Indicador Voltividade </span>
+                                    <span> Indicador Volatividade </span>
                                 </>
                             }>
                             
