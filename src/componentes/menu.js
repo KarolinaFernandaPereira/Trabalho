@@ -32,12 +32,7 @@ export default function MenuHeader() {
           label: 'PREÇO LP',
           icon: 'pi pi-chart-bar',
           url: '/precolp'
-        },
-        {
-          label: 'INDICADORES',
-          icon: 'pi pi-hourglass',
-          url: '/indicadores'
-        },
+        }
     ];
 
     const itemsMenu = [
