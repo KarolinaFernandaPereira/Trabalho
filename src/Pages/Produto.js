@@ -23,8 +23,12 @@ import { MultiSelect } from 'primereact/multiselect';
 
 import { GraficoAtr } from '../componentes/indicadores/atr';
 import { GraficoVolutidade } from '../componentes/indicadores/volatilidade';
+import axios from 'axios';
 
 function Produto(){
+
+    
+
 
     const [check, setCheck] = useState(false);
 
