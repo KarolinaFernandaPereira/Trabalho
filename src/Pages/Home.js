@@ -44,7 +44,7 @@ function Home(){
             <div className='conjuntoHome2'>
                 
 
-                <div>  
+                <div style={{"width": "50%"}}>  
                     { /*Ranking Volume*/}           
                     <div className="containerHome" >
                         <Accordion activeIndex={1} className="rankingVolume">
@@ -65,7 +65,7 @@ function Home(){
                     </div>
                 </div>
                 
-                <div>  
+                <div style={{"width": "50%"}}>  
                     { /*Distribuição de Volume*/}           
                     <div className="containerHome" >
                         <Accordion activeIndex={1} className="distribuicaoVolume">
