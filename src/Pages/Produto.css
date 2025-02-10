@@ -3,7 +3,7 @@
     gap:  1rem;
     padding-bottom: 20px;
     padding-left: 20px;
-    
+    justify-content: center;
 }
 
 .conjuntoProdutos_Colum_Indi{
@@ -21,8 +21,8 @@
 
 .conjuntoProdutos_Row {
     
-    display: grid;
-    grid-template: "a a" 50px;
+    display: flex;
+    justify-content: center;
 
     gap: 1rem;
 

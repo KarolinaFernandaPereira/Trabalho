@@ -12,7 +12,7 @@ function PrecoLp(){
             <Filtro2/>
             <HistoricoPrecosConvencional/>
 
-            <div class="chart-container" style={{"display": "flex", "flexDirection": "row"}}>
+            <div class="chart-container" style={{"display": "flex", "flexDirection": "row", "justifyContent": "center"}}>
                 <div>  
                         { /*Distribuição de Volume*/}           
                         <div>
@@ -52,7 +52,7 @@ function PrecoLp(){
                 </div>
             </div>
 
-            <div class="chart-container" style={{"display": "flex", "flexDirection": "row"}}>
+            <div class="chart-container" style={{"display": "flex", "flexDirection": "row", "justifyContent": "center"}}>
                 <div>  
                         { /*Distribuição de Volume*/}           
                         <div>
