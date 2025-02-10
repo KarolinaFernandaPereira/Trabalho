@@ -87,7 +87,7 @@ function Home(){
             </div>
 
             <div className='conjuntoHome'>
-                <div>  
+                <div style={{"width": "50%"}}>  
                     { /*Resumo Dia*/}           
                     <div className="containerHome" >
                         <Accordion activeIndex={1} className="resumoDia">
@@ -109,7 +109,7 @@ function Home(){
                     </div>
                 </div>
 
-                <div>  
+                <div style={{"width": "50%"}}>  
                     { /*Resumo Dia*/}           
                     <div className="containerHome" >
                         <Accordion activeIndex={1} className="resumoSemana">
@@ -133,7 +133,7 @@ function Home(){
 
             <div className='conjuntoHome4'>
                 
-                <div>         
+                <div style={{"width": "50%"}}>         
                     { /* PercentualAgressoes */}        
                     <div className="containerHome" >
                         <Accordion activeIndex={1} className="percentualAgressoes1" >
@@ -153,7 +153,7 @@ function Home(){
                     </div>
                 </div>
 
-                <div>            
+                <div style={{"width": "50%"}}>            
                 { /* HistoricoAgressoes */}  
                     <div className="containerHome" >
                         <Accordion activeIndex={1} className="historicoAgressoes">
@@ -174,83 +174,9 @@ function Home(){
                         
                
             </div>
-            
-            {/* <HorizontalRulerChart /> */}
-           
-
-            
-
-            {/* <div className='conjuntoHome3'>
-                <div>  
-                     Mapa Volume          
-                    <div className="containerHome" >
-                        <Accordion activeIndex={1} className="volume">
-                            <AccordionTab  header={
-                                <>
-                                    <span> Mapa de Volume Diário </span>
-                                </>
-                            }>
-                                
-                                <div className='CardGrficoHome' >
-
-                                    <GraficoMapaVolumeDiario />   
-                                    <GraficoMapaLinhaVol />
-                                </div>
-                                   
-
-                            </AccordionTab>
-                        </Accordion>
-                    </div>
-                </div>
-            </div> */}
 
         </div>
     );
 }
 
 export default Home;
-
-/*
-<div>             
-    <div className="containerProduto" >
-        <Accordion activeIndex={1} className="volume">
-            <AccordionTab  header={
-                <>
-                    <span> Volume </span>
-                </>
-            }>
-            
-                
-
-            </AccordionTab>
-        </Accordion>
-    </div>
-</div>
-
-
-
- <div className='conjuntoHome3'>
-                <div>  
-                             
-                    <div className="containerHome" >
-                        <Accordion activeIndex={1} className="mapaVolume">
-                            <AccordionTab  header={
-                                <>
-                                    <span> Mapa de linha Volume Diário </span>
-                                </>
-                            }>
-                                
-                                <div className='CardGrficoHome'>
-
-                                    <GraficoMapaLinhaVol />   
-                                </div>
-                                   
-
-                            </AccordionTab>
-                        </Accordion>
-                    </div>
-                </div>
-            </div>
-
-
-*/
