@@ -282,7 +282,7 @@ function Produto(){
            
             <div className='conjuntoProdutos_Row'>
                  {/* PERCENTUAL DE AGRESSOES */}
-                <div>
+                <div style={{"width": "50%"}}>
                     <div className="containerProduto">
                         <Accordion activeIndex={1} className="percentualAgressoes">
                             <AccordionTab header={
@@ -303,7 +303,7 @@ function Produto(){
                 
                 
                 { /* PERCENTUAL DE AGRESSÕES */ }
-                <div>
+                <div style={{"width": "50%"}}>
                     <div className="containerProduto">
                         <Accordion activeIndex={1} className="percentualAgressoes">
                             <AccordionTab header={

@@ -18,40 +18,77 @@ export const GraficoVolumeAtPrice = () => {
         getDados();
     }, []);
 
-    const y = [];
-    const x = [];
+    var vendaY = 0;
+    var compraY = 0;
+    var y = [];
+    var x = [];
 
-    dados.map((dado) => {
-      y.push(dado.quantidadeHora)
-      x.push(dado.preco)
-    })
-
-    const conjunto = new Set(x);
-
-    const listaElementosUnicos = Array.from(conjunto);
-    
-    const series1 = []
     let vendaList = []
     let compraList = []
 
+    var precos = []
+
+    var listaElementosUnicos = []
+
+    var VendaTeste = []
+    var CompraTeste = []
+    var c1 = 0
+    var v1 = 0
+
     dados.map((dado) => {
-      if(dado.tendencia == "Venda"){
-        vendaList.push(parseInt(dado.quantidadeHora))
-        
-      } else {
-        compraList.push(parseInt(dado.quantidadeHora))
-      }
+      
+      
+      
+
+      x.push(dado.preco)
+
+      var filtrado = []
+
+      x.map((dado1) => {
+        filtrado = dados.filter((item) => item.preco == dado1)
+        console.log(filtrado)
+        filtrado.map((dadoFiltrado) => {
+          if(dadoFiltrado.tendencia === "Venda"){
+            v1 = v1 + parseInt(dadoFiltrado.quantidadeHora)
+          } else {
+            c1 = c1 + parseInt(dadoFiltrado.quantidadeHora)
+          }
+  
+          
+        })
+        VendaTeste.push(v1)
+        CompraTeste.push(c1)
+        console.log(VendaTeste)
+        v1 = 0
+        c1 = 0
+      })
     })
-
     
-    const compra = compraList.reduce((accumulator,value) => accumulator + value,0);
-    var venda = vendaList.reduce((accumulator,value) => accumulator + value,0);
+    
+    
+    const conjunto = new Set(x);
 
+    listaElementosUnicos = Array.from(conjunto);
+    
+    listaElementosUnicos.map((elemento) => {
+
+      precos = dados.filter((item) => item.preco == elemento)
+
+      
+    })
+    
+    
+    const series1 = []
+    
+
+    var compra = compraList.reduce((accumulator,value) => accumulator + value,0);
+    var venda = vendaList.reduce((accumulator,value) => accumulator + value,0);
+    
     series1.push(
       {
         name: 'Venda',
         type: 'bar',
-        data: venda,
+        data: VendaTeste,
         color: "red",
       }
     )
@@ -60,7 +97,7 @@ export const GraficoVolumeAtPrice = () => {
       {
         name: 'Compra',
         type: 'bar',
-        data: compra,
+        data: CompraTeste,
         color: "green",
       }
     )
@@ -88,7 +125,7 @@ export const GraficoVolumeAtPrice = () => {
         name: 'R$/MWh',
         type: 'value',
         boundaryGap: [0, 0.01],
-        data: y,
+        data: listaElementosUnicos,
 
         splitLine:{
           lineStyle:{
@@ -114,7 +151,8 @@ export const GraficoVolumeAtPrice = () => {
         type: 'category',
         data: listaElementosUnicos,
         name: '(MWm)',
-        inverse: true
+        inverse: true,
+        
       },
 
       

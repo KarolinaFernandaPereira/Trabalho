@@ -89,9 +89,6 @@
     
 }
 
-.percentualAgressoes {
-    width: 40.5rem;
-}
 
 .cardGraficoBook {
     width: 55%;
@@ -105,9 +102,6 @@
     width: 13rem;
 }
 
-.cardGraficoPercentual {
-    width: 35rem;
-}
 
 
 
@@ -116,71 +110,3 @@
 
 
 
-
-/*
-
-
-
-.cardGraficoBook {
-    width: 15%;
-    height: 375px; 
-    background-color: #131618; 
-    border-radius: 15px; 
-    margin: 10px;
-    padding: 10px;
-}
-
-.bookOferta{
-    width: 16%;
-    margin: 10px 684px;
-}
-
-
-
-.cardGraficoVolume{
-    width: 15%;
-    height: 80px; 
-    background-color: #131618; 
-    border-radius: 15px; 
-    margin: 10px;
-    padding: 10px;
-}
-
-.volume{
-    width: 98%;
-    margin: 10px;
-}
-
-
-
-.cardGraficoHistorico{
-    width: 80%;
-    height: 400px; 
-    background-color: #131618; 
-    border-radius: 15px; 
-    margin: 10px;
-    padding: 10px;
-}
-
-.historicoAgressoes{
-    width: 230%;
-    margin: 10px;
-}
-
-
-.cardGraficoPercentual{
-    width: 70%;
-    height: 400px; 
-    background-color: #131618; 
-    border-radius: 15px; 
-    margin: 10px;
-    padding: 10px;
-}
-
-.percentualAgressoes{
-    width: 70%;
-    margin: 10px 368px;
-}
-
-
-*/
