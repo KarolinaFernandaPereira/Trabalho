@@ -6,17 +6,7 @@ import axios from "axios";
 export const GraficoVolumeAtPrice = () => {
 
     const [dados, setDados] = useState([]);
-    const api = axios.create({
-        baseURL: "http://localhost:3030"
-    })
-
-    const getDados = async () => {
-        await api.get("/principal/listar").then((response) => setDados(response.data));
-    }
-
-    useEffect(() => {
-        getDados();
-    }, []);
+   
 
     var vendaY = 0;
     var compraY = 0;
@@ -46,7 +36,7 @@ export const GraficoVolumeAtPrice = () => {
 
       x.map((dado1) => {
         filtrado = dados.filter((item) => item.preco == dado1)
-        console.log(filtrado)
+        
         filtrado.map((dadoFiltrado) => {
           if(dadoFiltrado.tendencia === "Venda"){
             v1 = v1 + parseInt(dadoFiltrado.quantidadeHora)
@@ -58,7 +48,7 @@ export const GraficoVolumeAtPrice = () => {
         })
         VendaTeste.push(v1)
         CompraTeste.push(c1)
-        console.log(VendaTeste)
+        
         v1 = 0
         c1 = 0
       })
