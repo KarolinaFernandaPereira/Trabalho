@@ -23,7 +23,11 @@ import { MultiSelect } from 'primereact/multiselect';
 
 import { GraficoAtr } from '../componentes/indicadores/atr';
 import { GraficoVolutidade } from '../componentes/indicadores/volatilidade';
+
+import { GraficoDistribuicaoVolume } from '../componentes/resumo/charts/distribuicaoVolume';
+
 import axios from 'axios';
+import { GraficoDistribuicaoVolumeCompra } from '../componentes/resumo/charts/distribuicaoVolumeCompra';
 
 function Produto(){
 
@@ -78,121 +82,9 @@ function Produto(){
             <MenuHeader/>
             <Filtro1/>
 
-            <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'center', paddingBottom: '12px'}}>
+            
 
-                <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
-                <span>Alterar visualização de gráfico </span>
-                <div>
-                <div className="p-inputgroup flex-1">
-                    <span className="p-inputgroup-addon">
-                        <i className="pi pi-wave-pulse"></i>
-                    </span>
-                    <MultiSelect value={selectedIndi} onChange={(e) => setselectedIndi(e.value)} options={indicadores} 
-                    display="chip" optionLabel="name" optionGroupChildren={['indicadores']}
-                    className="IndicadorBotaoFiltragem" breakpoint="1000px" placeholder="Selecione Indicadores" />
-                    <span className="p-inputgroup-addon">
-                        <i className="pi pi-cog" style={{ cursor:"pointer"}} onClick={config}></i>
-                    </span>
-                </div>
-            </div>
-            </div>
-
-            <div className="conjuntoProdutos">
-                {/* VOLUME AT PRICE */}
-                <div className="containerProduto">
-                    <Accordion activeIndex={0} className="volumeAtPrice">
-                        <AccordionTab header={
-                            <>
-                                <span> Volume at Price </span>
-                            </>
-                        }>
-
-                        <div className="cardGraficoVolumeAtPrice">
-                            <GraficoVolumeAtPrice/>
-                        </div>
-
-                        </AccordionTab>
-                    </Accordion>
-                </div>
-
-                {/* PREÇO */}
-                <div>
-
-                    <div className="containerProduto">
-                        
-                        {check ? (<Accordion activeIndex={0} className="preco">
-                            <AccordionTab header={
-                                <>
-                                    <span> Preços </span>
-                                </>
-                            }>
-
-                            <div className="cardGraficoPreco">
-                                
-                                <GraficoPrecos />
-                                
-                            </div>
-                            
-                            </AccordionTab>
-                        </Accordion>
-                        ): ( <Accordion activeIndex={0} className="preco">
-                        <AccordionTab header={
-                            <>
-                                <span> Preços </span>
-                            </>
-                        }>
-
-                        <div className="cardGraficoPreco">
-                            <GraficoCandleStick indicador={selectedIndi}/>
-                            
-                        </div>
-                        { selectedIndi.map((chart) => { 
-                            if(chart.code === 'MACD'){
-                                return <GraficoMacd />
-                            } 
-                            if(chart.code === 'RSI'){
-                                return <GraficoRsi />
-                            } 
-                            if(chart.code === 'ATR'){
-                                return <GraficoAtr />
-                            }
-                            if(chart.code === 'VOL'){
-                                return <GraficoVolutidade />
-                            }
-
-                        })}
-                        </AccordionTab>
-                    </Accordion>)}
-                        
-                    
-                    </div>
-
-                    {/* <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
-
-                        <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
-                        <span>Alterar para Gráfico de Bolha</span>
-                        <BotaoIndicador />
-                    </div> */}
-                </div>
-
-                {/* BOOK DE OFERTAS */}
-                <div className="containerProduto">
-                    <Accordion activeIndex={0} className="bookOferta">
-                        <AccordionTab header={
-                            <>
-                                <span> Book de Ofertas </span>
-                            </>
-                        }>
-
-                        <div className="cardGraficoBook">
-                            <GraficoBookOfertas />
-                        </div>
-
-                        </AccordionTab>
-                    </Accordion>
-                </div>
-
-            </div>
+            {/* COLOQUE AQUI */}
 
             { /* MACD */}  
             {/* <div style={{paddingTop: '35px'}}>
@@ -276,6 +168,45 @@ function Produto(){
                         </Accordion>
                     </div>
                 </div>
+
+
+                <div>
+                    {/* AGRESSÃO ACUMULADA */}
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="agrssaoAcumulado">
+                            <AccordionTab header={
+                                <>
+                                    <span> Distribuição de Volume </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoVolume">
+                                <GraficoDistribuicaoVolume />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>
+
+                <div>
+                    {/* AGRESSÃO ACUMULADA */}
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="agrssaoAcumulado">
+                            <AccordionTab header={
+                                <>
+                                    <span> Distribuição de Volume Compra-Venda </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoVolume">
+                                <GraficoDistribuicaoVolumeCompra />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>              
 
             </div>
 

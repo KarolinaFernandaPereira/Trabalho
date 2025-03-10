@@ -1,14 +1,72 @@
-import React from "react";
-import EChartsReact from "echarts-for-react";
+import React, { useState, useEffect } from "react";
+import EChartsReact from "echarts-for-react"; 
+import axios from "axios";
 
 
 
 export const GraficoAgressaoAcumulada = () => {
 
+
+    const [dados, setDados] = useState([]);
+
+    const api1 = axios.create({
+        baseURL: "http://localhost:3030"
+    })
+
+    const getDados = async () => {
+        await api1.get("/principal/agressao").then((response) => setDados(response.data));
+    }
+
+    useEffect(() => {
+        getDados();
+    }, []);  
+
+    const datas = []
+    const venda = []
+    const compra = []
+
+    var aux1 = 0
+    var aux2 = 0
+
+    
+
+    var cont = 0
+    dados.map((item) => {
+      
+
+
+      datas.push(item.data)
+
+      
+
+        if(cont == 0){
+          
+            venda.push(parseInt(item.venda))
+            compra.push(parseInt(item.compra))
+          
+        } else {
+            console.log(venda)
+            aux1 = venda[cont - 1] + item.venda
+            aux2 = compra[cont - 1] + parseInt(item.compra)
+            
+            venda.push(aux1)
+            compra.push(aux2)
+        }
+
+      cont = cont + 1
+    })
+    
+    const vendaFinal = []
+
+    console.log(venda)
+    venda.map((dado) => {
+        vendaFinal.push(dado * -1)    
+    })
+
     const options = {
         xAxis: {
             type: 'category',
-            data: ['Jun 29', 'Jul 6', 'Jul 13', 'Jul 20', 'Jul 27', 'Ago 3', 'Ago 10', 'Ago 17', 'Ago 24', 'Ago 31', 'Sep 7', 'Sep 14', 'Sep 21', 'Sep 28', 'Oct 5', 'Oct 12', 'Oct 19', 'Oct 26', 'Nov 2', 'Nov 9', 'Nov 16', 'Nov 23', 'Nov 30'],
+            data: datas,
         },
         grid: {
             left: '3%',
@@ -25,31 +83,23 @@ export const GraficoAgressaoAcumulada = () => {
                   color: "#262c30"
                 }
             },
-            max: 200,
-            min: -100,
-            interval: 100
+            
         },
         tooltip: {
             trigger: 'axis'
         },
         series: [
             {
-                data: [55, 100, 25, 200, 35, 42, 11, 10, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                data: compra,
                 type: 'bar',
                 showSymbol: false,
                 color: "green"
             },
             {
-                data: [-55, -10, -25, -20, -35, -40, -10, -10, -25, -53, -11, -50, -50, -60, -88, -98, -78, -100, -89, -66, -78, -100, -33],
+                data: vendaFinal,
                 type: 'bar',
                 showSymbol: false,
                 color: "red"
-            },
-            {
-                data: [50, 100, 25, 200, 35, 42, 11, 10, -25, -53, -11, -50, -50, -60, -88, -100, -99, -56, -95, -50, -60, -90, -20],
-                type: 'line',
-                showSymbol: false,
-                color: "orange"
             }
         ]
     }

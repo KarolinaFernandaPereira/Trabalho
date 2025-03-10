@@ -1,12 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EChartsReact from "echarts-for-react"; //Gráficos Apache
 import { color } from "chart.js/helpers";
 
+import axios from "axios";
+
 export const GraficoPercentualAgressoes = () => {
 
+
+    const [dados, setDados] = useState([]);
+
+    const api1 = axios.create({
+        baseURL: "http://localhost:3030"
+    })
+
+    const getDados = async () => {
+        await api1.get("/principal/agressao").then((response) => setDados(response.data));
+    }
+
+    useEffect(() => {
+        getDados();
+    }, []);
+
+
+    const datas = []
+    const venda = []
+    const compra = []
+
+
+    dados.map((item) => {
+      
+        datas.push(item.data)
+    
+        venda.push(parseInt(item.venda))
+        compra.push(parseInt(item.compra))
+    
+        
+    })
+
+
     const rawData = [
-        [100, 302, 301, 334, 390, 330, 320, 100, 302, 301, 334, 390, 330, 320, 320, 132, 101, 134, 90, 230, 210, 320, 132, 101, 134, 90, 230, 210],
-        [320, 132, 101, 134, 90, 230, 210, 320, 132, 101, 134, 90, 230, 210, 100, 302, 301, 334, 390, 330, 320, 100, 302, 301, 334, 390, 330, 320],
+        venda,
+        compra,
     ];
 
     const totalData = [];
@@ -59,7 +93,7 @@ export const GraficoPercentualAgressoes = () => {
             },
             xAxis: {
                 type: 'category',
-                data: ['Jun 29', 'Jul 6', 'Jul 13', 'Jul 20', 'Jul 27', 'Ago 3', 'Ago 10', 'Ago 17', 'Ago 24', 'Ago 31', 'Sep 7', 'Sep 14', 'Sep 21', 'Sep 28', 'Oct 5', 'Oct 12', 'Oct 19', 'Oct 26', 'Nov 2', 'Nov 9', 'Nov 16', 'Nov 23', 'Nov 30']
+                data: datas
             },
             tooltip : {
 

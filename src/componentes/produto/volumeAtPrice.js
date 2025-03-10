@@ -26,10 +26,6 @@ export const GraficoVolumeAtPrice = () => {
     var v1 = 0
 
     dados.map((dado) => {
-      
-      
-      
-
       x.push(dado.preco)
 
       var filtrado = []
@@ -43,9 +39,8 @@ export const GraficoVolumeAtPrice = () => {
           } else {
             c1 = c1 + parseInt(dadoFiltrado.quantidadeHora)
           }
-  
-          
         })
+
         VendaTeste.push(v1)
         CompraTeste.push(c1)
         
@@ -150,7 +145,7 @@ export const GraficoVolumeAtPrice = () => {
       series: series1
     };
     
-    console.log(venda)
+    
 
     
     return (

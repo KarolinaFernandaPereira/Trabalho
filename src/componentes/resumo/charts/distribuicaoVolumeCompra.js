@@ -3,50 +3,56 @@ import EChartsReact from "echarts-for-react";
 
 import axios from "axios";
 
-export const GraficoDistribuicaoVolume = () => {
+export const GraficoDistribuicaoVolumeCompra = () => {
 
     const [dados, setDados] = useState([]);
-    
+    const [datas, setDatas] = useState([]);
+
     const api1 = axios.create({
         baseURL: "http://localhost:3030"
     })
 
     const getDados = async () => {
-        await api1.get("/principal/distri").then((response) => setDados(response.data));
+      await api1.get("/principal/distriCompra").then((response) => setDados(response.data));
+      await api1.get("/principal/distri").then((response) => setDatas(response.data));
     }
+    
+    
 
     useEffect(() => {
         getDados();
+        
     }, []);
 
-    var aux = 0;
-    var somaVolume = []
-    var datas = []
+    
+
+    var datas1 = []
+    var venda = []
+    var compra = []
+
+
+    var com1 = 0
+    var com2 = 0
 
     dados.map((item) => {
-      item.volume.map((item) => {
-        aux = aux + item
-
-        
-      })
-
-      datas.push(item.data)
-      somaVolume.push(aux)
-      aux = 0
-    })
-
-    console.log(datas)
-
-
-    var dado1 = []
-    var dado2 = []
-
-    somaVolume.map((item) => {
-      dado1.push(item/2)
-      dado2.push((item/2) * -1)
-    })
-
+      
+      
+      venda.push(item.venda * -1)
+      compra.push(item.compra)
     
+    })
+    
+    console.log(venda)
+    
+
+    datas.map((item) => {
+      
+
+      datas1.push(item.data)
+      
+    })
+    
+    const resultado = datas1.filter(item => item !== undefined);
 
     const option = {
         tooltip: {
@@ -81,7 +87,7 @@ export const GraficoDistribuicaoVolume = () => {
             axisTick: {
                 show: false,
             },
-            data: datas,
+            data: resultado,
             splitLine: {
                 lineStyle: {
                   type: 'solid',
@@ -93,16 +99,18 @@ export const GraficoDistribuicaoVolume = () => {
         series: [
           {
             name: 'Quantidade de Negócio',
+            
             color: "rgb(98, 18, 202)",
             type: 'bar',
             stack: 'Total',
             label: {
               show: false
             },
-            data: dado1,
+            data: compra,
           },
           {
             name: 'Quantidade de Negócio',
+            
             color: "rgb(98, 18, 202)",
             type: 'bar',
             stack: 'Total',
@@ -110,7 +118,7 @@ export const GraficoDistribuicaoVolume = () => {
               show: false,
               position: 'left'
             },
-            data: dado2,
+            data: venda,
           }
         ]
     };

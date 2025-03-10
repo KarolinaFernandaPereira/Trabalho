@@ -16,7 +16,7 @@ export default function Filtro1() {
 
     const [date1, setDate1] = useState(null);
     const [date2, setDate2] = useState(null);
-
+    
     const [inputValue, setInputValue] = useState('');
 
     const periodicidade = [

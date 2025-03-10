@@ -17,6 +17,8 @@ export const GraficoCandleStick = ({indicador}) => {
     var [grafico, setGrafico] = useState([]);
     var [passa, setPassa] = useState([])
 
+    
+    
     const api = axios.create({
         baseURL: "http://localhost:3030"
     })
@@ -32,12 +34,13 @@ export const GraficoCandleStick = ({indicador}) => {
 
     
     
+    
 
     var teste = []
 
     teste.push(grafico)
 
-    console.log(grafico)
+    
     grafico = []
     
     var listaElementosUnicos = []
@@ -61,7 +64,7 @@ export const GraficoCandleStick = ({indicador}) => {
     lista1.map((item2) => {
 
       var grafico = dados.filter(item => item.dataHora == item2)
-      console.log(grafico[0].dataHora)
+      
       
       auxiliar.push(grafico[0].preco)
       cont = cont + 1
@@ -76,10 +79,10 @@ export const GraficoCandleStick = ({indicador}) => {
     })
     
     datas = Array.from(listaElementosUnicos)
-    console.log(dadosFinal)
-
+    
+    
     useEffect(()=>{
-      let option = {
+      const option = {
           xAxis: {
             data: datas,
             lineStyle: {
@@ -158,8 +161,7 @@ export const GraficoCandleStick = ({indicador}) => {
       setOptionChart1(option)
       
       
-    }, [optionChart])
-
+    }, [dados, dadosFinal])
 
     return (
       <>

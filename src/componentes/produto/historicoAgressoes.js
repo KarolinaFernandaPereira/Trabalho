@@ -1,73 +1,110 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import EChartsReact from 'echarts-for-react';
 import { color } from 'chart.js/helpers';
 
 
+import axios from "axios";
+
 
 export const GraficoHistoricoAgressoes = () => {
     
-    const grid = {
-        left: 100,
-        right: 5,
-        top: 50,
-        bottom: 50
-    };
+  const [dados, setDados] = useState([]);
 
-    var series = [
-      {
-        data: [230, 132, 0, 0, 90, 230, 210, 0, 132, 101, 134, 90, 230, 210, 100, 2, 301, 0, 390, 33, 320, 0, 302, 301, 334, 390, 330, 320],
-        type: 'bar',
-        stack: 'total',
-        name: 'Venda',
-        color: 'green'
+  const api1 = axios.create({
+      baseURL: "http://localhost:3030"
+  })
 
-      },
-      {
-        data: [100, 302, 0, 0, 390, 330, 320, 0, 302, 0, 334, 30, 330, 0, 320, 132, 101, 14, 90, 230, 210, 0, 132, 101, 134, 90, 230, 210],
-        type: 'bar',
-        stack: 'total',
-        name: 'Compra',
-        color: 'red'
-      },
-        
-      ];
+  const getDados = async () => {
+      await api1.get("/principal/agressao").then((response) => setDados(response.data));
+  }
+
+  useEffect(() => {
+      getDados();
+  }, []);  
+
+
+  const datas = []
+  const venda = []
+  const compra = []
+  
+  var cont = 0
+
+  var aux1 = 0
+  var aux2 = 0
+
+  dados.map((item) => {
       
-      const option = {
-        grid,
-        xAxis: {
-          type: 'category',
-          data: ['Jun 29', 'Jul 6', 'Jul 13', 'Jul 20', 'Jul 27', 'Ago 3', 'Ago 10', 'Ago 17', 'Ago 24', 'Ago 31', 'Sep 7', 'Sep 14', 'Sep 21', 'Sep 28', 'Oct 5', 'Oct 12', 'Oct 19', 'Oct 26', 'Nov 2', 'Nov 9', 'Nov 16', 'Nov 23', 'Nov 30'],
-          splitLine: {
-            lineStyle: {
-              type: 'solid',
-              color: "#262c30"
-            }
-          },
-        },
-        tooltip : {
+    datas.push(item.data)
 
-        },
-        yAxis: {
-          type: 'value',
-          splitLine: {
-            lineStyle: {
-              type: 'solid',
-              color: "#262c30"
-            }
-          },
-        },
-        series: series,
-        legend: {
-          data: ['Compra', 'Venda'],
-          textStyle: {
-              color: "rgb(165, 165, 165)",
+    venda.push(parseInt(item.venda))
+    compra.push(parseInt(item.compra))
+
+    cont = cont + 1
+  })
+
+
+  const grid = {
+      left: 100,
+      right: 5,
+      top: 50,
+      bottom: 50
+  };
+
+  var series = [
+    {
+      data: venda,
+      type: 'bar',
+      stack: 'total',
+      name: 'Venda',
+      color: 'red'
+
+    },
+    {
+      data: compra,
+      type: 'bar',
+      stack: 'total',
+      name: 'Compra',
+      color: 'green'
+    },
+      
+    ];
+      
+    const option = {
+      grid,
+      xAxis: {
+        type: 'category',
+        data: datas,
+        splitLine: {
+          lineStyle: {
+            type: 'solid',
+            color: "#262c30"
           }
         },
-    };
+      },
+      tooltip : {
+
+      },
+      yAxis: {
+        type: 'value',
+        splitLine: {
+          lineStyle: {
+            type: 'solid',
+            color: "#262c30"
+          }
+        },
+      },
+      series: series,
+      legend: {
+        data: ['Compra', 'Venda'],
+        textStyle: {
+            color: "rgb(165, 165, 165)",
+        }
+      },
+  };
     
-    return (
-        <>
-            <EChartsReact option={option} />
-        </>
-    )
+  return (
+      <>
+          <EChartsReact option={option} />
+      </>
+  )
 }
