@@ -3,37 +3,24 @@ import EChartsReact from "echarts-for-react"; //Gráficos Apache
 import axios from "axios";
 
 
-export const GraficoVolumeAtPrice = ({filtro}) => {
+export const GraficoVolumeAtPrice = () => {
 
   const [dados, setDados] = useState([]);
   const api = axios.create({
     baseURL: "http://localhost:3030"
   })
 
-  const filtroUse = filtro
-  console.log(filtroUse)
-
   const getDados = async () => {
-    await api.get("/principal/volumePrice", {
-      params: {
-        query: JSON.stringify({
-          filtroUse
-        })
-      }
-    }).then((response) => setDados(response.data));
+      await api.get("/principal/listar").then((response) => setDados(response.data));
   }
 
-  
-
   useEffect(() => {
-    
       getDados();
-      
-  }, [filtro]);
+
+  }, []);
 
     var vendaY = 0;
     var compraY = 0;
-
     var y = [];
     var x = [];
 
@@ -46,26 +33,44 @@ export const GraficoVolumeAtPrice = ({filtro}) => {
 
     var VendaTeste = []
     var CompraTeste = []
-
     var c1 = 0
     var v1 = 0
 
     dados.map((dado) => {
       x.push(dado.preco)
 
-      
-      VendaTeste.push(dado.venda)
-      CompraTeste.push(dado.compra)
+      var filtrado = []
+
+      x.map((dado1) => {
+        filtrado = dados.filter((item) => item.preco == dado1)
+        
+        filtrado.map((dadoFiltrado) => {
+          if(dadoFiltrado.tendencia === "Venda"){
+            v1 = v1 + parseInt(dadoFiltrado.quantidadeHora)
+          } else {
+            c1 = c1 + parseInt(dadoFiltrado.quantidadeHora)
+          }
+        })
+
+        VendaTeste.push(v1)
+        CompraTeste.push(c1)
+        
+        v1 = 0
+        c1 = 0
+      })
     })
     
     
     
     const conjunto = new Set(x);
-    
+
     listaElementosUnicos = Array.from(conjunto);
     
     listaElementosUnicos.map((elemento) => {
+
       precos = dados.filter((item) => item.preco == elemento)
+
+      
     })
     
     

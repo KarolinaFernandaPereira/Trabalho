@@ -12,107 +12,92 @@ export const GraficoDistribuicaoVolume = () => {
     })
 
     const getDados = async () => {
-        await api1.get("/principal/distri").then((response) => setDados(response.data));
+        await api1.get("/principal/bloxplot").then((response) => setDados(response.data));
     }
 
     useEffect(() => {
         getDados();
     }, []);
 
-    var aux = 0;
-    var somaVolume = []
-    var datas = []
-
-    dados.map((item) => {
-      item.volume.map((item) => {
-        aux = aux + item
-
+   
+    let option = {
+     
+      
+      dataset: [
+        {
+          // prettier-ignore
+          source: [
+                    
+                    dados
+                ]
+        },
+        {
+          transform: {
+            type: 'boxplot',
+            
+          }
+        },
+        {
+          fromDatasetIndex: 1,
+          fromTransformResult: 1
+        }
+      ],
+      tooltip: {
+        trigger: 'item',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        nameGap: 30,
         
-      })
-
-      datas.push(item.data)
-      somaVolume.push(aux)
-      aux = 0
-    })
-
-    console.log(datas)
-
-
-    var dado1 = []
-    var dado2 = []
-
-    somaVolume.map((item) => {
-      dado1.push(item/2)
-      dado2.push((item/2) * -1)
-    })
-
-    
-
-    const option = {
-        tooltip: {
-          trigger: 'axis',
-        },
-        legend: {
-          data: ['Quantidade de Negócio'],
-          textStyle: {
-            color: "rgb(98, 18, 202)",
-        }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: 'value',
-            splitLine: {
-                lineStyle: {
-                  type: 'solid',
-                  color: "#262c30"
-                }
-            },
+        splitLine: {
+          lineStyle: {
+            type: 'solid',
+            color: "#262c30"
           }
-        ],
-        yAxis: [
-          {
-            type: 'category',
-            axisTick: {
-                show: false,
-            },
-            data: datas,
-            splitLine: {
-                lineStyle: {
-                  type: 'solid',
-                  color: "#262c30"
-                }
-            },
-        }
-        ],
-        series: [
-          {
-            name: 'Quantidade de Negócio',
+      },
+      },
+      yAxis: {
+        type: 'value',
+        name: 'Volume (MWm)',
+        
+        axisTick: {
+          show: false,
+        },
+        splitLine: {
+          lineStyle: {
+            type: 'solid',
+            color: "#262c30"
+          }
+      },
+      },
+      series: [
+        {
+          name: 'boxplot',
+          type: 'boxplot',
+          itemStyle: {
             color: "rgb(98, 18, 202)",
-            type: 'bar',
-            stack: 'Total',
-            label: {
-              show: false
-            },
-            data: dado1,
+            borderColor: 'rgb(140, 135, 219)',
           },
-          {
-            name: 'Quantidade de Negócio',
-            color: "rgb(98, 18, 202)",
-            type: 'bar',
-            stack: 'Total',
-            label: {
-              show: false,
-              position: 'left'
-            },
-            data: dado2,
-          }
-        ]
+          
+          datasetIndex: 1,
+          boxWidth: [1000, 1000],
+        },
+        {
+          name: 'outlier',
+          type: 'scatter',
+          datasetIndex: 2
+        }
+      ]
     };
 
     return (

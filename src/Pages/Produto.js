@@ -38,9 +38,14 @@ function Produto(){
 
     const [selectedIndi, setselectedIndi] = useState([]);
 
-    useEffect(()=>{console.log("resultado",typeof(selectedIndi))},[selectedIndi])
-
     const navigate = useNavigate();
+
+    const [filteredData, setFilteredData] = useState();
+  
+  
+    const handleFilterChange = (newFilteredData) => {
+        setFilteredData(newFilteredData);
+    };
     
 
     const indicadores = [
@@ -63,6 +68,9 @@ function Produto(){
             name: 'Bandas de Bollinger', code: 'BOLLINGER', 
         },
         {
+            name: 'Índice de fluxo de dinheiro', code: 'MFI',
+        },
+        {
             name: 'Médias Móveis das Máximas e Mínimas', code: 'MEDIA', 
         }, 
         {
@@ -70,8 +78,6 @@ function Produto(){
         }, 
     ]; 
 
-    
-    
 
     function config() {
        navigate("/configuracoes");
@@ -80,9 +86,123 @@ function Produto(){
     return(
         <div>
             <MenuHeader/>
-            <Filtro1/>
+            <Filtro1 onFilterChange={handleFilterChange}/>
 
-            
+            <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'center', paddingBottom: '12px'}}>
+ 
+                 <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
+                 <span>Alterar visualização de gráfico </span>
+                 <div>
+                 <div className="p-inputgroup flex-1">
+                     <span className="p-inputgroup-addon">
+                         <i className="pi pi-wave-pulse"></i>
+                     </span>
+                     <MultiSelect value={selectedIndi} onChange={(e) => setselectedIndi(e.value)} options={indicadores} 
+                     display="chip" optionLabel="name" optionGroupChildren={['indicadores']}
+                     className="IndicadorBotaoFiltragem" breakpoint="1000px" placeholder="Selecione Indicadores" />
+                     <span className="p-inputgroup-addon">
+                         <i className="pi pi-cog" style={{ cursor:"pointer"}} onClick={config}></i>
+                     </span>
+                 </div>
+             </div>
+             </div>
+
+            <div className="conjuntoProdutos">
+                {/* VOLUME AT PRICE */}
+                <div className="containerProduto">
+                    <Accordion activeIndex={0} className="volumeAtPrice">
+                        <AccordionTab header={
+                            <>
+                                <span> Volume at Price </span>
+                            </>
+                        }>
+
+                        <div className="cardGraficoVolumeAtPrice">
+                            <GraficoVolumeAtPrice filtro={filteredData}/>
+                        </div>
+
+                        </AccordionTab>
+                    </Accordion>
+                </div>
+
+                {/* PREÇO */}
+                <div>
+
+                    <div className="containerProduto">
+                        
+                        {check ? (<Accordion activeIndex={0} className="preco">
+                            <AccordionTab header={
+                                <>
+                                    <span> Preços </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoPreco">
+                                
+                                <GraficoPrecos filtro={filteredData}/>
+                                
+                            </div>
+                            
+                            </AccordionTab>
+                        </Accordion>
+                        ): ( <Accordion activeIndex={0} className="preco">
+                        <AccordionTab header={
+                            <>
+                                <span> Preços </span>
+                            </>
+                        }>
+
+                        <div className="cardGraficoPreco">
+                            <GraficoCandleStick indicador={selectedIndi}/>
+                            
+                        </div>
+                        { selectedIndi.map((chart) => { 
+                            if(chart.code === 'MACD'){
+                                return <GraficoMacd />
+                            } 
+                            if(chart.code === 'RSI'){
+                                return <GraficoRsi />
+                            } 
+                            if(chart.code === 'ATR'){
+                                return <GraficoAtr />
+                            }
+                            if(chart.code === 'VOL'){
+                                return <GraficoVolutidade />
+                            }
+
+                        })}
+                        </AccordionTab>
+                    </Accordion>)}
+                        
+                    
+                    </div>
+
+                    {/* <div style={{display: 'flex', alignItems: 'center', marginTop: '4px', gap: '15px', flexDirection: 'row-reverse', justifyContent: 'start'}}>
+
+                        <InputSwitch checked={check} onChange={(e) => setCheck(e.value)}/>
+                        <span>Alterar para Gráfico de Bolha</span>
+                        <BotaoIndicador />
+                    </div> */}
+                </div>
+
+                {/* BOOK DE OFERTAS */}
+                <div className="containerProduto">
+                    <Accordion activeIndex={0} className="bookOferta">
+                        <AccordionTab header={
+                            <>
+                                <span> Book de Ofertas </span>
+                            </>
+                        }>
+
+                        <div className="cardGraficoBook">
+                            <GraficoBookOfertas filtro={filteredData}/>
+                        </div>
+
+                        </AccordionTab>
+                    </Accordion>
+                </div>
+
+            </div>
 
             {/* COLOQUE AQUI */}
 
@@ -124,7 +244,7 @@ function Produto(){
                                 </>
                             }>
                             
-                                <GraficoVolume />
+                                <GraficoVolume filtro={filteredData}/>
 
                             </AccordionTab>
                         </Accordion>
@@ -142,7 +262,7 @@ function Produto(){
                             }>
 
                             <div className="cardGraficoVolume">
-                                <GraficoAgressao />
+                                <GraficoAgressao filtro={filteredData}/>
                             </div>
 
                             </AccordionTab>
@@ -161,7 +281,7 @@ function Produto(){
                             }>
 
                             <div className="cardGraficoVolume">
-                                <GraficoAgressaoAcumulada />
+                                <GraficoAgressaoAcumulada filtro={filteredData}/>
                             </div>
 
                             </AccordionTab>
@@ -181,7 +301,7 @@ function Produto(){
                             }>
 
                             <div className="cardGraficoVolume">
-                                <GraficoDistribuicaoVolume />
+                                <GraficoDistribuicaoVolume filtro={filteredData}/>
                             </div>
 
                             </AccordionTab>
@@ -189,24 +309,7 @@ function Produto(){
                     </div>
                 </div>
 
-                <div>
-                    {/* AGRESSÃO ACUMULADA */}
-                    <div className="containerProduto">
-                        <Accordion activeIndex={1} className="agrssaoAcumulado">
-                            <AccordionTab header={
-                                <>
-                                    <span> Distribuição de Volume Compra-Venda </span>
-                                </>
-                            }>
-
-                            <div className="cardGraficoVolume">
-                                <GraficoDistribuicaoVolumeCompra />
-                            </div>
-
-                            </AccordionTab>
-                        </Accordion>
-                    </div>
-                </div>              
+                           
 
             </div>
 
@@ -223,7 +326,7 @@ function Produto(){
                             }>
 
                             <div className="cardGraficoPercentual">
-                                <GraficoPercentualAgressoes />
+                                <GraficoPercentualAgressoes filtro={filteredData}/>
                             </div>
 
                             </AccordionTab>
@@ -244,7 +347,7 @@ function Produto(){
                             }>
 
                             <div className="cardGraficoPercentual">
-                                <GraficoHistoricoAgressoes />
+                                <GraficoHistoricoAgressoes filtro={filteredData}/>
                             </div>
 
                             </AccordionTab>
@@ -299,6 +402,27 @@ export default Produto;
                     </Accordion>
                 </div>
             </div>
+
+
+
+
+            <div>
+                    <div className="containerProduto">
+                        <Accordion activeIndex={1} className="agrssaoAcumulado">
+                            <AccordionTab header={
+                                <>
+                                    <span> Distribuição de Volume Compra-Venda </span>
+                                </>
+                            }>
+
+                            <div className="cardGraficoVolume">
+                                <GraficoDistribuicaoVolumeCompra />
+                            </div>
+
+                            </AccordionTab>
+                        </Accordion>
+                    </div>
+                </div>   
 */
 
 // ´Produto precisa ter uma lista de filtros favoritos para não ter que ficar refazendo o filtro toda vez!

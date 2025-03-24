@@ -6,13 +6,15 @@ import { MultiSelect } from 'primereact/multiselect';
 import { Dialog } from 'primereact/dialog';
 import './filtro.css';
 
-export default function Filtro1() {
+export default function Filtro1({ onFilterChange }) {
     const [selectedPeriodicidade, setselectedPeriodicidade] = useState(null);
     const [selectedSubmercado, setselectedSubmercado] = useState(null);
     const [selectedTipo, setselectedTipo] = useState(null);
     const [selectedEnergia, setselectedEnergia] = useState(null);
     const [selectedContrato, setselectedContrato] = useState(null);
     const [selectedFavorito, setselectedFavorito] = useState(null);
+
+    
 
     const [date1, setDate1] = useState(null);
     const [date2, setDate2] = useState(null);
@@ -129,6 +131,17 @@ export default function Filtro1() {
         setDate2(null);
     }
 
+    var filteredResults = {}
+
+    const handleSub = (event) => {
+        filteredResults.contrato = selectedContrato
+        filteredResults.submercado = selectedSubmercado
+        filteredResults.periodicidade = selectedPeriodicidade
+        filteredResults.tipo = selectedTipo
+        filteredResults.energia = selectedEnergia
+        onFilterChange(filteredResults);
+    }
+
     const [visible, setVisible] = useState(false);
 
     const headerElement = (
@@ -155,9 +168,6 @@ export default function Filtro1() {
 
         favoritos.push(dict)
     };
-
-    
-    
 
     return (
         <>
@@ -223,7 +233,7 @@ export default function Filtro1() {
                         <Calendar value={date2} onChange={(e) => setDate2(e.value)} view="month" dateFormat="mm/yy" className="filtroDatas" style={{fontSize: "small"}} />
                     </div>
 
-                    <Button label="Filtrar" className="botaoFiltro"/>
+                    <Button label="Filtrar" className="botaoFiltro" onClick={handleSub}/>
                     <Button label="Limpar" className="botaoLimpar" onClick={Limpar} />
                     <i className="pi pi-star" style={{ color: 'slateblue', fontSize: '1.5rem', marginLeft: '25px' }}
                         onClick={() => setVisible(true)}></i>
