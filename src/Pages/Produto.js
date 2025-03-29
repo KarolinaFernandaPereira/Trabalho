@@ -31,9 +31,6 @@ import { GraficoDistribuicaoVolumeCompra } from '../componentes/resumo/charts/di
 
 function Produto(){
 
-    
-
-
     const [check, setCheck] = useState(false);
 
     const [selectedIndi, setselectedIndi] = useState([]);

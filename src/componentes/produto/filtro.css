@@ -108,7 +108,22 @@
     outline: 0;
 }
 
+.fav_chart {
+    border-top: 1px solid aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    margin-top: 2rem;
+}
 
+.fav_salvo {
+    border: 1px solid white;
+    padding: 3px;
+    margin-left: 8px;
+    border-radius: 9px;
+}
 
 /*.alinhamento{
     display: flex;

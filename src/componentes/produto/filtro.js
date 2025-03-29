@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CascadeSelect } from 'primereact/cascadeselect';
 import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 import { MultiSelect } from 'primereact/multiselect';
 import { Dialog } from 'primereact/dialog';
+import axios from "axios";
+
 import './filtro.css';
 
 export default function Filtro1({ onFilterChange }) {
@@ -20,6 +22,44 @@ export default function Filtro1({ onFilterChange }) {
     const [date2, setDate2] = useState(null);
     
     const [inputValue, setInputValue] = useState('');
+
+  const [dados, setDados] = useState([]);
+  const [elementos, setElementos] = useState([]);
+
+  const api = axios.create({
+    baseURL: "http://localhost:3030"
+  })
+
+const getDados = async () => {
+    await api.get("/filtro/listar").then((response) => setDados(response.data));
+}
+
+
+
+    useEffect(() => {
+        
+        getDados();
+        
+    }, []);
+
+    useEffect(() => {
+        // Renderiza os elementos quando os dados mudam
+        const novosElementos = dados.map((usuario) => (
+          <div key={usuario.id} className="fav_component">
+            <i 
+              className="pi pi-star-fill" 
+              style={{ 
+                color: 'slateblue', 
+                fontSize: '1.0rem', 
+                marginLeft: '25px' 
+              }}
+            ></i>
+            <label className="fav_salvo"> {usuario.nome} </label>
+          </div>
+        ));
+    
+        setElementos(novosElementos);
+      }, [dados]);
 
     const periodicidade = [
         {
@@ -71,10 +111,10 @@ export default function Filtro1({ onFilterChange }) {
 
     const tipos = [
         {
-            name: 'Spread', code: 'Spr',
+            name: 'Spread', code: 'Spread',
         },
         {
-            name: 'Preço Fixo', code: 'Pfx',
+            name: 'Preço Fixo', code: 'Preço Fixo',
         },
     ];
 
@@ -150,25 +190,61 @@ export default function Filtro1({ onFilterChange }) {
             <span className="font-bold white-space-nowrap">Salvar Filtro</span>
         </div>
     );
+    
 
+    
+
+    
+  
+    
+    
+    var str 
+    const handleChange = async (event) => {
+        setInputValue(event.target.value)
+        str = event.target.value; //Nome Filtro
+        
+        
+        
+    };
+    
+    const salvarFav = async () => {
+        const dict = {
+            name: inputValue,
+            
+            submercado: selectedSubmercado,
+            tipo: selectedTipo,
+            periodicidade: selectedPeriodicidade,
+            dataIni: date1 ,
+            dataFin: date2 ,
+            contrato: selectedContrato ,
+            energia: selectedEnergia,
+            ativo: 1,
+            padrao: 0
+        }
+        
+        console.log(JSON.stringify(dict))
+
+        await api.post("/filtro/criar", dict);
+        
+        favoritos.push(dict)
+        console.log(favoritos)
+    }
+
+    
+   
+    
     const footerContent = (
         <div>
-            <Button label="Salvar" icon="pi pi-check" onClick={() => setVisible(false)} autoFocus />
+            <Button label="Salvar" onClick={() => salvarFav()} autoFocus />
+
+            <div className="fav_chart">
+                
+                {elementos}
+            </div>
         </div>
-    );
-
-    const handleChange = (event) => {
-        setInputValue(event.target.value)
-        const str = event.target.value;
         
-        const dict = {
-            name: str,
-            code: str.substr(0, 3)
-        }
-
-        favoritos.push(dict)
-    };
-
+    );
+    
     return (
         <>
             {/* <div className="cardFiltro">
