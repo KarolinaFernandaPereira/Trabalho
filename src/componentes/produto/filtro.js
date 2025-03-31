@@ -172,64 +172,68 @@ const getPadrao = async () => {
 
 
     useEffect(() => {
-          if(filtro != undefined){
+        console.log(filtro)
+        if(filtro == "Nada Cadastrado"){
+           return;
+        }
 
-                const subFiltro = filtro.submercado.split("_").filter((item) => item !== "");
-                const energiaFiltro = filtro.energia.split("_").filter((item) => item !== "");
-                const contratoFiltro = filtro.contrato;
-                const tipoFiltro = filtro.tipo.split("_").filter((item) => item !== "");
-                const periodiFiltro = filtro.periodicidade;
+        if(filtro != undefined){
 
-                const ativo = filtro.ativo;
-                const padrao = filtro.padrao;
+            const subFiltro = filtro.submercado.split("_").filter((item) => item !== "");
+            const energiaFiltro = filtro.energia.split("_").filter((item) => item !== "");
+            const contratoFiltro = filtro.contrato;
+            const tipoFiltro = filtro.tipo.split("_").filter((item) => item !== "");
+            const periodiFiltro = filtro.periodicidade;
+
+            const ativo = filtro.ativo;
+            const padrao = filtro.padrao;
+        
+            function buscarSubmercados(codigos) {
+                return submercados.filter((submercado) => codigos.includes(submercado.code));
+            }
+        
+            function buscarEnergia(codigos) {
+                return energia.filter((energia) => codigos.includes(energia.code));
+            }
+        
+            function buscarTipo(codigos) {
+                return tipos.filter((tipo) => codigos.includes(tipo.code));
+            }
+
+            function buscarContrato(codigos) {
+                return contrato.find(cont => cont.code == codigos);
+            }
+
+            function buscarPeriodicidade(codigos) {
+                return periodicidade.find(cont => cont.code == codigos);
+            }
+
+
+
+            selectedSubmercado = buscarSubmercados(subFiltro)
+            selectedEnergia = buscarEnergia(energiaFiltro)
+            selectedContrato = buscarContrato(contratoFiltro)
+            selectedTipo = buscarTipo(tipoFiltro)
+            selectedPeriodicidade = buscarPeriodicidade(periodiFiltro)
             
-                function buscarSubmercados(codigos) {
-                    return submercados.filter((submercado) => codigos.includes(submercado.code));
-                }
             
-                function buscarEnergia(codigos) {
-                    return energia.filter((energia) => codigos.includes(energia.code));
-                }
             
-                function buscarTipo(codigos) {
-                    return tipos.filter((tipo) => codigos.includes(tipo.code));
-                }
+            setDate1(formateData(filtro.dataInicial))
+            setDate2(formateData(filtro.dataFinal))
 
-                function buscarContrato(codigos) {
-                    return contrato.find(cont => cont.code == codigos);
-                }
+            setselectedSubmercado(selectedSubmercado)
+            setselectedEnergia(selectedEnergia)
+            setselectedTipo(selectedTipo)
+            setselectedContrato(selectedContrato)
+            setselectedPeriodicidade(selectedPeriodicidade)
 
-                function buscarPeriodicidade(codigos) {
-                    return periodicidade.find(cont => cont.code == codigos);
-                }
-
-
-    
-                selectedSubmercado = buscarSubmercados(subFiltro)
-                selectedEnergia = buscarEnergia(energiaFiltro)
-                selectedContrato = buscarContrato(contratoFiltro)
-                selectedTipo = buscarTipo(tipoFiltro)
-                selectedPeriodicidade = buscarPeriodicidade(periodiFiltro)
+            setVisible(false)
                 
-                
-                
-                setDate1(formateData(filtro.dataInicial))
-                setDate2(formateData(filtro.dataFinal))
-
-                setselectedSubmercado(selectedSubmercado)
-                setselectedEnergia(selectedEnergia)
-                setselectedTipo(selectedTipo)
-                setselectedContrato(selectedContrato)
-                setselectedPeriodicidade(selectedPeriodicidade)
-
-                setVisible(false)
-                
-          }
+        } 
 
 
     }, [filtro]);
     
-
 
     const periodicidade = [
         {
@@ -415,7 +419,8 @@ const getPadrao = async () => {
         favoritos.push(dict)
         
         console.log(favoritos)
-
+        setInputValue(null)
+        
         setVisible(false)
     }
 
