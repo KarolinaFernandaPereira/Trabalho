@@ -7,14 +7,15 @@ import { Dialog } from 'primereact/dialog';
 import axios from "axios";
 
 import './filtro.css';
+import { type } from "@testing-library/user-event/dist/type";
 
 export default function Filtro1({ onFilterChange }) {
-    const [selectedPeriodicidade, setselectedPeriodicidade] = useState(null);
-    const [selectedSubmercado, setselectedSubmercado] = useState(null);
-    const [selectedTipo, setselectedTipo] = useState(null);
-    const [selectedEnergia, setselectedEnergia] = useState(null);
-    const [selectedContrato, setselectedContrato] = useState(null);
-    const [selectedFavorito, setselectedFavorito] = useState(null);
+    var [selectedPeriodicidade, setselectedPeriodicidade] = useState(null);
+    var [selectedSubmercado, setselectedSubmercado] = useState(null);
+    var [selectedTipo, setselectedTipo] = useState(null);
+    var [selectedEnergia, setselectedEnergia] = useState(null);
+    var [selectedContrato, setselectedContrato] = useState(null);
+    var [selectedFavorito, setselectedFavorito] = useState(null);
 
     
 
@@ -34,32 +35,201 @@ const getDados = async () => {
     await api.get("/filtro/listar").then((response) => setDados(response.data));
 }
 
+const getPadrao = async () => {
+    await api.get("/filtro/padrao").then((response) => setFiltro(response.data));
+}
+
+
+
 
 
     useEffect(() => {
         
         getDados();
-        
+        getPadrao();
     }, []);
+    
+    //Inicar Favoritos
+    useEffect(() => {
+        const novosElementos = dados.map((usuario) => {
+            
+            let elementoAdicional = null;
+            if (usuario.padrao == 1) {
+              elementoAdicional = (
+                <>
+                    <i
+                      className="pi pi-check"
+                      style={{
+                          color: 'slateblue',
+                          fontSize: '1.0rem',
+                          marginLeft: '10px',
+                          marginRight: '2px'
+                      }}
+                      onClick={() => setFavorito(usuario.id)}
+                    ></i>
+                    <label onClick={() => setFavorito(usuario.id)}>Padrão</label>
+                </>
+            );
+              
+            } else {
+                elementoAdicional = (
+                    <>
+                        <i
+                        className="pi pi-stop"
+                        style={{
+                            color: 'slateblue',
+                            fontSize: '1.0rem',
+                            marginLeft: '10px',
+                            marginRight: '2px'
+                        }}
+                        onClick={() => setFavoritoBanco(usuario.id, usuario.nome)}
+                        ></i>
+
+                        <label onClick={() => setFavoritoBanco(usuario.id)}>Padrão</label>
+                    </>
+                )
+            }
+            
+            
+            
+            return (
+              <div key={usuario.id} className="fav_component">
+                <i 
+                  className="pi pi-star-fill" 
+                  style={{ 
+                    color: 'slateblue', 
+                    fontSize: '1.0rem', 
+                    marginLeft: '25px' 
+                  }}
+                  onClick={() => desvaforitar(usuario.id, usuario.nome)}
+                ></i>
+                <label className="fav_salvo"> {usuario.nome} </label>
+                {elementoAdicional}
+              </div>
+            );
+          });
+          
+        setElementos(novosElementos);
+    }, [dados]);
+
+
+    const [filtro, setFiltro] = useState()
+    const [deleteFiltro, setDeleteFiltro] = useState()
+    const [deleteNome, setDeleteNome] = useState()
+
+    const desvaforitar = (id, nome) => {
+        setDeleteFiltro(id)
+        setVisible1(true)
+        setDeleteNome(nome)
+    }
+
+    const confirmarDeelete = async () => {
+        const id = parseInt(deleteFiltro)
+
+        await api.delete("/filtro/deletar/", {
+            params: {id : id}
+        });
+
+        getDados();
+        setVisible1(false)
+
+        setDeleteFiltro(null)
+
+    }
+
+
+    const setFavoritoBanco = async (id) => {
+        await api.get("filtro/favoritar/", {
+            params: { id : id}
+        }).then((response) => setFiltro(response.data));
+
+        getDados();
+        setVisible(false)
+    }
+
+    const setFavorito = async (id) => {
+       await api.get("filtro/list/", {
+        params: { id : id}
+       }).then((response) => setFiltro(response.data));
+
+       getDados();
+
+    }
+
+    const formateData = (dateF) => {
+        const parts = dateF.split(/[^0-9]/);
+        const year = parseInt(parts[0]);
+        const month = parseInt(parts[1]) - 1; // JavaScript meses são 0-11
+        const day = parseInt(parts[2]);
+        const hour = parseInt(parts[3] || 0);
+        const minute = parseInt(parts[4] || 0);
+        const second = parseInt(parts[5] || 0);
+
+        const date = new Date(year, month, day, hour, minute, second);
+
+        return date
+    }
+
 
     useEffect(() => {
-        // Renderiza os elementos quando os dados mudam
-        const novosElementos = dados.map((usuario) => (
-          <div key={usuario.id} className="fav_component">
-            <i 
-              className="pi pi-star-fill" 
-              style={{ 
-                color: 'slateblue', 
-                fontSize: '1.0rem', 
-                marginLeft: '25px' 
-              }}
-            ></i>
-            <label className="fav_salvo"> {usuario.nome} </label>
-          </div>
-        ));
+          if(filtro != undefined){
+
+                const subFiltro = filtro.submercado.split("_").filter((item) => item !== "");
+                const energiaFiltro = filtro.energia.split("_").filter((item) => item !== "");
+                const contratoFiltro = filtro.contrato;
+                const tipoFiltro = filtro.tipo.split("_").filter((item) => item !== "");
+                const periodiFiltro = filtro.periodicidade;
+
+                const ativo = filtro.ativo;
+                const padrao = filtro.padrao;
+            
+                function buscarSubmercados(codigos) {
+                    return submercados.filter((submercado) => codigos.includes(submercado.code));
+                }
+            
+                function buscarEnergia(codigos) {
+                    return energia.filter((energia) => codigos.includes(energia.code));
+                }
+            
+                function buscarTipo(codigos) {
+                    return tipos.filter((tipo) => codigos.includes(tipo.code));
+                }
+
+                function buscarContrato(codigos) {
+                    return contrato.find(cont => cont.code == codigos);
+                }
+
+                function buscarPeriodicidade(codigos) {
+                    return periodicidade.find(cont => cont.code == codigos);
+                }
+
+
     
-        setElementos(novosElementos);
-      }, [dados]);
+                selectedSubmercado = buscarSubmercados(subFiltro)
+                selectedEnergia = buscarEnergia(energiaFiltro)
+                selectedContrato = buscarContrato(contratoFiltro)
+                selectedTipo = buscarTipo(tipoFiltro)
+                selectedPeriodicidade = buscarPeriodicidade(periodiFiltro)
+                
+                
+                
+                setDate1(formateData(filtro.dataInicial))
+                setDate2(formateData(filtro.dataFinal))
+
+                setselectedSubmercado(selectedSubmercado)
+                setselectedEnergia(selectedEnergia)
+                setselectedTipo(selectedTipo)
+                setselectedContrato(selectedContrato)
+                setselectedPeriodicidade(selectedPeriodicidade)
+
+                setVisible(false)
+                
+          }
+
+
+    }, [filtro]);
+    
+
 
     const periodicidade = [
         {
@@ -179,15 +349,26 @@ const getDados = async () => {
         filteredResults.periodicidade = selectedPeriodicidade
         filteredResults.tipo = selectedTipo
         filteredResults.energia = selectedEnergia
+
+           
+
         onFilterChange(filteredResults);
     }
 
     const [visible, setVisible] = useState(false);
+    const [visible1, setVisible1] = useState(false);
 
     const headerElement = (
         <div className="inline-flex align-items-center justify-content-center gap-2">
             
             <span className="font-bold white-space-nowrap">Salvar Filtro</span>
+        </div>
+    );
+
+    const headerElement1 = (
+        <div className="inline-flex align-items-center justify-content-center gap-2">
+            
+            <span className="font-bold white-space-nowrap">Desvaforitar Filtro</span>
         </div>
     );
     
@@ -200,11 +381,12 @@ const getDados = async () => {
     
     var str 
     const handleChange = async (event) => {
+
         setInputValue(event.target.value)
-        str = event.target.value; //Nome Filtro
-        
-        
-        
+        str = event.target.value; 
+
+        console.log(date1)
+
     };
     
     const salvarFav = async () => {
@@ -222,12 +404,19 @@ const getDados = async () => {
             padrao: 0
         }
         
-        console.log(JSON.stringify(dict))
+        
+        const teste = JSON.stringify(dict)
+
+        console.log(JSON.parse(teste))
 
         await api.post("/filtro/criar", dict);
+        getDados();
         
         favoritos.push(dict)
+        
         console.log(favoritos)
+
+        setVisible(false)
     }
 
     
@@ -244,6 +433,15 @@ const getDados = async () => {
         </div>
         
     );
+
+    const footerContent1 = (
+        <div>
+            <Button label="Desvaforitar" onClick={() => confirmarDeelete()} autoFocus />
+        </div>
+        
+    );
+
+    
     
     return (
         <>
@@ -321,6 +519,12 @@ const getDados = async () => {
                         </div>
                     </Dialog>
 
+                    <Dialog visible={visible1} modal header={headerElement} footer={footerContent1} style={{ width: '30%'}} onHide={() => {if (!visible1) return; setVisible1(false); }}>
+                        <div className="dialog_content">
+                            <span style={{fontSize:"small"}} >Desfavoritar Filtro</span>
+                            <label>{deleteNome}</label>
+                        </div>
+                    </Dialog>
                 </div>
 
             </div>
