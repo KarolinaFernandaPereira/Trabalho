@@ -2,18 +2,57 @@ import React, { useState } from 'react';
 import "./Login.css";
 import 'primeicons/primeicons.css';
 import { Button } from 'primereact/button';
+import axios from "axios";
 
 function Login(){
 
     const [senha, setSenha] = useState("");
     const [email, setEmail] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
+    const [logado, setLogado] = useState();
+    const api = axios.create({
+        baseURL: "http://localhost:3030"
+    })
+
+
     
-        window.location.replace("/home")
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        
+        if(email == "" || senha == ""){
+            localStorage.setItem('logadoNome', 'AD')
+            
+            window.location.replace("/home")
+        }else {
+            const res = await api.post("/usuario/login", {
+                email: email,
+                senha: senha
+            })
+    
+            const uLogado = res.data
+    
+            
+    
+            const palavras = uLogado.nome.split(' ');
+            
+            
+            if (palavras.length >= 2) {
+                
+                const primeiraInicial = palavras[0].charAt(0).toUpperCase();
+                const segundaInicial = palavras[1].charAt(0).toUpperCase();
+                
+                
+                
+                localStorage.setItem('logadoNome', primeiraInicial + segundaInicial)
+                window.location.replace("/home")
+            } else {
+                
+                localStorage.setItem('logadoNome', palavras[0].charAt(0).toUpperCase());
+            }
+        }
         
     }
+
 
 
     return(
