@@ -30,6 +30,7 @@ export default function Filtro1({ onFilterChange }) {
   const api = axios.create({
     baseURL: "http://localhost:3030"
   })
+  
 
 const getDados = async () => {
     await api.get("/filtro/listar").then((response) => setDados(response.data));
