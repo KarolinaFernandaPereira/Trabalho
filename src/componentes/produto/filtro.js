@@ -441,7 +441,7 @@ const getPadrao = async () => {
 
     const footerContent1 = (
         <div>
-            <Button label="Desvaforitar" onClick={() => confirmarDeelete()} autoFocus />
+            <Button label="Desfavoritar" onClick={() => confirmarDeelete()} autoFocus />
         </div>
         
     );
