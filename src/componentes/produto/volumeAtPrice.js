@@ -11,7 +11,7 @@ export const GraficoVolumeAtPrice = ({filtro}) => {
   })
 
   const filtroUse = filtro
-  console.log(filtroUse)
+  console.log(JSON.stringify(filtroUse))
 
   const getDados = async () => {
     await api.get("/principal/volumePrice", {
@@ -28,7 +28,7 @@ export const GraficoVolumeAtPrice = ({filtro}) => {
   useEffect(() => {
     
       getDados();
-      
+      console.log(dados)    
   }, [filtro]);
 
     var vendaY = 0;

@@ -21,7 +21,7 @@ export default function MenuHeader() {
     const [teste, setTeste] = useState([]);
     const [visible, setVisible] = useState(false);
     const [visible1, setVisible1] = useState(false);
-
+    const [selectedFiles, setSelectedFiles] = useState([]);
 
 
     
@@ -159,10 +159,14 @@ export default function MenuHeader() {
       setSenhaValue(null)
     }
 
+    const onSelect = (e) => {
+      setSelectedFiles(e.files);
+    };
+
     const footerContent = (
       <div>
           <Button label="Cancelar" icon="pi pi-times" onClick={() => setVisible(false)} className="p-button-text" />
-          <Button label="Importar" icon="pi pi-check" onClick={() => setVisible(false)} autoFocus />
+          <Button label="Importar" icon="pi pi-check" onClick={() => customUploader()} autoFocus />
       </div>
     );
 
@@ -172,6 +176,25 @@ export default function MenuHeader() {
           <span className="font-bold white-space-nowrap">Cadastrar Usuário</span>
       </div>
     );
+
+
+    const customUploader = async (event) => {
+      
+
+      const formData = new FormData();
+
+      for (let file of selectedFiles) {
+        formData.append('arquivo', file);
+      }
+
+      await axios.post('http://localhost:3030/produto/arquivo', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+      }).then((suces) => success());
+
+      setVisible(false)
+    }
 
     return (
         <div className="card">
@@ -183,7 +206,7 @@ export default function MenuHeader() {
             
         
             <Dialog header="Header" visible={visible} style={{ width: '50vw' }} onHide={() => {if (!visible) return; setVisible(false); }} footer={footerContent}>
-                <FileUpload name="demo[]" url={'/api/upload'} multiple accept="image/*" maxFileSize={1000000} emptyTemplate={<p className="m-0">Drag and drop files to here to upload.</p>} />
+                <FileUpload name="demo[]" url={'/api/upload'} multiple  maxFileSize={1000000} onSelect={onSelect} emptyTemplate={<p className="m-0">Drag and drop files to here to upload.</p>} />
             </Dialog>
 
             <Dialog visible={visible1} modal header={headerElement}  style={{ width: '30%'}} onHide={() => {if (!visible1) return; setVisible1(false); }}>
