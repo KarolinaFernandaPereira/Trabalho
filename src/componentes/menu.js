@@ -10,7 +10,7 @@ import axios from "axios";
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { FileUpload } from 'primereact/fileupload';
-
+import { EmailJSResponseStatus, send } from "@emailjs/browser";
 
 
 export default function MenuHeader() {
@@ -21,6 +21,9 @@ export default function MenuHeader() {
     const [teste, setTeste] = useState([]);
     const [visible, setVisible] = useState(false);
     const [visible1, setVisible1] = useState(false);
+    const [mostrarConvite, setMostrarConvite] = useState(false);
+
+
     const [selectedFiles, setSelectedFiles] = useState([]);
 
 
@@ -28,8 +31,12 @@ export default function MenuHeader() {
 
     const [nomeValue, setNomeValue] = useState('');
     const [emailValue, setEmailValue] = useState('');
-
     const [senhaValue, setSenhaValue] = useState('');
+
+
+    
+    const [nomeConvite, setNomeConvite] = useState('');
+    const [emailConvite, setEmailConvite] = useState('');
 
     const api = axios.create({
         baseURL: "http://localhost:3030"
@@ -45,6 +52,10 @@ export default function MenuHeader() {
 
     const mostrar1 = () => {
       setVisible1(true)
+    }
+
+    const mostrarEmail = () => {
+      setMostrarConvite(true)
     }
 
     //Mostrar nome
@@ -123,7 +134,13 @@ export default function MenuHeader() {
         label: 'Cadastrar Usuário',
         icon: 'pi pi-database',
         command: (e) => mostrar1()
+      },
+      {
+        label: 'Enviar Convite',
+        icon: 'pi pi-envelope',
+        command: (e) => mostrarEmail()
       }
+      
   ];
 
   
@@ -196,6 +213,17 @@ export default function MenuHeader() {
       setVisible(false)
     }
 
+    const mandarEmail = async () => {
+      
+
+      send("service_b133nbf","template_0oo68p3", {
+        name: nomeConvite,
+        email: emailConvite
+      }, 'IgggGzPPSAVNrpZkO').then((response) => console.log("email enviado"));
+      
+      setMostrarConvite(false)
+    }
+
     return (
         <div className="card">
             <Menubar model={items} end={end} style={{borderRadius:0}} />
@@ -210,20 +238,33 @@ export default function MenuHeader() {
             </Dialog>
 
             <Dialog visible={visible1} modal header={headerElement}  style={{ width: '30%'}} onHide={() => {if (!visible1) return; setVisible1(false); }}>
+                  <div className="dialog_content">
+                      <span style={{fontSize:"small"}} >Nome: </span>
+                      <input type="text" value={nomeValue} onChange={handleChange} style={{fontSize:"small"}}></input>
+                  </div>
+                  <div className="dialog_content">
+                      <span style={{fontSize:"small"}} >Email: </span>
+                      <input type="text" value={emailValue} onChange={handleChange1} style={{fontSize:"small"}}></input>
+                  </div>
+                  <div className="dialog_content">
+                      <span style={{fontSize:"small"}} >Senha: </span>
+                      <input type="password" value={senhaValue} onChange={handleChange2} style={{fontSize:"small"}}></input>
+                  </div>
+
+                <Button label="Salvar" onClick={() => salvarUser()} autoFocus />
+            </Dialog>
+
+            <Dialog visible={mostrarConvite} modal header={headerElement}  style={{ width: '30%'}} onHide={() => {if (!visible1) return; setVisible1(false); }}>
                 <div className="dialog_content">
-                    <span style={{fontSize:"small"}} >Nome: </span>
-                    <input type="text" value={nomeValue} onChange={handleChange} style={{fontSize:"small"}}></input>
+                    <span style={{fontSize:"small"}} >Nome do Convidado: </span>
+                    <input type="text" value={nomeConvite} onChange={(e) => {setNomeConvite(e.target.value)}} style={{fontSize:"small"}}></input>
                 </div>
                 <div className="dialog_content">
                     <span style={{fontSize:"small"}} >Email: </span>
-                    <input type="text" value={emailValue} onChange={handleChange1} style={{fontSize:"small"}}></input>
-                </div>
-                <div className="dialog_content">
-                    <span style={{fontSize:"small"}} >Senha: </span>
-                    <input type="password" value={senhaValue} onChange={handleChange2} style={{fontSize:"small"}}></input>
+                    <input type="text" value={emailConvite} onChange={(e) => {setEmailConvite(e.target.value)}} style={{fontSize:"small"}}></input>
                 </div>
 
-                <Button label="Salvar" onClick={() => salvarUser()} autoFocus />
+                <Button label="Salvar" onClick={() => mandarEmail()} autoFocus />
             </Dialog>
         
         </div>

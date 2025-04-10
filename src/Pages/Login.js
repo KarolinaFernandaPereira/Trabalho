@@ -44,6 +44,7 @@ function Login(){
                 
                 
                 localStorage.setItem('logadoNome', primeiraInicial + segundaInicial)
+                localStorage.setItem('idLogado', uLogado.id)
                 window.location.replace("/home")
             } else {
                 

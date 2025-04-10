@@ -33,21 +33,29 @@ export default function Filtro1({ onFilterChange }) {
   
 
 const getDados = async () => {
-    await api.get("/filtro/listar").then((response) => setDados(response.data));
+    await api.get("/filtro/listar", {
+        params: {
+            id: idFiltro
+        }
+    }).then((response) => setDados(response.data));
 }
+
+const idFiltro = localStorage.getItem('idLogado')
 
 const getPadrao = async () => {
-    await api.get("/filtro/padrao").then((response) => setFiltro(response.data));
+    await api.get("/filtro/padrao", {
+        params: {
+            id: idFiltro
+        }
+    }).then((response) => setFiltro(response.data));
 }
-
-
-
-
 
     useEffect(() => {
         
         getDados();
+        
         getPadrao();
+        
     }, []);
     
     //Inicar Favoritos
@@ -395,6 +403,11 @@ const getPadrao = async () => {
     };
     
     const salvarFav = async () => {
+        
+        
+        const idLogado = localStorage.getItem('idLogado')
+        console.log(idLogado)
+        
         const dict = {
             name: inputValue,
             
@@ -406,7 +419,8 @@ const getPadrao = async () => {
             contrato: selectedContrato ,
             energia: selectedEnergia,
             ativo: 1,
-            padrao: 0
+            padrao: 0,
+            userId: parseInt(idLogado)
         }
         
         

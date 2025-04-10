@@ -1,6 +1,5 @@
 import React from "react";
 import EChartsReact from "echarts-for-react"; //Gráficos Apache
-import { GraficoMapaLinhaVol } from "./LinhaVolumeDiario";
 
 export const GraficoMapaVolumeDiario = () => {
 

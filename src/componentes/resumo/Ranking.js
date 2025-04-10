@@ -1,11 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import { Bar, Line } from 'react-chartjs-2';
 import "./Ranking.css"
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import "../Indicadores.css"
-import { Indicadores } from "../Indicadores";
-import { MultiSelectIndicadores } from "../MultiSelect";
 
 import {
     Chart as ChartJS,
