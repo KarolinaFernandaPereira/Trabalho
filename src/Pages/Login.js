@@ -19,6 +19,7 @@ function Login(){
     const handleSubmit = async (event) => {
         event.preventDefault()
         
+        console.log(email)
         if(email == "" || senha == ""){
             localStorage.setItem('logadoNome', 'AD')
             
@@ -32,9 +33,9 @@ function Login(){
             const uLogado = res.data
     
             
-    
+            console.log(uLogado)
             const palavras = uLogado.nome.split(' ');
-            
+            console.log(palavras[0].charAt(0).toUpperCase())
             
             if (palavras.length >= 2) {
                 
@@ -49,6 +50,9 @@ function Login(){
             } else {
                 
                 localStorage.setItem('logadoNome', palavras[0].charAt(0).toUpperCase());
+                localStorage.setItem('idLogado', uLogado.id)
+                
+                window.location.replace("/home")
             }
         }
         
@@ -64,16 +68,18 @@ function Login(){
                     <div className='inputDiv'>
                         <input type='email' placeholder='E-mail'
                         onChange={(e) => setEmail(e.target.value)}
-                        className='inputLogin'/>
+                        className='inputLogin'
+                        value={email}/>
                         <span className='pi pi-user' style={{ fontSize: '1.5rem' }} ></span>
                     </div>
                     <div className='inputDiv'>
                         <input type='password' placeholder='Senha'
                         onChange={(e) => setSenha(e.target.value)}
-                        className='inputLogin'/>
+                        className='inputLogin'
+                        value={senha}/>
                         <span className='pi pi-lock' style={{ fontSize: '1.5rem' }} ></span>
                     </div>
-                    <button className='loginButton'>Entrar</button>
+                    <button className='loginButton' type='submit'>Entrar</button>
                 </form>
             </div>
         </div>

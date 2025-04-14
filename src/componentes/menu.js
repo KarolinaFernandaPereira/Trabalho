@@ -254,7 +254,7 @@ export default function MenuHeader() {
                 <Button label="Salvar" onClick={() => salvarUser()} autoFocus />
             </Dialog>
 
-            <Dialog visible={mostrarConvite} modal header={headerElement}  style={{ width: '30%'}} onHide={() => {if (!visible1) return; setVisible1(false); }}>
+            <Dialog visible={mostrarConvite} modal header={headerElement}  style={{ width: '30%'}} onHide={() => {if (!visible1) return; mostrarConvite(false); }}>
                 <div className="dialog_content">
                     <span style={{fontSize:"small"}} >Nome do Convidado: </span>
                     <input type="text" value={nomeConvite} onChange={(e) => {setNomeConvite(e.target.value)}} style={{fontSize:"small"}}></input>
