@@ -42,9 +42,10 @@ function Login(){
                 const segundaInicial = palavras[1].charAt(0).toUpperCase();
                 
                 
-                
+                console.log(uLogado.avatar)
                 localStorage.setItem('logadoNome', primeiraInicial + segundaInicial)
                 localStorage.setItem('idLogado', uLogado.id)
+                localStorage.setItem('avatarLogado', uLogado.avatar)
                 window.location.replace("/home")
             } else {
                 
