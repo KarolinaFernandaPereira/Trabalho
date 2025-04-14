@@ -144,11 +144,15 @@ export default function MenuHeader() {
   ];
 
   
-   
-  const nomeLogin = localStorage.getItem('logadoNome')
+  const avatar = localStorage.getItem('avatarLogado')
 
+  const nomeLogin = localStorage.getItem('logadoNome')
+  
+
+  
+  console.log(avatar)
   const end = (
-      <Avatar label={nomeLogin} size="large" shape="circle" className="mr-2" 
+      <Avatar image={avatar} size="large" shape="circle" className="mr-2" 
       onClick={(event) => menuEscolhas.current.toggle(event)} aria-controls="popup_menu_right" aria-haspopup
       style={{ backgroundColor: '#b71465', color: '#ffffff' }} />
   );
