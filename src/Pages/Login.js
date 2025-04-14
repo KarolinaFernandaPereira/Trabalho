@@ -43,17 +43,20 @@ function Login(){
                 const segundaInicial = palavras[1].charAt(0).toUpperCase();
                 
                 
-                console.log(uLogado.avatar)
+                console.log('asasd')
+
                 localStorage.setItem('logadoNome', primeiraInicial + segundaInicial)
                 localStorage.setItem('idLogado', uLogado.id)
                 localStorage.setItem('avatarLogado', uLogado.avatar)
                 window.location.replace("/home")
+                
             } else {
                 
                 localStorage.setItem('logadoNome', palavras[0].charAt(0).toUpperCase());
                 localStorage.setItem('idLogado', uLogado.id)
-                
+                localStorage.setItem('avatarLogado', uLogado.avatar)
                 window.location.replace("/home")
+
             }
         }
         

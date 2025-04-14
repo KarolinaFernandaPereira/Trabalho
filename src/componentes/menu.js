@@ -148,7 +148,7 @@ export default function MenuHeader() {
 
   const nomeLogin = localStorage.getItem('logadoNome')
   
-
+  console.log(avatar)
   
   console.log(avatar)
   const end = (
